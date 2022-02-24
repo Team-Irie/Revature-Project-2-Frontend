@@ -11,12 +11,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { UpdateReservationPageComponent } from './components/update-reservation-page/update-reservation-page.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     NavbarComponent,
     CustomerViewReservationsPageComponent,
     ReservationComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateReservationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,12 +42,11 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    AccountInfoPageComponent,
-    NavbarComponent
- 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
