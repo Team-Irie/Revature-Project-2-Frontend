@@ -40,10 +40,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    AccountInfoPageComponent,
-    NavbarComponent
- 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
