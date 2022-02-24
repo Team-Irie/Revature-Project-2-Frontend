@@ -26,8 +26,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     AccountInfoPageComponent,
     NavbarComponent,
+    HomepageComponent,
     CustomerViewReservationsPageComponent,
     ReservationComponent,
     LoginComponent,
@@ -49,7 +51,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
