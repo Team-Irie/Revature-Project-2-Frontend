@@ -21,14 +21,11 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     AccountInfoPageComponent,
     NavbarComponent,
     CustomerViewReservationsPageComponent,
-    ReservationComponent
-=======
+    ReservationComponent,
     LoginComponent
->>>>>>> 0faab6d10cadd3c9b02729d32a67d07bc78f41e4
   ],
   imports: [
     BrowserModule,
