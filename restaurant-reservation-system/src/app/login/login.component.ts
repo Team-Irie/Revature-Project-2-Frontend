@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthServiceService } from '../auth-service.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -8,33 +10,37 @@ import { AuthServiceService } from '../auth-service.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  formGroup = FormGroup;
+  
+  public loginForm !: FormGroup;
+  
 
 
-  constructor(private authService:AuthServiceService) { }
+  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router) { }
 
-  ngOnInit()  {
-    this.initForm();
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username:[''],
+      password:['']
+    });
    }
 
-  initForm(){
-    this.formGroup = new FormGroup({
-      username: new FormControl("",[Validators.required]),
-      password: new FormControl("",[Validators.required])
-    })
-  }
-  loginProcess() {
-    if(this.formGroup.valid) {
-      this.authService.login(this.formGroup.value).subscribe(result => {
-        if(result.success){
-          console.log(result);
-          alert(result.messsage);
-        }else {
-          alert(result.messsage)
-        }
-        
-      });
-    }
-  }
+   login(){
+     this.http.get<any>("http://localhost:56731/login")
+     .subscribe(res=> {
+       const user = res.find((a:any)=>{
+         return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
+       });
+       if(user){
+         alert("Login Successful");
+         this.loginForm.reset();
+         this.router.navigate(['customerPage'])
+       }else{
+         alert("Incorrect user credentials")
+       }
+
+      console.log(this.loginForm.value);
+       });
+   }
+
 
 }
