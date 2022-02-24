@@ -1,0 +1,45 @@
+<div class="text-center">
+    <p>Account Information</p>
+    <hr>
+    <form #userForm="ngForm" (ngSubmit)="updateUser(userForm.value)">
+        <div>
+            <label for="first">First</label>
+            <input type="text" name="first" [ngModel]="testUser.first">
+        </div>
+        <div>
+            <label for="last">Last</label>
+            <input type="text" name="last" [ngModel]="testUser.last">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" [ngModel]="testUser.email">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" name="password" [ngModel]="testUser.password">
+        </div>
+        <button type="submit">update</button>
+    </form>
+    <!--
+        <form id="update-form">
+        <div>
+            <label for="first-name">First</label>
+            <input [([ngModel])]="userFirst" type="text" id="first-name" required/>
+        </div>
+        <div>
+            <label for="last-name">Last</label>
+            <input [([ngModel])]="userLast" type="text" id="last-name" required/>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input [([ngModel])]="userEmail" type="text" id="email" required/>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input [([ngModel])]="userPassword" type="password" id="password" required/>
+        </div>
+        <button (click)="updateUser()" class="btn btn-primary my-3">Update</button>
+    </form>
+    -->
+    
+</div>
