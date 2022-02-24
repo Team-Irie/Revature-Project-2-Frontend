@@ -1,45 +1,36 @@
-<div class="text-center">
-    <p>Account Information</p>
-    <hr>
-    <form #userForm="ngForm" (ngSubmit)="updateUser(userForm.value)">
-        <div>
-            <label for="first">First</label>
-            <input type="text" name="first" [ngModel]="testUser.first">
-        </div>
-        <div>
-            <label for="last">Last</label>
-            <input type="text" name="last" [ngModel]="testUser.last">
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="text" name="email" [ngModel]="testUser.email">
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="text" name="password" [ngModel]="testUser.password">
-        </div>
-        <button type="submit">update</button>
-    </form>
-    <!--
-        <form id="update-form">
-        <div>
-            <label for="first-name">First</label>
-            <input [([ngModel])]="userFirst" type="text" id="first-name" required/>
-        </div>
-        <div>
-            <label for="last-name">Last</label>
-            <input [([ngModel])]="userLast" type="text" id="last-name" required/>
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input [([ngModel])]="userEmail" type="text" id="email" required/>
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input [([ngModel])]="userPassword" type="password" id="password" required/>
-        </div>
-        <button (click)="updateUser()" class="btn btn-primary my-3">Update</button>
-    </form>
-    -->
-    
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card>
+        <form #userForm="ngForm">
+            <h1>Account Information</h1>
+            <hr>
+            <div>
+                <mat-form-field>
+                    <mat-label>First</mat-label>
+                    <input matInput type="text" name="first" [ngModel]="user.first">
+                </mat-form-field>            
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Last</mat-label>
+                    <input matInput type="text" name="last" [ngModel]="user.last">
+                </mat-form-field>            
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" name="email" [ngModel]="user.email">
+                </mat-form-field>            
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" name="password" [ngModel]="user.password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>            
+            </div>
+            <button mat-raised-button color="primary" (click)="updateUser(userForm.value)">Update</button>
+        </form>
+    </mat-card>
 </div>
