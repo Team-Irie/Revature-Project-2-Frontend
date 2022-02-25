@@ -15,12 +15,17 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AccountInfoPageComponent,
+    NavbarComponent,
+    ReservationPageComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -34,10 +39,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
-    AccountInfoPageComponent,
-    NavbarComponent
- 
+    ReactiveFormsModule
+     
   ],
   providers: [],
   bootstrap: [AppComponent]
