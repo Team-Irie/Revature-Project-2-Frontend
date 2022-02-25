@@ -25,6 +25,7 @@ import { UpdateReservationPageComponent } from './components/update-reservation-
 import { MatNativeDateModule } from '@angular/material/core';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {MatDividerModule} from '@angular/material/divider';
     LoginComponent,
     UpdateReservationPageComponent,
     ReservationPageComponent,
-    SearchboxComponent
+    SearchboxComponent,
+    RegistrationPageComponent
   ],
 
   imports: [
