@@ -7,6 +7,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -15,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
@@ -32,8 +34,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     CustomerViewReservationsPageComponent,
     ReservationComponent,
     LoginComponent,
-    UpdateReservationPageComponent
+    UpdateReservationPageComponent,
+    ReservationPageComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -42,6 +46,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
