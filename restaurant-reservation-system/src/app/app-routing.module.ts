@@ -6,8 +6,8 @@ import { ReservationPageComponent } from './components/reservation-page/reservat
 
 const routes: Routes = [
  {path: '', component: HomepageComponent},
- {path: 'login', component:LoginComponent} ,
- {path: 'reservation-page', component:ReservationPageComponent}
+ {path: 'login', component: LoginComponent} ,
+ {path: 'reservation-page', component: ReservationPageComponent}
 ];
 
 

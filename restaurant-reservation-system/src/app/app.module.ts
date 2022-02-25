@@ -16,7 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ReservationPageComponent } from './reservation-page/reservation-page.component';
+import { ReservationPageComponent } from './components/reservation-page/reservation-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
@@ -24,6 +24,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { UpdateReservationPageComponent } from './components/update-reservation-page/update-reservation-page.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { SearchboxComponent } from './components/searchbox/searchbox.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
