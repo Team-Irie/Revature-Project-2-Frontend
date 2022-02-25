@@ -23,6 +23,7 @@ import { CustomerViewReservationsPageComponent } from './components/customer-vie
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { UpdateReservationPageComponent } from './components/update-reservation-page/update-reservation-page.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { SearchboxComponent } from './components/searchbox/searchbox.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReservationComponent,
     LoginComponent,
     UpdateReservationPageComponent,
-    ReservationPageComponent
+    ReservationPageComponent,
+    SearchboxComponent
   ],
 
   imports: [
