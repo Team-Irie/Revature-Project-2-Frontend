@@ -33,7 +33,7 @@
             <div>
                 <mat-form-field>
                     <mat-label>Comfirm Password</mat-label>
-                    <input matInput [type]="confirmHide ? 'password' : 'text'" name="confirm-password" required>
+                    <input matInput [type]="confirmHide ? 'password' : 'text'" name="confirm" [ngModel] required>
                     <button mat-icon-button matSuffix (click)="confirmHide = !confirmHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{confirmHide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>

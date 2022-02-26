@@ -32,16 +32,22 @@ export class RegistrationPageComponent implements OnInit {
     if(!this.confirmRegistration()){
       return;
     }
-    console.log(data);
+
+    if(data.password != data.confirm){
+      alert("the passwords you entered do not match")
+      return;
+    }
 
     const user = {
       id: 0,
-      first: this.userFirst,
-      last: this.userLast,
-      email: this.userEmail,
-      password: this.userPassword,
-      role: 0
+      first: data.first,
+      last: data.last,
+      email: data.email,
+      password: data.password,
+      role: 1
     }
+
+    console.log(user);
 
     alert("Your account has been successfuly created")
   }
