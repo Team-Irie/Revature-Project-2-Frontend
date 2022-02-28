@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
     LoginComponent,
     AccountInfoPageComponent,
     NavbarComponent,
-    ReservationPageComponent
+    ReservationPageComponent,
+    RatingComponent
   ],
 
   imports: [
@@ -39,7 +42,8 @@ import { ReservationPageComponent } from './reservation-page/reservation-page.co
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
      
   ],
   providers: [],
