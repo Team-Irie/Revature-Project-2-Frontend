@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { LoginComponent } from './components/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { RatingComponent } from './components/rating/rating.component';
-import { LoginComponent } from './login/login.component';
 import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 
 const routes: Routes = [
-
- {path: '', redirectTo:'login', pathMatch: 'full'},
- {path: 'login', component:LoginComponent} ,
+ {path: 'app-homepage', component: HomepageComponent},
+ {path: 'app-login', component:LoginComponent} ,
  {path: 'reservation-page', component:ReservationPageComponent},
- {path: 'rating', component:RatingComponent}
+ {path: 'rating', component:RatingComponent},
+ {path: 'app-navbar', component:NavbarComponent}
 ];
 
 

@@ -8,26 +8,19 @@ import { IUser } from 'src/app/Interfaces/IUser';
 })
 export class AccountInfoPageComponent implements OnInit {
 
+  hide = true;
+
   userFirst:String = "";
   userLast:String = "";
   userEmail:String = "";
   userPassword:String = "";
 
-  testUser:IUser = {
-    id: 0,
-    first: "first",
-    last: "last",
-    email: "email",
-    password: "password",
-    role: 0
-  }
-
   user:IUser = {
     id: 0,
-    first: "",
-    last: "",
-    email: "",
-    password: "",
+    first: "Arby",
+    last: "Gudes",
+    email: "Aegudes@gmail.com",
+    password: "not-a-password",
     role: 0
   }
 
@@ -54,7 +47,7 @@ export class AccountInfoPageComponent implements OnInit {
 
     //this.sendUpdatedUser.emit(user);
     //reload page
-    alert("Your Account has been Updated Successfuly");
+    alert("Your account has been updated successfuly");
   }
 
   confirmUpdate(): boolean{
