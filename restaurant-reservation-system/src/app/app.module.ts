@@ -1,3 +1,5 @@
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,7 +42,9 @@ import { RegistrationPageComponent } from './components/registration-page/regist
     HomepageComponent,
     ReservationPageComponent,
     SearchboxComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
+    CustomerViewReservationsPageComponent,
+    ReservationComponent
   ],
 
   imports: [
