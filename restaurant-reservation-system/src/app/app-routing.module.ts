@@ -8,13 +8,13 @@ import { ReservationPageComponent } from './components/reservation-page/reservat
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 
 const routes: Routes = [
- {path: 'app-homepage', component: HomepageComponent},
- {path: 'app-login', component:LoginComponent} ,
+ //{path: 'app-homepage', component: HomepageComponent},
+ //{path: 'app-login', component:LoginComponent} ,
  {path: 'reservation-page', component:ReservationPageComponent},
  {path: 'rating', component:RatingComponent},
  {path: 'app-navbar', component:NavbarComponent},
- //{path: '', component: HomepageComponent},
- //{path: 'login', component: LoginComponent},
+ {path: '', component: HomepageComponent},
+ {path: 'login', component: LoginComponent},
  {path: 'register', component: RegistrationPageComponent}
 ];
 
