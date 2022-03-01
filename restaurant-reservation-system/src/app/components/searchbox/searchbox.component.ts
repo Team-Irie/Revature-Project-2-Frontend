@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { SearchboxService } from 'src/app/services/searchbox.service';
+// import { Restaurant, RestaurantInformation } from 'src/app/Interfaces/IRestaurant';
 
 @Component({
   selector: 'app-searchbox',
@@ -9,19 +12,43 @@ import {ErrorStateMatcher} from '@angular/material/core';
 })
 export class SearchboxComponent implements OnInit {
 
-  constructor() { }
+  restaurants = new Array<any>();
+  // searchYelp: any;
 
-  ngOnInit(): void {
+  constructor(public searchboxService: SearchboxService) {}
+  
+  onSubmit(data:any) {
+    console.log('form submitted');
+    const term = data.value.term;
+    const location = data.value.location;
+    this.searchboxService.searchYelp().subscribe(response => {
+      this.restaurants = response.businesses;
+      console.log(response.businesses[0].name);
+      return response.businesses;
+    });
   }
   
-  searchYelp(data:any) {
-    console.log('form submitted!');
-    console.log('term:', data.value.term);
-    console.log('location:', data.value.location);
-    /*
-    * take parameters 'term' and 'location' and make a GET request to spring server endpoint, ie '/search?term=${term}&location=${location}'
-    * have the backend make a GET request to https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}
-    * send results of GET request to yelp api back to front end
-    */ 
-  }
+  ngOnInit(): void {}
+  // public onSubmit(data:any) {
+  //   console.log('form submitted');
+
+  //   restaurants = new Array<any>();
+    
+    // for term and location, convert whitespace to +
+    // const term = data.value.term;
+    // const location = data.value.location;
+
+    // let queryParams = new HttpParams();
+    // queryParams = queryParams.append('term', term);
+    // queryParams = queryParams.append('location', location);
+
+    // const url = `https://localhost:7000/search?term=${term}&location=${location}&limit=1`;
+
+    // return this.http.get<RestaurantInformation>(url, {params: queryParams});
+    // console.log('search result:', this.http.get<RestaurantInformation>(url, {params: queryParams}));
+    
+  // }
+
+  
+
 }

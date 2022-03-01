@@ -13,8 +13,8 @@ const routes: Routes = [
  {path: 'reservation-page', component:ReservationPageComponent},
  {path: 'rating', component:RatingComponent},
  {path: 'app-navbar', component:NavbarComponent},
- //{path: '', component: HomepageComponent},
- //{path: 'login', component: LoginComponent},
+ {path: '', component: HomepageComponent},
+ {path: 'login', component: LoginComponent},
  {path: 'register', component: RegistrationPageComponent}
 ];
 
