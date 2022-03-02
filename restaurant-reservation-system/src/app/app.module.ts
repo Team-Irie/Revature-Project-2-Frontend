@@ -31,6 +31,8 @@ import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { CancelDialogComponent } from './components/cancel-dialog/cancel-dialog.component';
+import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
+import { UpdateDialogComponent } from './components/update-dialog/update-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { CancelDialogComponent } from './components/cancel-dialog/cancel-dialog.
     RegistrationPageComponent,
     CustomerViewReservationsPageComponent,
     ReservationComponent,
-    CancelDialogComponent
+    CancelDialogComponent,
+    CancelMessageComponent,
+    UpdateDialogComponent
   ],
 
   imports: [
