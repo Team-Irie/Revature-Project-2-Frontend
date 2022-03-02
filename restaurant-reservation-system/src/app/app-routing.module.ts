@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
@@ -10,6 +11,7 @@ import { RegistrationPageComponent } from './components/registration-page/regist
 const routes: Routes = [
  //{path: 'app-homepage', component: HomepageComponent},
  //{path: 'app-login', component:LoginComponent} ,
+ {path: 'customer-view-reservations', component:CustomerViewReservationsPageComponent},
  {path: 'reservation-page', component:ReservationPageComponent},
  {path: 'rating', component:RatingComponent},
  {path: 'app-navbar', component:NavbarComponent},

@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
    }
 
    login(){
-     this.http.get<any>("http://localhost:56731/login")
+     this.http.get<any>("http://localhost:7000/login")
      .subscribe(res=> {
        const user = res.find((a:any)=>{
          return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
@@ -33,13 +33,17 @@ export class LoginComponent implements OnInit {
        if(user){
          alert("Login Successful");
          this.loginForm.reset();
-         this.router.navigate(['customerPage'])
+         this.router.navigate(['customer-view-reservations'])
        }else{
          alert("Incorrect user credentials")
        }
 
       console.log(this.loginForm.value);
        });
+   }
+
+   testPathCustomer():void {
+    this.router.navigate(['customer-view-reservations'])
    }
 
 
