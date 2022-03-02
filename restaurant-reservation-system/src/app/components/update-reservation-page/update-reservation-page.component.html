@@ -1,13 +1,13 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <form #updateReservationForm="ngForm" (ngSubmit)="updateReservation(updateReservationForm.value)">
         <h1>
-            <p>{{testReservation.storeName}}</p>
+            <p>{{reservation.storeName}}</p>
         </h1>
         <div>
-            <p>{{testReservation.storeAddress}}</p>
+            <p>{{reservation.storeAddress}}</p>
         </div>
         <div>
-            <p>{{testReservation.storePhone}}</p>
+            <p>{{reservation.storePhone}}</p>
         </div>
         <div>
             <mat-form-field appearance="fill">
@@ -26,7 +26,7 @@
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Party Size</mat-label>
-                <input type="number" matInput [formControl]="partySizeFormControl" [errorStateMatcher]="matcher" [ngModel]="testReservation.partySize">
+                <input type="number" matInput [formControl]="partySizeFormControl" [errorStateMatcher]="matcher" [ngModel]="reservation.partySize">
                 <mat-error *ngIf="partySizeFormControl.hasError('number') && !partySizeFormControl.hasError('required')">
                   Please enter a party size
                 </mat-error>
