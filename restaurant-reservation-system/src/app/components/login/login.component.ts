@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   
   public loginForm !: FormGroup;
   
-
+  hide = true
 
   constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router) { }
 
