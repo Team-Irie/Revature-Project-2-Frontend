@@ -1,5 +1,6 @@
 import { MyErrorStateMatcher } from './../update-reservation-page/update-reservation-page.component';
 import { FormControl, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
 
