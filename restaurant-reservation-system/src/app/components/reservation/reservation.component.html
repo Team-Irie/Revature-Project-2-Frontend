@@ -9,6 +9,6 @@
             <p>Party Size: {{reservation.partySize}}</p>
             <p>Reservation made by: {{reservation.userId}}</p>
 
-            <app-update-dialog></app-update-dialog>
-            <app-cancel-dialog></app-cancel-dialog>
+            <button mat-button (click)="openUpdate()">Update</button>
+            <button mat-button (click)="confirmCancel()">Cancel</button>
         </mat-expansion-panel>

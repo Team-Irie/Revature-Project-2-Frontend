@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { IReservation } from 'src/app/Interfaces/IReservation';
@@ -16,13 +17,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class UpdateReservationPageComponent implements OnInit {
 
-  testReservation:IReservation = {
-    userId: 0,
-    partySize: 3,
-    requestedDate: 0,
-    storeName: "Store Name",
-    storeAddress: "1245 Street Name, City STATE, Zip",
-    storePhone: "123-456-890#"
+  reservation:IReservation = {
+    userId: this.data.userId,
+    partySize: this.data.partySize,
+    requestedDate: this.data.requestedDate,
+    storeName: this.data.storeName,
+    storeAddress: this.data.storeAddress,
+    storePhone: this.data.storePhone
   }
 
   partySize: number = 0;
@@ -63,7 +64,7 @@ export class UpdateReservationPageComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
 
-  constructor() {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation) {
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();
