@@ -30,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
+import { CancelDialogComponent } from './components/cancel-dialog/cancel-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RegistrationPageComponent } from './components/registration-page/regist
     SearchboxComponent,
     RegistrationPageComponent,
     CustomerViewReservationsPageComponent,
-    ReservationComponent
+    ReservationComponent,
+    CancelDialogComponent
   ],
 
   imports: [
