@@ -1,28 +1,28 @@
 <div class="main-div" >
 
-    <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)" >
+    <form #reservationForm="ngForm" (ngSubmit)="onSubmit(reservationForm)" >
         <div class="form-container">
             <div class="row columns">
                 <h3>Customer Reservation Page</h3>
                
                     <label>Restaurant Name:</label>
                     <div class="col-sm">
-                      <input formControlName="restaurantName" type="text" class="form-control" placeholder="Restaurant Name" >
+                      <input name="restaurantName" type="text" class="form-control" placeholder="Restaurant Name" ngModel>
                     </div>
                 
                     <label>Reservation Date:</label>
                     <div class="col-sm-6">
-                    <input formControlName="date" type="datetime-local" class="form-control" placeholder="Date" >
+                    <input name="date" type="datetime-local" class="form-control" placeholder="Date" ngModel>
                     </div>  
 
                    <label>Party Size:</label>
                    <div class="col-sm-7">
-                    <input formControlName="partySize" type="number" class="form-control" placeholder="Size" >
+                    <input name="partySize" type="number" class="form-control" placeholder="Size" ngModel>
                    </div>
 
                 <label>Phone No:</label>
                   <div class="col-sm-7">                 
-                    <input  formControlName="phone" type="text" class="form-control" placeholder="Phone" >
+                    <input name="phone" type="text" class="form-control" placeholder="Phone" ngModel>
                   </div>
                   <br>
                   <div class="col-auto">
