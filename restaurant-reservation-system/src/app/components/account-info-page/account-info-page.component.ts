@@ -1,3 +1,4 @@
+import { ErrorStateMatcher } from '@angular/material/core';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
@@ -11,18 +12,14 @@ export class AccountInfoPageComponent implements OnInit {
 
   hide = true;
 
-  userFirst:String = "";
-  userLast:String = "";
-  userEmail:String = "";
-  userPassword:String = "";
-
   user:IUser = {
-    id: 0,
-    first: "FIRST_NAME",
-    last: "LAST_NAME",
-    email: "EMAIL@EMAIL.COM",
-    password: "PASSWORD",
-    role: 0
+    userId: 0,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    userType: "",
+    phoneNumber: ""
   }
 
   updateUser(data:any):void{
@@ -31,20 +28,17 @@ export class AccountInfoPageComponent implements OnInit {
       return;
     }
 
-    console.log(data);
+      this.user.firstName = data.first;
+      this.user.lastName = data.last;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.phoneNumber = data.phone;
 
-    const user = {
-      id: 0,
-      first: this.userFirst,
-      last: this.userLast,
-      email: this.userEmail,
-      password: this.userPassword,
-      role: 0
-    }
+    console.log(this.user);
 
-    //console.log(user);
+    //inoperable
+    this.userService.update(this.user);
 
-    //reload page
     alert("Your account has been updated successfuly");
   }
 
@@ -63,7 +57,13 @@ export class AccountInfoPageComponent implements OnInit {
     //should grab the id of the user and put it in here
     this.userService.info(1)
     .subscribe(data =>{
-      console.log(data);
+      this.user.userId = data.userId;
+      this.user.firstName = data.firstName;
+      this.user.lastName = data.lastName;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.userType = data.userType;
+      this.user.phoneNumber = data.phoneNumber;
     });
   }
 

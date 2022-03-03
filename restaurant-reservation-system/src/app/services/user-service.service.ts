@@ -11,19 +11,6 @@ export class UserServiceService {
 private url = "http://localhost:7000";
 //private url = "http://34.150.205.253:7000"
 
-headers= new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Access-Control-Allow-Origin', '*');
-
-  user:IUser = {
-    id: 0,
-    first:"",
-    last: "",
-    email: "",
-    password: "",
-    role: 0
-  }
-
   /*
   login(email:string, password:string):Observable<IUser>{
     return this.http.get<IUser>(`http://localhost:7000/user/${email}/${password}`)
@@ -34,21 +21,21 @@ headers= new HttpHeaders()
   */
 
   create(user:IUser):Observable<IUser>{
-    return this.http.post<IUser>(`${this.url}/user`, JSON.stringify({user}),{'headers':this.headers})
+    return this.http.post<IUser>(`${this.url}/users/`, JSON.stringify({user}))
     .pipe(catchError((e)=>{
       return throwError(e);
     }))
   }
 
   info(id:number):Observable<IUser>{
-    return this.http.get<IUser>(`${this.url}/user/${id}`,{'headers':this.headers})
+    return this.http.get<IUser>(`${this.url}/users/${id}`)
     .pipe(catchError((e)=>{
       return throwError(e);
     }));
   }
 
   update(user:IUser):Observable<IUser>{
-    return this.http.put<IUser>(`${this.url}/users/${user.id}`, JSON.stringify({user}), {'headers':this.headers})
+   return this.http.put<IUser>(`${this.url}/users/`, JSON.stringify({user}))
     .pipe(catchError((e)=>{
       return throwError(e);
     }));

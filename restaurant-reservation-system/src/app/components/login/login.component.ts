@@ -16,12 +16,13 @@ export class LoginComponent implements OnInit {
   public loginForm !: FormGroup;
   
   user:IUser = {
-    id: 0,
-    first:"",
-    last: "",
+    userId: 0,
+    firstName:"",
+    lastName: "",
     email: "",
     password: "",
-    role: 0
+    userType: "",
+    phoneNumber: ""
   }
 
   hide = true;
