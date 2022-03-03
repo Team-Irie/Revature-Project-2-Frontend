@@ -2,7 +2,7 @@ import { MyErrorStateMatcher } from './../update-reservation-page/update-reserva
 import { FormControl, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/interfaces/IUser';
+import { IUser } from 'src/app/Interfaces/IUser';
 
 @Component({
   selector: 'app-registration-page',

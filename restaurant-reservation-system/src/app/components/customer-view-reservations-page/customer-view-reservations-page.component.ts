@@ -1,6 +1,6 @@
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Component, OnInit } from '@angular/core';
-import { IReservation } from 'src/app/interfaces/IReservation';
+import { IReservation } from 'src/app/Interfaces/IReservation';
 
 @Component({
   selector: 'app-customer-view-reservations-page',

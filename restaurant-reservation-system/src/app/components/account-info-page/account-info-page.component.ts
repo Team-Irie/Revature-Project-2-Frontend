@@ -1,5 +1,6 @@
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { IUser } from 'src/app/interfaces/IUser';
+import { IUser } from 'src/app/Interfaces/IUser';
 
 @Component({
   selector: 'app-account-info-page',
@@ -17,14 +18,12 @@ export class AccountInfoPageComponent implements OnInit {
 
   user:IUser = {
     id: 0,
-    first: "Arby",
-    last: "Gudes",
-    email: "Aegudes@gmail.com",
-    password: "not-a-password",
+    first: "FIRST_NAME",
+    last: "LAST_NAME",
+    email: "EMAIL@EMAIL.COM",
+    password: "PASSWORD",
     role: 0
   }
-
-  @Output() sendUpdatedUser = new EventEmitter();
 
   updateUser(data:any):void{
     console.log("updateUser Called");
@@ -45,7 +44,6 @@ export class AccountInfoPageComponent implements OnInit {
 
     //console.log(user);
 
-    //this.sendUpdatedUser.emit(user);
     //reload page
     alert("Your account has been updated successfuly");
   }
@@ -58,12 +56,15 @@ export class AccountInfoPageComponent implements OnInit {
      }
    }
 
-  getUser():void{  }
 
-  constructor() { }
+  constructor(private userService:UserServiceService) { }
 
   ngOnInit(): void {
-    this.getUser();
+    //should grab the id of the user and put it in here
+    this.userService.info(1)
+    .subscribe(data =>{
+      console.log(data);
+    });
   }
 
 }
