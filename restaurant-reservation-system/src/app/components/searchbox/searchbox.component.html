@@ -1,10 +1,19 @@
-  <!-- Search -->
-  <div class="p-5 mb-4rounded-3">
+  <!-- Search Form -->
+  <div class="p-5 mb-4 rounded-3">
     <div class="container-fluid py-5">
-        <form #searchYelpForm="ngForm" class="d-flex mx-auto col-xl-6" (ngSubmit)="onSubmit(searchYelpForm)">
-            <input class="form-control me-2" type="search" placeholder="Restaurant Name" aria-label="Restaurant Name" name="term" ngModel>
-            <input class="form-control me-2" type="search" placeholder="City, State or Zip" aria-label="City, State or Zip" name="location" ngModel>
+      <form #searchYelpForm="ngForm" class="d-flex mx-auto col-xl-6" (ngSubmit)="onSubmit(searchYelpForm)">
+        <input class="form-control me-2" type="search" placeholder="Restaurant Name" aria-label="Restaurant Name" name="term" ngModel>
+        <input class="form-control me-2" type="search" placeholder="City, State or Zip" aria-label="City, State or Zip" name="location" ngModel>
         <button class="btn btn-primary" type="submit">Search</button>
-        </form>
+      </form>
+    </div>
+    <div class="container-fluid pt-5" *ngIf="searchResult">
+      <img class="d-flex justify-content-center mx-auto mb-5" src="{{restaurantImageUrl}}" alt="{{restaurantName}}">
+      <p class="d-flex justify-content-center mx-auto">{{restaurantName}}</p>
+      <p class="d-flex justify-content-center mx-auto">{{restaurantAddress0}}</p>
+      <p class="d-flex justify-content-center mx-auto">{{restaurantAddress1}}</p>
+      <p class="d-flex justify-content-center mx-auto">{{restaurantPhone}}</p>
+      <a href="/"></a>
+      <reservation-page></reservation-page>
     </div>
   </div>

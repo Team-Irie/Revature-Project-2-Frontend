@@ -11,10 +11,15 @@ export class SearchboxComponent implements OnInit {
   private term!: string;
   private location!: string;
 
-  restaurants = new Array<any>();
-
   constructor(public searchboxService: SearchboxService) {}
-  
+
+  public restaurantName?: string;
+  public restaurantImageUrl?: string;
+  public restaurantAddress0?: string;
+  public restaurantAddress1?: string;
+  public restaurantPhone?: string;
+  searchResult = false;
+
   onSubmit(data:any) {
     console.log('form submitted');
     let term = data.value.term;
@@ -24,13 +29,15 @@ export class SearchboxComponent implements OnInit {
       response.business is an array
       in this case we are showing the first element only, we can easily show more
       */ 
-      this.restaurants = response.businesses;
-      console.log('name', response.businesses[0].name);
-      console.log('image_url', response.businesses[0].image_url);
-      console.log('location.display_address[0]', response.businesses[0].location.display_address[0]);
-      console.log('location.display_address[1]', response.businesses[0].location.display_address[1]);
-      console.log('display_phone', response.businesses[0].display_phone);
-      return response.businesses;
+      const restaurantArray = response.businesses;
+      this.restaurantName = restaurantArray[0].name;
+      this.restaurantImageUrl = restaurantArray[0].image_url;
+      this.restaurantAddress0 = restaurantArray[0].location.display_address[0];
+      this.restaurantAddress1 = restaurantArray[0].location.display_address[1];
+      this.restaurantPhone = restaurantArray[0].display_phone;
+      this.searchResult = true;
+
+      return restaurantArray;
     });
   }
   

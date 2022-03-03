@@ -39,7 +39,7 @@ import { RegistrationPageComponent } from './components/registration-page/regist
     HomepageComponent,
     ReservationPageComponent,
     SearchboxComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
   ],
 
   imports: [
