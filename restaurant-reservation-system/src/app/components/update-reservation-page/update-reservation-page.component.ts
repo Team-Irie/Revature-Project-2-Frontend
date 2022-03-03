@@ -2,7 +2,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, Inject, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { IReservation } from 'src/app/Interfaces/IReservation';
+import { IReservation } from 'src/app/interfaces/IReservation';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

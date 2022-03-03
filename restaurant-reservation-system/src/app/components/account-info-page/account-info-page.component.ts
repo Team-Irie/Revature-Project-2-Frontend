@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { IUser } from 'src/app/Interfaces/IUser';
+import { IUser } from 'src/app/interfaces/IUser';
 
 @Component({
   selector: 'app-account-info-page',
