@@ -39,12 +39,9 @@ export class AccountInfoPageComponent implements OnInit {
 
     console.log(this.user);
 
-<<<<<<< HEAD
     //inoperable
     this.userService.updateUser(this.user);
-=======
-    this.userService.update(this.user);
->>>>>>> 381d2d6ebc16762056df05f563214015c449e15e
+    //this.userService.update(this.user);
 
     alert("Your account has been updated successfuly");
   }

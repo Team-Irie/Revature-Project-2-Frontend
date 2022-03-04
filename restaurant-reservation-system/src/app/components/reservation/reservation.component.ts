@@ -1,13 +1,10 @@
 import { MatDialog } from '@angular/material/dialog';
 import { IReservation } from '../../Interfaces/IReservation';
 import { Component, Input, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { UserService } from 'src/app/user.service';
-=======
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { CancelMessageComponent } from '../cancel-message/cancel-message.component';
 import { UpdateReservationPageComponent } from '../update-reservation-page/update-reservation-page.component';
->>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
 
 @Component({
   selector: 'app-reservation',
@@ -28,9 +25,8 @@ export class ReservationComponent implements OnInit {
     reservationStatus: ""
   }
 
-<<<<<<< HEAD
-  constructor(private userService:UserService) { }
-=======
+  constructor(private userService:UserService, public dialog:MatDialog) { }
+
   confirmCancel(){
     this.dialog.open(CancelMessageComponent, {
       data:{
@@ -61,8 +57,6 @@ export class ReservationComponent implements OnInit {
     });
   }
 
-  constructor(public dialog:MatDialog) { }
->>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
 
   ngOnInit(): void {}
 

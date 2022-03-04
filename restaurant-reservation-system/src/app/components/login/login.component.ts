@@ -3,11 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-import { AuthServiceService } from 'src/app/auth-service.service';
-=======
 import { UserServiceService } from 'src/app/services/user-service.service';
->>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
 
 
 @Component({
@@ -33,12 +29,7 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
-<<<<<<< HEAD
-  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router, private _auth:AuthServiceService) { }
-=======
-  constructor(private userService:UserServiceService, private formBuilder : FormBuilder, private http: HttpClient, private router:Router) {
-   }
->>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
+  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -46,26 +37,8 @@ export class LoginComponent implements OnInit {
       password:['']
     });
    }
-<<<<<<< HEAD
 
-  //  login(){
-  //    this.http.get<any>("http://localhost:4200/app-login")
-  //    .subscribe(res=> {
-  //      const user = res.find((a:any)=>{
-  //        return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password
-  //      });
-  //      if(user){
-  //        alert("Login Successful");
-  //        this.loginForm.reset();
-  //        this.router.navigate(['customerPage'])
-  //      }else{
-  //        alert("Incorrect user credentials")
-  //      }
-
-  //     console.log(this.loginForm.value);
-  //      });
-  //  }
-
+   /*
   login(){
     this._auth.login(this.userData)
     .subscribe(
@@ -74,7 +47,7 @@ export class LoginComponent implements OnInit {
 
     )
   }
-=======
+  */
 /*
    login(){
     this.userService.login(`${this.loginForm.value.username}`, `${this.loginForm.value.password}` )
@@ -92,7 +65,6 @@ export class LoginComponent implements OnInit {
    testPathCustomer():void {
     this.router.navigate(['customer-view-reservations'])
    }
->>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
 
 
 }

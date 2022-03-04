@@ -26,7 +26,7 @@ import { ReservationPageComponent } from './components/reservation-page/reservat
 import { LoginComponent } from './components/login/login.component';
 import { UpdateReservationPageComponent } from './components/update-reservation-page/update-reservation-page.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { UserserviceModule } from './userservice/userservice.module';
+import { UserService } from './user.service';
 import {MatTableModule} from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
@@ -71,13 +71,12 @@ import {MatDividerModule} from '@angular/material/divider';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    UserserviceModule,
     MatTableModule,
     MatDividerModule,
     MatExpansionModule,
     MatDialogModule
   ],
-  providers: [UserserviceModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

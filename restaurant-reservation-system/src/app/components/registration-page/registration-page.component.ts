@@ -17,26 +17,13 @@ export class RegistrationPageComponent implements OnInit {
   confirmHide = true;
 
   user:IUser = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    userId:0,
-    firstName:"",
-    lastName: "",
-    email: "",
-    password:"",
-    userType:0,
-    phoneNumber:""
-=======
-    userId:3,
-=======
->>>>>>> 381d2d6ebc16762056df05f563214015c449e15e
+
     firstName:"",
     lastName: "",
     email: "",
     password: "",
     userType: "",
     phoneNumber: ""
->>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
   }
 
   registerUser(data:any):void{

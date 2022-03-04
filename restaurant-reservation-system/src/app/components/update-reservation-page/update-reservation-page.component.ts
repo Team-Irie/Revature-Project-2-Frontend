@@ -25,12 +25,8 @@ export class UpdateReservationPageComponent implements OnInit {
     reservationTime: this.data.reservationTime,
     restaurantName: this.data.restaurantName,
     restaurantAddress: this.data.restaurantAddress,
-<<<<<<< HEAD
-    restaurantPhoneNumber: this.data.restaurantPhoneNumber,
-=======
     restaurantPhone: this.data.restaurantPhone,
     reservationStatus: this.data.reservationStatus
->>>>>>> 381d2d6ebc16762056df05f563214015c449e15e
   }
 
   partySize: number = 0;
