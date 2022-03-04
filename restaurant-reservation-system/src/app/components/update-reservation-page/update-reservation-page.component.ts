@@ -1,3 +1,4 @@
+import { ReservationService } from './../../services/reservation.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, Inject, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
@@ -18,12 +19,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class UpdateReservationPageComponent implements OnInit {
 
   reservation:IReservation = {
-    userId: this.data.userId,
+    reservationId: this.data.reservationId,
+    customer: this.data.customer,
     partySize: this.data.partySize,
-    requestedDate: this.data.requestedDate,
-    storeName: this.data.storeName,
-    storeAddress: this.data.storeAddress,
-    storePhone: this.data.storePhone
+    reservationTime: this.data.reservationTime,
+    restaurantName: this.data.restaurantName,
+    restaurantAddress: this.data.restaurantAddress,
+    restaurantPhone: this.data.restaurantPhone,
+    reservationStatus: this.data.reservationStatus
   }
 
   partySize: number = 0;
@@ -36,16 +39,11 @@ export class UpdateReservationPageComponent implements OnInit {
     }
 
     console.log(data);
+    this.reservation.reservationTime = data.reservation;
+    this.reservation.partySize = data.party
 
-    const reservation = {
-      partySize: this.partySize,
-      reservationDate: this.reservationDate
-    }
-
-    //console.log(user);
-
-    //this.sendUpdatedUser.emit(user);
-    //reload page
+    //test this later
+    //this.reservationService.update(this.reservation);
     alert("Your Reservation has been updated successfuly");
   }
 
@@ -64,7 +62,7 @@ export class UpdateReservationPageComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation, private reservationService:ReservationService) {
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();

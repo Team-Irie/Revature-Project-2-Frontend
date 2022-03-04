@@ -1,5 +1,5 @@
 import { ReservationComponent } from './../components/reservation/reservation.component';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError, Subject } from 'rxjs';
 import { IReservation } from './../Interfaces/IReservation';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
@@ -9,30 +9,44 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class ReservationService {
 
-  private url = "http://34.150.205.253:7000"//"http://localhost:7000";
+  private url = "http://localhost:7000/reservations";
 
-  headers= new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Access-Control-Allow-Origin', '*');
+  reservations: IReservation[] = [];
+
+  allReservations:Subject<IReservation[]> = new Subject<IReservation[]>();
+  userReservations:Subject<IReservation[]> = new Subject<IReservation[]>();
 
   create(reservation:IReservation):Observable<IReservation>{
-    return this.http.post<IReservation>(`${this.url}/reservations/`, JSON.stringify({reservation}), {'headers':this.headers})
+    return this.http.post<IReservation>(`${this.url}/`, JSON.stringify({reservation}))
     .pipe(catchError((e)=>{
       return throwError(e);
     }));
   }
 
-  //customerReservations()
-
-  getAll(): void {
-    this.http.get<IReservation[]>(`${this.url}/reservations/`, {'headers':this.headers})
+  customerReservations(id:number): void {
+    this.http.get<IReservation[]>(`${this.url}/customer/${id}`)
     .pipe(catchError((e)=>{
       return throwError(e);
-    }));
+    })
+    ).subscribe((data)=>{
+      this.reservations = data;
+      this.userReservations.next(this.reservations)
+    });
+  }
+
+  getAll(): void {
+    this.http.get<IReservation[]>(`${this.url}/`)
+    .pipe(catchError((e)=>{
+      return throwError(e);
+    })
+    ).subscribe((data)=>{
+      this.reservations = data;
+      this.allReservations.next(this.reservations)
+    });
   }
 
   update(reservation:IReservation):void{
-    this.http.put<IReservation>(`${this.url}/reservations/`, JSON.stringify({reservation}), {'headers':this.headers})
+    this.http.put<IReservation>(`${this.url}/`, JSON.stringify({reservation}))
     .pipe(catchError((e)=>{
       return throwError(e);
     }));
