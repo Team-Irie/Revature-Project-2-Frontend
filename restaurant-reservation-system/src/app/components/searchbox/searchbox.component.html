@@ -1,0 +1,10 @@
+  <!-- Search -->
+  <div class="p-5 mb-4rounded-3">
+    <div class="container-fluid py-5">
+        <form #searchYelpForm="ngForm" class="d-flex mx-auto col-xl-6" (ngSubmit)="searchYelp(searchYelpForm)">
+            <input class="form-control me-2" type="search" placeholder="Restaurant Name" aria-label="Restaurant Name" name="term" ngModel>
+            <input class="form-control me-2" type="search" placeholder="City, State or Zip" aria-label="City, State or Zip" name="location" ngModel>
+        <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+    </div>
+  </div>

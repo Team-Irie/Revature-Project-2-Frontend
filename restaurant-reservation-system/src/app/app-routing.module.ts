@@ -5,7 +5,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RatingComponent } from './components/rating/rating.component';
-import { ReservationPageComponent } from './reservation-page/reservation-page.component';
+import { ReservationPageComponent } from './components/reservation-page/reservation-page.component';
 import { AdduserComponent } from './userservice/adduser/adduser.component';
 import { UpdateuserComponent } from './userservice/updateuser/updateuser.component';
 import { ViewallComponent } from './userservice/viewall/viewall.component';
@@ -15,7 +15,7 @@ const routes: Routes = [
  {path: 'updateUser/:id', component:AccountInfoPageComponent},
  {path: 'app-homepage', component: HomepageComponent},
  {path: 'app-login', component:LoginComponent} ,
- {path: 'reservation-page', component:ReservationPageComponent},
+ {path: 'reservation-page',component:ReservationPageComponent},
  {path: 'rating', component:RatingComponent},
  {path: 'app-navbar', component:NavbarComponent},
  {path: 'adduser', component:AdduserComponent},

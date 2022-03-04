@@ -15,15 +15,17 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
-import { ReservationPageComponent } from './reservation-page/reservation-page.component';
 import { RatingComponent } from './components/rating/rating.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReservationPageComponent } from './components/reservation-page/reservation-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { UpdateReservationPageComponent } from './components/update-reservation-page/update-reservation-page.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { UserserviceModule } from './userservice/userservice.module';
 import {MatTableModule} from '@angular/material/table';
+import { MatNativeDateModule } from '@angular/material/core';
+import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
+import { SearchboxComponent } from './components/searchbox/searchbox.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,9 @@ import {MatTableModule} from '@angular/material/table';
     RatingComponent,
     LoginComponent,
     UpdateReservationPageComponent,
-    HomepageComponent
-    
-    
-    
+    HomepageComponent,
+    SearchboxComponent,
+    RegistrationPageComponent
   ],
 
   imports: [
