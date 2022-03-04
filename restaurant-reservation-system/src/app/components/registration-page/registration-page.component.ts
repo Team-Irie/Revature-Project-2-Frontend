@@ -1,5 +1,8 @@
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { HttpClient } from '@angular/common/http';
 import { MyErrorStateMatcher } from './../update-reservation-page/update-reservation-page.component';
 import { FormControl, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
 
@@ -13,12 +16,8 @@ export class RegistrationPageComponent implements OnInit {
   hide = true;
   confirmHide = true;
 
-  userFirst:String = "";
-  userLast:String = "";
-  userEmail:String = "";
-  userPassword:String = "";
-
   user:IUser = {
+<<<<<<< HEAD
     userId:0,
     firstName:"",
     lastName: "",
@@ -26,6 +25,15 @@ export class RegistrationPageComponent implements OnInit {
     password:"",
     userType:0,
     phoneNumber:""
+=======
+    userId:3,
+    firstName:"",
+    lastName: "",
+    email: "",
+    password: "",
+    userType: "",
+    phoneNumber: ""
+>>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
   }
 
   registerUser(data:any):void{
@@ -39,16 +47,18 @@ export class RegistrationPageComponent implements OnInit {
       return;
     }
 
-    const user = {
-      id: 0,
-      first: data.first,
-      last: data.last,
-      email: data.email,
-      password: data.password,
-      role: 1
-    }
+      this.user.firstName = data.first;
+      this.user.lastName = data.last;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.userType = data.type;
+      this.user.phoneNumber = data.phone;
 
-    console.log(user);
+    console.log(JSON.stringify(this.user));
+
+    JSON.stringify(this.user);
+
+    this.userService.create(this.user);
 
     alert("Your account has been successfuly created")
   }
@@ -66,7 +76,7 @@ export class RegistrationPageComponent implements OnInit {
 
   //matcher = new MyErrorStateMatcher();
 
-  constructor() { }
+  constructor(private userService:UserServiceService) { }
 
   ngOnInit(): void {
   }

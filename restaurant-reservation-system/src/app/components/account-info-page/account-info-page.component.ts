@@ -1,3 +1,5 @@
+import { ErrorStateMatcher } from '@angular/material/core';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
 import { UserService } from 'src/app/user.service';
@@ -13,17 +15,14 @@ export class AccountInfoPageComponent implements OnInit {
   hide = true;
 
   user:IUser = {
-    userId:0,
-    firstName:"",
+    userId: 0,
+    firstName: "",
     lastName: "",
     email: "",
-    password:"",
-    userType:0,
-    phoneNumber:""
-    
+    password: "",
+    userType: "",
+    phoneNumber: ""
   }
-
-  @Output() sendUpdatedUser = new EventEmitter();
 
   updateUser(data:any):void{
     this.userService.updateUser(data).subscribe(),
@@ -32,21 +31,17 @@ export class AccountInfoPageComponent implements OnInit {
       return;
     }
 
-    this.user.firstName = data.firstName;
-    this.user.lastName = data.lastName;
-    this.user.email = data.email;
-    this.user.password = data.password;
-    this.user.phoneNumber = data.phoneNumber;
-    
+      this.user.firstName = data.first;
+      this.user.lastName = data.last;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.phoneNumber = data.phone;
 
     console.log(this.user);
 
-   
+    //inoperable
     this.userService.updateUser(this.user);
-    //console.log(user);
 
-    //this.sendUpdatedUser.emit(user);
-    //reload page
     alert("Your account has been updated successfuly");
   }
 
