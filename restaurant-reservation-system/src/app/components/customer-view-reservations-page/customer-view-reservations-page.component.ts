@@ -1,6 +1,9 @@
+import { ReservationService } from './../../services/reservation.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Component, OnInit } from '@angular/core';
 import { IReservation } from 'src/app/Interfaces/IReservation';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-customer-view-reservations-page',
@@ -10,37 +13,45 @@ import { IReservation } from 'src/app/Interfaces/IReservation';
 })
 export class CustomerViewReservationsPageComponent implements OnInit {
 
+  //reservations:Observable<IReservation[]> = new Observable<IReservation[]>();
+
+  ///*
   reservationList:IReservation[] = [
     {
-      userId: 0,
+      customer: 0,
       partySize: 2,
-      requestedDate: 3,
-      storeName: "name",
-      storeAddress: "address",
-      storePhone: "phone"
+      reservationTime: 3,
+      restaurantName: "name",
+      restaurantAddress: "address",
+      restaurantPhone: "phone",
+      reservationStatus: "PENDING"
     },
     {
-      userId: 0,
+      customer: 0,
       partySize: 4,
-      requestedDate: 4,
-      storeName: "myStore",
-      storeAddress: "myHouse",
-      storePhone: "needtoknow"
+      reservationTime: 4,
+      restaurantName: "myStore",
+      restaurantAddress: "myHouse",
+      restaurantPhone: "needtoknow",
+      reservationStatus: "PENDING"
     }
   ]
-
+//*/
   reservation:IReservation = {
-    userId: 0,
-    partySize: 0,
-    requestedDate: 0,
-    storeName: "",
-    storeAddress: "",
-    storePhone: ""
+      customer: 0,
+      partySize: 0,
+      reservationTime: 0,
+      restaurantName: "",
+      restaurantAddress: "",
+      restaurantPhone: "",
+      reservationStatus: ""
   }
 
-  constructor() { }
+  constructor(private reservationService:ReservationService) { }
 
   ngOnInit(): void {
+    //this.reservationService.customerReservations(1);
+    //this.reservations = this.reservationService.userReservations;
   }
 
 }

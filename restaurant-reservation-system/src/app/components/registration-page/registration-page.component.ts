@@ -17,7 +17,6 @@ export class RegistrationPageComponent implements OnInit {
   confirmHide = true;
 
   user:IUser = {
-    userId:3,
     firstName:"",
     lastName: "",
     email: "",
