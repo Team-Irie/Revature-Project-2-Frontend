@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IReservation } from 'src/app/Interfaces/IReservation';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReservationService } from 'src/app/services/reservation.service';
+import { DatePipe, getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'reservation-page',
@@ -9,46 +12,45 @@ import { IReservation } from 'src/app/Interfaces/IReservation';
 })
 export class ReservationPageComponent implements OnInit {
 
-  reservation!: {
-    userId: 0;
-    restaurantName:"",
-    reservationTime: 0;
-    partySize: 0;
-    restaurantPhoneNumber: "";
+  reservation:IReservation = {
+    customer:1,
+    partySize:0,
+    reservationTime:0,
+    restaurantName: "",
+    restaurantAddress: "",
+    restaurantPhone: "",
+    reservationStatus: "PENDING",
 
   };
 
   
-  public rForm ! : FormGroup;
-  post:any;
-  restaurantName:string =" ";
+  // public reservationForm! : FormGroup;
+  // post:any;
+  restaurantName:string ="";
   reservationTime!:Date;
-  partySize! : Number;
-  restaurantPhoneNumber!:string;
+  partySize: Number = 0;
+  restaurantPhoneNumber:string ="";
+  restaurantAddress:string ="";
+ 
+ 
 
+  constructor(private formBuilder:FormBuilder, private reservationService:ReservationService) { }
 
+  ngOnInit(): void {}
 
-  constructor(private formBuilder:FormBuilder) { 
-    
-  }
+  onSubmit(data:any){
+    console.log(data);
+    this.reservation.restaurantName = data.restaurantName;
+    this.reservation.reservationTime = data.reservationTime;
+    this.reservation.partySize = data.partySize;
+    this.reservation.restaurantPhone = data.restaurantPhoneNumber;
+    this.reservation.restaurantAddress = data.restaurantAddress;
 
-  ngOnInit(): void {
-    this.rForm = this.formBuilder.group({
-      restaurantName:[' '],
-      reservationTime:[' '],
-      partySize:[' '],
-      restaurantPhoneNumber:[' ']
-
-    });
-
-  }
-
-  onSubmit(post:any){
-    console.log("called:", this.restaurantName, this.reservationTime, this.partySize, this.restaurantPhoneNumber);
-    this.restaurantName = post.restaurantName;
-    this.reservationTime = post.reservationTime;
-    this.partySize = post.partySize;
-    this.restaurantPhoneNumber = post.restaurantPhoneNumber;
+    this.reservationService.create(this.reservation).subscribe(Response => {
+      console.log(Response)
+    })
 
   }
+  
+
 }

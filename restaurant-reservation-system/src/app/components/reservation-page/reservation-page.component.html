@@ -1,4 +1,4 @@
-<div class="main-div" >
+<!-- <div class="main-div" >
 
     <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)" >
         <div class="form-container">
@@ -33,4 +33,48 @@
         </div>
     </form>
 
+</div> -->
+
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card>
+      <form #reservationForm="ngForm" >
+          <h1>Reservation Page</h1>
+          <hr>
+          <div>
+              <mat-form-field>
+                  <mat-label>Restaurant Name</mat-label>
+                  <input matInput type="text" name="restaurantName" [ngModel]>
+              </mat-form-field>            
+          </div>
+          <div>
+          <mat-form-field>
+            <mat-label>Reservation Date</mat-label>
+            <input matInput type="datetime-local" name="reservationTime" [ngModel]>
+          </mat-form-field>            
+          </div>
+          <div>
+          <mat-form-field>
+            <mat-label>Party Size</mat-label>
+            <input matInput type="text" name="partySize" [ngModel]>
+          </mat-form-field>            
+          </div>
+
+          <div>
+              <mat-form-field>
+                  <mat-label>Restaurant Address</mat-label>
+                  <input matInput type="text" name="restaurantAddress" [ngModel]>
+              </mat-form-field>            
+          </div>
+                    
+          <div>
+              <mat-form-field>
+                  <mat-label>Restaurant Phone Number</mat-label>
+                  <input matInput type="text" name="restaurantPhoneNumber" [ngModel]>
+              </mat-form-field>            
+          </div>        
+          
+          <button mat-raised-button color="primary" (click)="onSubmit(reservationForm.value)">Confirm</button>
+      </form>
+  </mat-card>
 </div>

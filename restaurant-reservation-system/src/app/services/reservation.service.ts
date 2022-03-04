@@ -8,6 +8,9 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ReservationService {
+  onSubmit(data: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private url = "http://localhost:7000/reservations";
 

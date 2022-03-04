@@ -22,7 +22,8 @@ const routes: Routes = [
  {path: 'app-navbar', component:NavbarComponent},
  {path: '', component: HomepageComponent},
  {path: 'login', component: LoginComponent},
- {path: 'register', component: RegistrationPageComponent}
+ {path: 'register', component: RegistrationPageComponent},
+ {path: 'app-account-info-page', component:AccountInfoPageComponent}
 ];
 
 
