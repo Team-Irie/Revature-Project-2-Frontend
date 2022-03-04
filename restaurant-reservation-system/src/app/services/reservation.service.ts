@@ -8,6 +8,9 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ReservationService {
+  onSubmit(data: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private url = "http://localhost:7000/reservations";
 
@@ -18,7 +21,7 @@ export class ReservationService {
   userReservations:Subject<IReservation[]> = new Subject<IReservation[]>();
 
   create(reservation:IReservation):Observable<IReservation>{
-    return this.http.post<IReservation>(`${this.url}/`, JSON.stringify({reservation}))
+    return this.http.post<IReservation>(`${this.url}/`, reservation)
     .pipe(catchError((e)=>{
       return throwError(e);
     }));
@@ -46,9 +49,11 @@ export class ReservationService {
     });
   }
 
-  update(reservation:IReservation):void{
-    this.http.put<IReservation>(`${this.url}/`, JSON.stringify({reservation}))
+  update(reservation:IReservation):Observable<IReservation>{
+    console.log("update reservation called");
+    return this.http.put<IReservation>(`${this.url}/`, reservation)
     .pipe(catchError((e)=>{
+      console.log(e)
       return throwError(e);
     }));
   }

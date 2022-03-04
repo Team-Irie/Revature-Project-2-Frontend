@@ -43,7 +43,10 @@ export class UpdateReservationPageComponent implements OnInit {
     this.reservation.partySize = data.party
 
     //test this later
-    //this.reservationService.update(this.reservation);
+    this.reservationService.update(this.reservation)
+    .subscribe(response=>{
+      console.log(response);
+    });
     alert("Your Reservation has been updated successfuly");
   }
 

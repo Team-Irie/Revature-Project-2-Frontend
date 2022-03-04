@@ -41,7 +41,10 @@ export class AccountInfoPageComponent implements OnInit {
 
     //inoperable
     //this.userService.updateUser(this.user);
-    this.userService.update(this.user);
+    this.userService.update(this.user)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
     //alert("Your account has been updated successfuly");
   }
@@ -65,6 +68,7 @@ export class AccountInfoPageComponent implements OnInit {
     //should grab the id of the user and put it in here
     this.userService.info(1)
     .subscribe((data =>{
+      console.log(data)
       this.user.userId = data.userId;
       this.user.firstName = data.firstName;
       this.user.lastName = data.lastName;
