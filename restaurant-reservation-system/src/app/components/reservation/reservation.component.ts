@@ -57,6 +57,36 @@ export class ReservationComponent implements OnInit {
     });
   }
 
+  confirmDeny(){
+    this.dialog.open(UpdateReservationPageComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhone: this.reservation.restaurantPhone,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
+  }
+
+  confirmApprove(){
+    this.dialog.open(UpdateReservationPageComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhone: this.reservation.restaurantPhone,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
+  }
+
 
   ngOnInit(): void {}
 

@@ -33,6 +33,9 @@ import { RegistrationPageComponent } from './components/registration-page/regist
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { ManagerViewReservationsPageComponent } from './components/manager-view-reservations-page/manager-view-reservations-page.component';
+import { ApproveMessageComponent } from './components/approve-message/approve-message.component';
+import { DenyMessageComponent } from './components/deny-message/deny-message.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import {MatDividerModule} from '@angular/material/divider';
     CustomerViewReservationsPageComponent,
     ReservationComponent,
     CancelMessageComponent,
+    ManagerViewReservationsPageComponent,
+    ApproveMessageComponent,
+    DenyMessageComponent,
   ],
 
   imports: [
