@@ -1,13 +1,13 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
     <form #updateReservationForm="ngForm" (ngSubmit)="updateReservation(updateReservationForm.value)">
         <h1>
-            <p>{{testReservation.storeName}}</p>
+            <p>{{testReservation.restaurantName}}</p>
         </h1>
         <div>
-            <p>{{testReservation.storeAddress}}</p>
+            <p>{{testReservation.restaurantAddress}}</p>
         </div>
         <div>
-            <p>{{testReservation.storePhone}}</p>
+            <p>{{testReservation.restaurantPhoneNumber}}</p>
         </div>
         <div>
             <mat-form-field appearance="fill">

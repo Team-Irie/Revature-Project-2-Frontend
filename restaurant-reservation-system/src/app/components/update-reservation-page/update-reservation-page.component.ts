@@ -19,10 +19,10 @@ export class UpdateReservationPageComponent implements OnInit {
   testReservation:IReservation = {
     userId: 0,
     partySize: 3,
-    requestedDate: 0,
-    storeName: "Store Name",
-    storeAddress: "1245 Street Name, City STATE, Zip",
-    storePhone: "123-456-890#"
+    reservationTime:0,
+    restaurantName: "Store Name",
+    restaurantAddress: "1245 Street Name, City STATE, Zip",
+    restaurantPhoneNumber: "123-456-890#"
   }
 
   partySize: number = 0;

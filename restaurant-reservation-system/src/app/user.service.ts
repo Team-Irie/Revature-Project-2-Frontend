@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
+import { IUser } from './Interfaces/IUser';
 
 
 @Injectable({
@@ -33,11 +34,15 @@ export class UserService {
     }));
   }
   
-  updateUser(user: any):Observable<any> {
+  updateUser(user: IUser):Observable<any> {
 
-    return this.http.put<any>(this.apiURL + 'users/id', user);
+    return this.http.put<any>(`${this.apiURL}users/id`, user);
     
   }
+
+
+  //Reservation-Page
+
 
   
   

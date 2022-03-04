@@ -7,22 +7,22 @@
                
                     <label>Restaurant Name:</label>
                     <div class="col-sm">
-                      <input formControlName="restaurantName" type="text" class="form-control" placeholder="Restaurant Name" >
+                      <input formControlName="restaurantName" type="text"  placeholder="Restaurant Name" >
                     </div>
                 
                     <label>Reservation Date:</label>
                     <div class="col-sm-6">
-                    <input formControlName="date" type="datetime-local" class="form-control" placeholder="Date" >
+                    <input formControlName="date" type="datetime-local"  placeholder="Date"[ngModel]="reservation.reservationTime" >
                     </div>  
 
                    <label>Party Size:</label>
                    <div class="col-sm-7">
-                    <input formControlName="partySize" type="number" class="form-control" placeholder="Size" >
+                    <input formControlName="partySize" type="number"  placeholder="Size" [ngModel]="reservation.partySize">
                    </div>
 
                 <label>Phone No:</label>
                   <div class="col-sm-7">                 
-                    <input  formControlName="phone" type="text" class="form-control" placeholder="Phone" >
+                    <input  formControlName="phone" type="text" placeholder="Phone" [ngModel]="reservation.restaurantPhoneNumber">
                   </div>
                   <br>
                   <div class="col-auto">
