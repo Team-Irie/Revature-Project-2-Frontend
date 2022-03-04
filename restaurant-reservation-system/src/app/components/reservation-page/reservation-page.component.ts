@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IReservation } from 'src/app/Interfaces/IReservation';
 
 @Component({
   selector: 'reservation-page',
@@ -8,12 +9,22 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ReservationPageComponent implements OnInit {
 
+  reservation!: {
+    userId: 0;
+    restaurantName:"",
+    reservationTime: 0;
+    partySize: 0;
+    restaurantPhoneNumber: "";
+
+  };
+
+  
   public rForm ! : FormGroup;
   post:any;
   restaurantName:string =" ";
-  date!:Date;
+  reservationTime!:Date;
   partySize! : Number;
-  phone:string= " ";
+  restaurantPhoneNumber!:string;
 
 
 
@@ -24,20 +35,20 @@ export class ReservationPageComponent implements OnInit {
   ngOnInit(): void {
     this.rForm = this.formBuilder.group({
       restaurantName:[' '],
-      date:[' '],
+      reservationTime:[' '],
       partySize:[' '],
-      phone:[' ']
+      restaurantPhoneNumber:[' ']
 
     });
 
   }
 
   onSubmit(post:any){
-    console.log("called:", this.restaurantName, this.date, this.partySize, this.phone);
+    console.log("called:", this.restaurantName, this.reservationTime, this.partySize, this.restaurantPhoneNumber);
     this.restaurantName = post.restaurantName;
-    this.date = post.date;
+    this.reservationTime = post.reservationTime;
     this.partySize = post.partySize;
-    this.phone = post.phone;
+    this.restaurantPhoneNumber = post.restaurantPhoneNumber;
 
   }
 }

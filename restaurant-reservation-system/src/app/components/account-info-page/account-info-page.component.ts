@@ -2,6 +2,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
+import { UserService } from 'src/app/user.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-account-info-page',
@@ -23,6 +25,7 @@ export class AccountInfoPageComponent implements OnInit {
   }
 
   updateUser(data:any):void{
+    this.userService.updateUser(data).subscribe(),
     console.log("updateUser Called");
     if(!this.confirmUpdate()){
       return;
@@ -36,7 +39,12 @@ export class AccountInfoPageComponent implements OnInit {
 
     console.log(this.user);
 
+<<<<<<< HEAD
+    //inoperable
+    this.userService.updateUser(this.user);
+=======
     this.userService.update(this.user);
+>>>>>>> 381d2d6ebc16762056df05f563214015c449e15e
 
     alert("Your account has been updated successfuly");
   }
@@ -49,13 +57,14 @@ export class AccountInfoPageComponent implements OnInit {
      }
    }
 
+ 
+  constructor(private userService:UserService) { }
 
-  constructor(private userService:UserServiceService) { }
-
+  
   ngOnInit(): void {
     //should grab the id of the user and put it in here
     this.userService.info(1)
-    .subscribe(data =>{
+    .subscribe((data =>{
       this.user.userId = data.userId;
       this.user.firstName = data.firstName;
       this.user.lastName = data.lastName;
@@ -63,7 +72,11 @@ export class AccountInfoPageComponent implements OnInit {
       this.user.password = data.password;
       this.user.userType = data.userType;
       this.user.phoneNumber = data.phoneNumber;
-    });
+      
+    }));
   }
+  
+
+  
 
 }

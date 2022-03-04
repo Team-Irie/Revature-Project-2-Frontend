@@ -26,11 +26,13 @@ import { ReservationPageComponent } from './components/reservation-page/reservat
 import { LoginComponent } from './components/login/login.component';
 import { UpdateReservationPageComponent } from './components/update-reservation-page/update-reservation-page.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { UserserviceModule } from './userservice/userservice.module';
+import {MatTableModule} from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
-import { SearchboxComponent } from './components/searchbox/searchbox.component';
-import {MatDividerModule} from '@angular/material/divider';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
+import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,6 @@ import { CancelMessageComponent } from './components/cancel-message/cancel-messa
     LoginComponent,
     UpdateReservationPageComponent,
     HomepageComponent,
-    ReservationPageComponent,
     SearchboxComponent,
     RegistrationPageComponent,
     CustomerViewReservationsPageComponent,
@@ -68,12 +69,15 @@ import { CancelMessageComponent } from './components/cancel-message/cancel-messa
     MatNativeDateModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
+    MatIconModule,
+    UserserviceModule,
+    MatTableModule,
     MatDividerModule,
     MatExpansionModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [UserserviceModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
