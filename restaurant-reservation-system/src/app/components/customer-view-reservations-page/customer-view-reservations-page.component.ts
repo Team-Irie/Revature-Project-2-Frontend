@@ -13,11 +13,12 @@ import { Observable } from 'rxjs';
 })
 export class CustomerViewReservationsPageComponent implements OnInit {
 
-  //reservations:Observable<IReservation[]> = new Observable<IReservation[]>();
+  reservations:Observable<IReservation[]> = new Observable<IReservation[]>();
 
-  ///*
+  /*
   reservationList:IReservation[] = [
     {
+      reservationId:1,
       customer: 0,
       partySize: 2,
       reservationTime: 3,
@@ -27,6 +28,7 @@ export class CustomerViewReservationsPageComponent implements OnInit {
       reservationStatus: "PENDING"
     },
     {
+      reservationId:1,
       customer: 0,
       partySize: 4,
       reservationTime: 4,
@@ -50,8 +52,8 @@ export class CustomerViewReservationsPageComponent implements OnInit {
   constructor(private reservationService:ReservationService) { }
 
   ngOnInit(): void {
-    //this.reservationService.customerReservations(1);
-    //this.reservations = this.reservationService.userReservations;
+    this.reservationService.getAll();
+    this.reservations = this.reservationService.allReservations;
   }
 
 }

@@ -25,7 +25,7 @@ export class CancelMessageComponent implements OnInit {
 
     this.reservation.reservationStatus = "CANCELED";
     //test later
-    //this.reservationService.update(this.reservation);
+    this.reservationService.update(this.reservation);
 
     alert("Your Reservation has been cancelled");
   }
