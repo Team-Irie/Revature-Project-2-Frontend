@@ -2,32 +2,33 @@
 
     <form #reservationForm="ngForm" (ngSubmit)="onSubmit(reservationForm)" >
         <div class="form-container">
-            <div class="row columns">
+            <div class="columns">
                 <h3>Customer Reservation Page</h3>
                
-                    <label>Restaurant Name:</label>
-                    <div class="col-sm">
-                      <input name="restaurantName" type="text" class="form-control" placeholder="Restaurant Name" ngModel>
-                    </div>
+                <div class="row col-sm-6 mx-auto ">
+                  <label>Restaurant Name:</label>
+                  <input name="restaurantName" type="text" class="form-control" placeholder="Restaurant Name" ngModel>
+                </div>
+            
+                <div class="row col-sm-6 mx-auto ">
+                  <label>Reservation Date:</label>
+                  <input name="date" type="datetime-local" class="form-control" placeholder="Date" ngModel>
+                </div>  
+
+                <div class="row col-sm-6 mx-auto ">
+                  <label>Party Size:</label>
+                  <input name="partySize" type="number" class="form-control" placeholder="Size" ngModel>
+                </div>
+
                 
-                    <label>Reservation Date:</label>
-                    <div class="col-sm-6">
-                    <input name="date" type="datetime-local" class="form-control" placeholder="Date" ngModel>
-                    </div>  
+                <div class="row col-sm-6 mx-auto mb-3">
+                  <label>Phone No:</label>                 
+                  <input name="phone" type="text" class="form-control" placeholder="Phone" ngModel>
+                </div>
 
-                   <label>Party Size:</label>
-                   <div class="col-sm-7">
-                    <input name="partySize" type="number" class="form-control" placeholder="Size" ngModel>
-                   </div>
-
-                <label>Phone No:</label>
-                  <div class="col-sm-7">                 
-                    <input name="phone" type="text" class="form-control" placeholder="Phone" ngModel>
-                  </div>
-                  <br>
-                  <div class="col-auto">
-                    <button  type="submit" class="btn btn-primary"  >Submit</button>
-                  </div>
+                <div class="row col-sm-6 mx-auto ">
+                  <button  type="submit" class="btn btn-primary">Submit</button>
+                </div>
 
             </div>
         </div>
