@@ -1,10 +1,12 @@
+import { MatExpansionPanel } from '@angular/material/expansion';
 import { Component, OnInit } from '@angular/core';
 import { IReservation } from 'src/app/Interfaces/IReservation';
 
 @Component({
   selector: 'app-customer-view-reservations-page',
   templateUrl: './customer-view-reservations-page.component.html',
-  styleUrls: ['./customer-view-reservations-page.component.css']
+  styleUrls: ['./customer-view-reservations-page.component.css'],
+  viewProviders: [MatExpansionPanel]
 })
 export class CustomerViewReservationsPageComponent implements OnInit {
 

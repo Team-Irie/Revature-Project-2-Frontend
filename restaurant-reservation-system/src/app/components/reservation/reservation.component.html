@@ -1,14 +1,14 @@
-<mat-card>
-    <h1>{{reservation.storeName}}</h1>
-    <mat-divider></mat-divider>
-    <p>Address: {{reservation.storeAddress}}</p>
-    <p>Phone: {{reservation.storePhone}}</p>
-    <p>Reservation on: {{reservation.requestedDate}}</p>
-    <p>Party Size: {{reservation.partySize}}</p>
-    <p>Reservation made by: {{reservation.userId}}</p>
-     <mat-card-actions>
-         <button mat-button>Update</button>
-         <button mat-button>Cancel</button>
-     </mat-card-actions>
-</mat-card>
-    
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title><h1>{{reservation.storeName}}</h1></mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-divider></mat-divider>
+            <p>Address: {{reservation.storeAddress}}</p>
+            <p>Phone: {{reservation.storePhone}}</p>
+            <p>Reservation on: {{reservation.requestedDate}}</p>
+            <p>Party Size: {{reservation.partySize}}</p>
+            <p>Reservation made by: {{reservation.userId}}</p>
+
+            <button mat-button (click)="openUpdate()">Update</button>
+            <button mat-button (click)="confirmCancel()">Cancel</button>
+        </mat-expansion-panel>

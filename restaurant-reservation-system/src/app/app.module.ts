@@ -1,3 +1,5 @@
+import { ReservationComponent } from './components/reservation/reservation.component';
+import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -5,8 +7,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -25,6 +30,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
+import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,9 @@ import { RegistrationPageComponent } from './components/registration-page/regist
     ReservationPageComponent,
     SearchboxComponent,
     RegistrationPageComponent,
+    CustomerViewReservationsPageComponent,
+    ReservationComponent,
+    CancelMessageComponent
   ],
 
   imports: [
@@ -50,6 +59,7 @@ import { RegistrationPageComponent } from './components/registration-page/regist
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
@@ -59,7 +69,9 @@ import { RegistrationPageComponent } from './components/registration-page/regist
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule, 
-    MatDividerModule
+    MatDividerModule,
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
