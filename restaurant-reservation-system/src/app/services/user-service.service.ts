@@ -11,17 +11,17 @@ export class UserServiceService {
 private url = "http://localhost:7000/users";
 //private url = "http://34.150.205.253:7000"
 
-  /*
+  
   login(email:string, password:string):Observable<IUser>{
-    return this.http.get<IUser>(`http://localhost:7000/user/${email}/${password}`)
+    return this.http.get<IUser>(`${this.url}/login/?email=${email}&password=${password}`)
     .pipe(catchError((e) => {
       return throwError(e);
     }));
   }
-  */
+  
 
   create(user:IUser):Observable<IUser>{
-    return this.http.post<IUser>(`${this.url}/`, JSON.stringify(user))
+    return this.http.post<IUser>(`${this.url}/`, user)
     .pipe(catchError((e)=>{
       console.log(e);
       return throwError(e);
@@ -36,8 +36,9 @@ private url = "http://localhost:7000/users";
     }));
   }
 
-  update(user:IUser):void{
-   this.http.put<IUser>(`${this.url}/`, JSON.stringify(user))
+  update(user:IUser):Observable<IUser>{
+    console.log("update user called");
+   return this.http.put<IUser>(`${this.url}/`, user)
    .pipe(catchError((e)=>{
     console.log(e);
     return throwError(e);

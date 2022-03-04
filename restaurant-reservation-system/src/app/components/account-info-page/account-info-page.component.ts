@@ -25,25 +25,28 @@ export class AccountInfoPageComponent implements OnInit {
   }
 
   updateUser(data:any):void{
-    this.userService.updateUser(data).subscribe(),
+    //this.userService.updateUser(data).subscribe(),
     console.log("updateUser Called");
     if(!this.confirmUpdate()){
       return;
     }
 
-      this.user.firstName = data.first;
-      this.user.lastName = data.last;
+      this.user.firstName = data.firstName;
+      this.user.lastName = data.lastName;
       this.user.email = data.email;
       this.user.password = data.password;
-      this.user.phoneNumber = data.phone;
+      this.user.phoneNumber = data.phoneNumber;
 
     console.log(this.user);
 
     //inoperable
-    this.userService.updateUser(this.user);
-    //this.userService.update(this.user);
+    //this.userService.updateUser(this.user);
+    this.userService.update(this.user)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
-    alert("Your account has been updated successfuly");
+    //alert("Your account has been updated successfuly");
   }
 
   confirmUpdate(): boolean{
@@ -55,13 +58,17 @@ export class AccountInfoPageComponent implements OnInit {
    }
 
  
-  constructor(private userService:UserService) { }
+  constructor(
+    //private userService:UserService
+    private userService:UserServiceService
+    ) { }
 
   
   ngOnInit(): void {
     //should grab the id of the user and put it in here
     this.userService.info(1)
     .subscribe((data =>{
+      console.log(data)
       this.user.userId = data.userId;
       this.user.firstName = data.firstName;
       this.user.lastName = data.lastName;
@@ -69,7 +76,6 @@ export class AccountInfoPageComponent implements OnInit {
       this.user.password = data.password;
       this.user.userType = data.userType;
       this.user.phoneNumber = data.phoneNumber;
-      
     }));
   }
   

@@ -29,7 +29,12 @@ export class LoginComponent implements OnInit {
 
   hide = true;
 
-  constructor(private formBuilder : FormBuilder, private http: HttpClient, private router:Router) { }
+  constructor(
+    private formBuilder : FormBuilder,
+    private http: HttpClient,
+    private router:Router,
+    private userService:UserServiceService
+    ) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -37,7 +42,12 @@ export class LoginComponent implements OnInit {
       password:['']
     });
    }
-
+/*
+   login():void {
+     console.log(this.loginForm.value.username);
+     console.log(this.loginForm.value.password);
+   }
+*/
    /*
   login(){
     this._auth.login(this.userData)
@@ -48,20 +58,23 @@ export class LoginComponent implements OnInit {
     )
   }
   */
-/*
+
    login(){
-    this.userService.login(`${this.loginForm.value.username}`, `${this.loginForm.value.password}` )
+    this.userService.login(this.loginForm.value.username,this.loginForm.value.password)
     .subscribe(data =>{
-      this.user.id = data.id;
-      this.user.first = data.first;
-      this.user.last = data.last;
+      console.log(data);
+      /*
+      this.user.userId = data.userId;
+      this.user.firstName = data.firstName;
+      this.user.lastName = data.lastName;
       this.user.email = data.email;
-      this.user.password = "";
-      this.user.role = data.role;
-      console.log(this.user);
+      this.user.password = data.password;
+      this.user.userType = data.userType;
+      this.user.phoneNumber = data.phoneNumber;
+      console.log(this.user);*/
     });
    }
-*/
+
    testPathCustomer():void {
     this.router.navigate(['customer-view-reservations'])
    }

@@ -48,7 +48,10 @@ export class RegistrationPageComponent implements OnInit {
 
     JSON.stringify(this.user);
 
-    this.userService.create(this.user);
+    this.userService.create(this.user)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
     alert("Your account has been successfuly created")
   }

@@ -1,0 +1,4 @@
+<mat-accordion>
+    <app-reservation *ngFor="let reservation of (reservations | async)" [reservation]="reservation">
+    </app-reservation>
+</mat-accordion>

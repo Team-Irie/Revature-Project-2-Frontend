@@ -31,9 +31,12 @@ import {MatTableModule} from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
-import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { ViewallComponent } from './components/viewall/viewall.component';
+import { ManagerViewReservationsPageComponent } from './components/manager-view-reservations-page/manager-view-reservations-page.component';
+import { ApproveMessageComponent } from './components/approve-message/approve-message.component';
+import { DenyMessageComponent } from './components/deny-message/deny-message.component';
+import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +54,10 @@ import { ViewallComponent } from './components/viewall/viewall.component';
     CustomerViewReservationsPageComponent,
     ReservationComponent,
     CancelMessageComponent,
-    ViewallComponent
-    
+    ViewallComponent,
+    ManagerViewReservationsPageComponent,
+    ApproveMessageComponent,
+    DenyMessageComponent,
   ],
 
   imports: [
