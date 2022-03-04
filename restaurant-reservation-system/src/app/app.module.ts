@@ -22,6 +22,8 @@ import { LoginComponent } from './components/login/login.component';
 import { UpdateReservationPageComponent } from './components/update-reservation-page/update-reservation-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { UserserviceModule } from './userservice/userservice.module';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     LoginComponent,
     UpdateReservationPageComponent,
     HomepageComponent
+    
+    
     
   ],
 
@@ -54,12 +58,14 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    UserserviceModule,
+    MatTableModule
    
 
      
   ],
-  providers: [],
+  providers: [UserserviceModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

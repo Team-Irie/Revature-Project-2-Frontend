@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
+import { UserService } from 'src/app/user.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-account-info-page',
@@ -10,39 +12,37 @@ export class AccountInfoPageComponent implements OnInit {
 
   hide = true;
 
-  userFirst:String = "";
-  userLast:String = "";
-  userEmail:String = "";
-  userPassword:String = "";
-
   user:IUser = {
-    id: 0,
-    first: "Arby",
-    last: "Gudes",
-    email: "Aegudes@gmail.com",
-    password: "not-a-password",
-    role: 0
+    userId:0,
+    firstName:"",
+    lastName: "",
+    email: "",
+    password:"",
+    userType:0,
+    phoneNumber:""
+    
   }
 
   @Output() sendUpdatedUser = new EventEmitter();
 
   updateUser(data:any):void{
+    this.userService.updateUser(data).subscribe(),
     console.log("updateUser Called");
     if(!this.confirmUpdate()){
       return;
     }
 
-    console.log(data);
+    this.user.firstName = data.firstName;
+    this.user.lastName = data.lastName;
+    this.user.email = data.email;
+    this.user.password = data.password;
+    this.user.phoneNumber = data.phoneNumber;
+    
 
-    const user = {
-      id: 0,
-      first: this.userFirst,
-      last: this.userLast,
-      email: this.userEmail,
-      password: this.userPassword,
-      role: 0
-    }
+    console.log(this.user);
 
+   
+    this.userService.updateUser(this.user);
     //console.log(user);
 
     //this.sendUpdatedUser.emit(user);
@@ -58,12 +58,26 @@ export class AccountInfoPageComponent implements OnInit {
      }
    }
 
-  getUser():void{  }
+ 
+  constructor(private userService:UserService) { }
 
-  constructor() { }
-
+  
   ngOnInit(): void {
-    this.getUser();
+    //should grab the id of the user and put it in here
+    this.userService.info(1)
+    .subscribe((data =>{
+      this.user.userId = data.userId;
+      this.user.firstName = data.firstName;
+      this.user.lastName = data.lastName;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.userType = data.userType;
+      this.user.phoneNumber = data.phoneNumber;
+      
+    }));
   }
+  
+
+  
 
 }

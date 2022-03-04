@@ -1,5 +1,6 @@
 import { IReservation } from './../../Interfaces/IReservation';
 import { Component, Input, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-reservation',
@@ -17,9 +18,8 @@ export class ReservationComponent implements OnInit {
     storePhone: ""
   }
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
