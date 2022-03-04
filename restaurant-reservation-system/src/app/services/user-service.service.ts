@@ -12,8 +12,8 @@ private url = "http://localhost:7000/users";
 //private url = "http://34.150.205.253:7000"
 
   
-  login(loginObj:any):Observable<IUser>{
-    return this.http.post<IUser>(`${this.url}/login/`, JSON.stringify(loginObj))
+  login(email:string, password:string):Observable<IUser>{
+    return this.http.get<IUser>(`${this.url}/login/?email=${email}&password=${password}`)
     .pipe(catchError((e) => {
       return throwError(e);
     }));
