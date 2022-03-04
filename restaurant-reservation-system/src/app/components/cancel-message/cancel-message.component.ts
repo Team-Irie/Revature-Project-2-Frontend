@@ -27,7 +27,10 @@ export class CancelMessageComponent implements OnInit {
 
     console.log(this.reservation);
 
-    this.reservationService.update(this.reservation);
+    this.reservationService.update(this.reservation)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
     alert("Your Reservation has been cancelled");
   }
