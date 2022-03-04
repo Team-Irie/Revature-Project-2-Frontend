@@ -1,5 +1,4 @@
 import { ReservationService } from './../../services/reservation.service';
-import { UserServiceService } from 'src/app/services/user-service.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Component, OnInit } from '@angular/core';
 import { IReservation } from 'src/app/Interfaces/IReservation';
@@ -24,7 +23,7 @@ export class ManagerViewReservationsPageComponent implements OnInit {
     restaurantAddress: "",
     restaurantPhone: "",
     reservationStatus: ""
-  }
+}
 
   constructor(private reservationService:ReservationService) { }
 
