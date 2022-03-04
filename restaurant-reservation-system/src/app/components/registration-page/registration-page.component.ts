@@ -18,6 +18,7 @@ export class RegistrationPageComponent implements OnInit {
 
   user:IUser = {
 <<<<<<< HEAD
+<<<<<<< HEAD
     userId:0,
     firstName:"",
     lastName: "",
@@ -27,6 +28,8 @@ export class RegistrationPageComponent implements OnInit {
     phoneNumber:""
 =======
     userId:3,
+=======
+>>>>>>> 381d2d6ebc16762056df05f563214015c449e15e
     firstName:"",
     lastName: "",
     email: "",

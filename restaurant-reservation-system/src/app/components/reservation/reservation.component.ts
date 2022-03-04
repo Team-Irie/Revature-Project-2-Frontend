@@ -18,30 +18,45 @@ import { UpdateReservationPageComponent } from '../update-reservation-page/updat
 export class ReservationComponent implements OnInit {
 
   @Input() reservation:IReservation = {
-    userId: 1,
-    partySize: 2,
-    requestedDate: 3,
-    storeName: "name",
-    storeAddress: "address",
-    storePhone: "phone"
+    reservationId: 0,
+    customer: 0,
+    partySize: 0,
+    reservationTime: 0,
+    restaurantName: "",
+    restaurantAddress: "",
+    restaurantPhone: "",
+    reservationStatus: ""
   }
 
 <<<<<<< HEAD
   constructor(private userService:UserService) { }
 =======
   confirmCancel(){
-    this.dialog.open(CancelMessageComponent);
+    this.dialog.open(CancelMessageComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhone: this.reservation.restaurantPhone,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
   }
 
   openUpdate(){
     this.dialog.open(UpdateReservationPageComponent, {
       data:{
-        userId: this.reservation.userId,
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
         partySize: this.reservation.partySize,
-        requestedDate: this.reservation.requestedDate,
-        storeName: this.reservation.storeName,
-        storeAddress: this.reservation.storeAddress,
-        storePhone: this.reservation.storePhone
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhone: this.reservation.restaurantPhone,
+        reservationStatus: this.reservation.reservationStatus
       }
     });
   }

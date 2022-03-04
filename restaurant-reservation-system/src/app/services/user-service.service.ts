@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserServiceService {
-private url = "http://localhost:7000";
+private url = "http://localhost:7000/users";
 //private url = "http://34.150.205.253:7000"
 
   /*
@@ -21,24 +21,27 @@ private url = "http://localhost:7000";
   */
 
   create(user:IUser):Observable<IUser>{
-    return this.http.post<IUser>(`${this.url}/users/`, JSON.stringify({user}))
+    return this.http.post<IUser>(`${this.url}/`, JSON.stringify(user))
     .pipe(catchError((e)=>{
+      console.log(e);
       return throwError(e);
-    }))
+    }));
   }
 
   info(id:number):Observable<IUser>{
-    return this.http.get<IUser>(`${this.url}/users/${id}`)
+    return this.http.get<IUser>(`${this.url}/${id}`)
     .pipe(catchError((e)=>{
+      console.log(e);
       return throwError(e);
     }));
   }
 
-  update(user:IUser):Observable<IUser>{
-   return this.http.put<IUser>(`${this.url}/users/`, JSON.stringify({user}))
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    }));
+  update(user:IUser):void{
+   this.http.put<IUser>(`${this.url}/`, JSON.stringify(user))
+   .pipe(catchError((e)=>{
+    console.log(e);
+    return throwError(e);
+  }));
   }
 
   constructor(private http:HttpClient) { }

@@ -1,6 +1,7 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-    <form #updateReservationForm="ngForm" (ngSubmit)="updateReservation(updateReservationForm.value)">
+    <form #updateReservationForm="ngForm">
         <h1>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <p>{{testReservation.restaurantName}}</p>
         </h1>
@@ -11,40 +12,52 @@
             <p>{{testReservation.restaurantPhoneNumber}}</p>
 =======
             <p>{{reservation.storeName}}</p>
+=======
+            <p>{{reservation.restaurantName}}</p>
+>>>>>>> 381d2d6ebc16762056df05f563214015c449e15e
         </h1>
         <div>
-            <p>{{reservation.storeAddress}}</p>
+            <p>{{reservation.restaurantAddress}}</p>
         </div>
         <div>
+<<<<<<< HEAD
             <p>{{reservation.storePhone}}</p>
 >>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
+=======
+            <p>{{reservation.restaurantPhone}}</p>
+>>>>>>> 381d2d6ebc16762056df05f563214015c449e15e
         </div>
         <div>
-            <mat-form-field appearance="fill">
+            <!--<mat-form-field appearance="fill">
                 <mat-label>Choose a date</mat-label>
-                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" required>
+                <input matInput [ngModel] [min]="minDate" [max]="maxDate" [matDatepicker]="picker" name="date" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>-->
+            <mat-form-field>
+                <mat-label>Choose a Date & Time</mat-label>
+                <input type="datetime-local" matInput [ngModel] name="reservation" required>
             </mat-form-field>
         </div>
-        <div>
+        <!--<div>
             <mat-form-field>
                 <mat-label>Choose a time</mat-label>
-                <input type="time" matInput required>
+                <input type="time" matInput [ngModel] name="time" required>
             </mat-form-field>
-        </div>        
+        </div>-->        
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Party Size</mat-label>
-                <input type="number" matInput [formControl]="partySizeFormControl" [errorStateMatcher]="matcher" [ngModel]="reservation.partySize">
+                <input type="number" matInput name="party" [ngModel]="reservation.partySize" required>
+                <!--<input type="number" name="party" matInput [formControl]="partySizeFormControl" [errorStateMatcher]="matcher" [ngModel]="reservation.partySize">
                 <mat-error *ngIf="partySizeFormControl.hasError('number') && !partySizeFormControl.hasError('required')">
                   Please enter a party size
                 </mat-error>
                 <mat-error *ngIf="partySizeFormControl.hasError('required')">
                   <strong>required</strong>
-                </mat-error>
+                </mat-error>-->
               </mat-form-field>
         </div>
-        <button mat-raised-button color="primary" type="submit">Confirm Update</button>
+        <button mat-raised-button color="primary" (click)="updateReservation(updateReservationForm.value)">Confirm Update</button>
     </form>
 </div>
