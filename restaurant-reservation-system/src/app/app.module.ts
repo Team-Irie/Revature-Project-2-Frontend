@@ -48,7 +48,7 @@ import { CancelMessageComponent } from './components/cancel-message/cancel-messa
     RegistrationPageComponent,
     CustomerViewReservationsPageComponent,
     ReservationComponent,
-    CancelMessageComponent,
+    CancelMessageComponent
   ],
 
   imports: [
