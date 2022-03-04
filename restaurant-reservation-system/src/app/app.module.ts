@@ -32,6 +32,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { DishdetailComponent } from './components/dishdetail/dishdetail.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { RestaurantInfoComponent } from './components/restaurant-info/restaurant
     ReservationComponent,
     CancelMessageComponent,
     RestaurantInfoComponent,
+    MenuComponent,
+    DishdetailComponent,
   ],
 
   imports: [

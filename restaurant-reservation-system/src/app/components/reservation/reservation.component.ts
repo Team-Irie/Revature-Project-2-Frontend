@@ -1,9 +1,5 @@
 import { MatDialog } from '@angular/material/dialog';
-<<<<<<< HEAD
-import { IReservation } from 'src/app/interfaces/IReservation';
-=======
 import { IReservation } from '../../Interfaces/IReservation';
->>>>>>> 049cac1adb8d98ed303db095e006c15a42b738a5
 import { Component, Input, OnInit } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { CancelMessageComponent } from '../cancel-message/cancel-message.component';
