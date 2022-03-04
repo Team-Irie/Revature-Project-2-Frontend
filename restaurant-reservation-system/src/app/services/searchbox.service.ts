@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,7 +15,10 @@ export class SearchboxService {
     this.term = value;
     this.location = value2;    
     const url = `http://localhost:7000/search?term=${this.term}&location=${this.location}`;
-    return this.http.get<any>(url);
+    const headers = new HttpHeaders({'Access-Control-Allow-Origin':'http://localhost:4200/'});
+    console.log(headers);
+    
+    return this.http.get<any>(url, {headers: headers});
   } 
 
 }
