@@ -26,21 +26,18 @@ export class CustomerViewReservationsPageComponent implements OnInit {
   }
 
   viewAll(){
-    //inoperable
-    //this.reservationService.customerReservations(1);
-    //this.reservations = this.reservationService.userReservations;
+    this.reservationService.customerReservations(1);
+    this.reservations = this.reservationService.userReservations;
   }
 
   viewPending(){
-    //inoperable
-    //this.reservationService.customerPending(1);
-    //this.reservations = this.reservationService.userReservations;
+    this.reservationService.customerPending(1);
+    this.reservations = this.reservationService.userReservations;
   }
 
   viewServed(){
-    //inoperable
-    //this.reservationService.customerServed(1);
-    //this.reservations = this.reservationService.userReservations;
+    this.reservationService.customerServed(1);
+    this.reservations = this.reservationService.userReservations;
   }
 
   constructor(private reservationService:ReservationService) { }
