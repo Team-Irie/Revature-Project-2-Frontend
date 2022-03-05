@@ -25,6 +25,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { RegistrationPageComponent } from './components/registration-page/regist
     ReactiveFormsModule, 
     MatDividerModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
