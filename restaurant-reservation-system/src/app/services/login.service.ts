@@ -32,7 +32,8 @@ export class LoginService {
         this.cookieService.set('firstName', userData.firstName);
         this.cookieService.set('lastName', userData.lastName);
         this.cookieService.set('userType', userData.userType);
-    })
+    });
+ 
     this.isAuthenticated = true;
     return response;
   }

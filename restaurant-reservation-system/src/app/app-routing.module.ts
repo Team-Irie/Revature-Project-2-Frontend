@@ -13,7 +13,7 @@ const routes: Routes = [
  {path: 'home', component: HomepageComponent, canActivate: [AuthGuard]},
  {path: 'reservation-page', component:ReservationPageComponent, canActivate: [AuthGuard]},
  {path: 'rating', component:RatingComponent, canActivate: [AuthGuard]},
- {path: '', component: LoginComponent, pathMatch: 'full'},
+ {path: '', component: HomepageComponent, canActivate: [AuthGuard]},
  {path: 'login', component: LoginComponent},
  {path: 'register', component: RegistrationPageComponent},
  {path: 'logout', component: LoggedOutComponent}
