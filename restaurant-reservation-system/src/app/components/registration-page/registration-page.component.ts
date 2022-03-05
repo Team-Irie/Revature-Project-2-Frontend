@@ -1,5 +1,8 @@
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { HttpClient } from '@angular/common/http';
 import { MyErrorStateMatcher } from './../update-reservation-page/update-reservation-page.component';
 import { FormControl, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
 import { RegistrationService } from 'src/app/services/registration.service';
@@ -14,6 +17,7 @@ export class RegistrationPageComponent implements OnInit {
   hide = true;
   confirmHide = true;
 
+<<<<<<< HEAD
   constructor(public registrationService: RegistrationService) { }
 
   userFirst:String = "";
@@ -33,6 +37,16 @@ export class RegistrationPageComponent implements OnInit {
   // random number generator to generate user_id
   getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
+=======
+  user:IUser = {
+
+    firstName:"",
+    lastName: "",
+    email: "",
+    password: "",
+    userType: "",
+    phoneNumber: ""
+>>>>>>> 307ad786ee1a4c639c55b3c5ade90f4c9a1d3c55
   }
 
   registerUser(data:any):void{
@@ -46,6 +60,7 @@ export class RegistrationPageComponent implements OnInit {
       return;
     }
 
+<<<<<<< HEAD
     // stretch goal - implement bcrypt to hash pw
     const user = {
       user_id: this.getRandomInt(100),
@@ -57,8 +72,23 @@ export class RegistrationPageComponent implements OnInit {
       user_type: 0,
       reservations: []
     }
+=======
+      this.user.firstName = data.first;
+      this.user.lastName = data.last;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.userType = data.type;
+      this.user.phoneNumber = data.phone;
+>>>>>>> 307ad786ee1a4c639c55b3c5ade90f4c9a1d3c55
 
-    console.log(user);
+    console.log(JSON.stringify(this.user));
+
+    JSON.stringify(this.user);
+
+    this.userService.create(this.user)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
     this.registrationService.registerUser(user).subscribe(response => {
       console.log(response);
@@ -89,6 +119,11 @@ export class RegistrationPageComponent implements OnInit {
 
   //matcher = new MyErrorStateMatcher();
 
+<<<<<<< HEAD
+=======
+  constructor(private userService:UserServiceService) { }
+
+>>>>>>> 307ad786ee1a4c639c55b3c5ade90f4c9a1d3c55
   ngOnInit(): void {
   }
 

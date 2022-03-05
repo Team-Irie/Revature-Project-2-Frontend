@@ -1,14 +1,13 @@
 export interface IUser {
-    id?: number;
-    first: string;
-    last: string;
+    userId?: number;
+    firstName: string;
+    lastName: string;
     email: string;
     password: string;
-    role: number;
+    userType: string;
+    phoneNumber: string;
 }
-
-
-/**
+/*
  * export interface IUser {
     user_id?: number;
     email: string;
