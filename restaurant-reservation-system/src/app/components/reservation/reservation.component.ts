@@ -1,3 +1,4 @@
+import { CustomerInfoComponent } from './../customer-info/customer-info.component';
 import { MatDialog } from '@angular/material/dialog';
 import { IReservation } from '../../Interfaces/IReservation';
 import { Component, Input, OnInit } from '@angular/core';
@@ -13,6 +14,13 @@ import { UpdateReservationPageComponent } from '../update-reservation-page/updat
   viewProviders: [MatExpansionPanel]
 })
 export class ReservationComponent implements OnInit {
+
+  showUpdate = true;
+  showCancel = true;
+  showApprove = true;
+  showDeny = true;
+  showInfo = true;
+
   @Input() reservation:IReservation = {
     reservationId: 0,
     customer: 0,
@@ -84,6 +92,23 @@ export class ReservationComponent implements OnInit {
         reservationStatus: this.reservation.reservationStatus
       }
     });
+    
+  }
+
+  openInfo(){
+    this.dialog.open(CustomerInfoComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhone: this.reservation.restaurantPhone,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
+    
   }
 
   isManager(userType: string) {

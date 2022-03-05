@@ -30,8 +30,8 @@ export class CustomerInfoComponent implements OnInit {
       this.user.firstName = data.firstName;
       this.user.lastName = data.lastName;
       this.user.email = data.email;
-      this.user.password = data.password;
-      this.user.userType = data.userType;
+      this.user.password = "";
+      this.user.userType = "";
       this.user.phoneNumber = data.phoneNumber;
     }));
   }
