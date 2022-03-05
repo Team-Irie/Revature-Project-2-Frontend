@@ -11,8 +11,6 @@ export class HomepageComponent implements OnInit {
   constructor(private cookieService:CookieService) { }
 
   ngOnInit(): void {
-    console.log(window);
-    console.log(this.cookieService.getAll());
     
   }
 

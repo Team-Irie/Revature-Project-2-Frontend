@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 import{ CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -8,12 +9,12 @@ import{ CookieService } from 'ngx-cookie-service';
 })
 export class NavbarComponent implements OnInit {
   
-  constructor(private cookeService: CookieService) { }
+  constructor(private loginService: LoginService, private cookeService: CookieService) { }
 
   public username = `${this.cookeService.get('firstName')} ${this.cookeService.get('lastName')}`;
 
-  deleteAllCookies() {
-    this.cookeService.deleteAll();
+  logoutUser() {
+    this.loginService.logoutUser();
   }
   
   ngOnInit(): void {
