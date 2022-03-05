@@ -13,7 +13,6 @@ import { UpdateReservationPageComponent } from '../update-reservation-page/updat
   viewProviders: [MatExpansionPanel]
 })
 export class ReservationComponent implements OnInit {
-
   @Input() reservation:IReservation = {
     reservationId: 0,
     customer: 0,
@@ -87,6 +86,13 @@ export class ReservationComponent implements OnInit {
     });
   }
 
+  isManager(userType: string) {
+    return (userType == "MANAGER") ? true : false;
+  }
+
+  isCustomer(userType: string) {
+    return (userType == "CUSTOMER") ? true : false;
+  }
 
   ngOnInit(): void {}
 
