@@ -20,8 +20,6 @@ export class LoginService {
 
   constructor(private http: HttpClient, private cookieService:CookieService) { }
 
-  public isAuthenticated = false;
-
   loginUser(email: string, password: string): Observable<IUser> {
     let loginInfo = [email, password];
     const response = this.http.post<IUser>('http://localhost:7000/users/login', loginInfo);
@@ -32,14 +30,13 @@ export class LoginService {
         this.cookieService.set('firstName', userData.firstName);
         this.cookieService.set('lastName', userData.lastName);
         this.cookieService.set('userType', userData.userType);
+        this.cookieService.set('isAuthenticated', 'true');
     });
- 
-    this.isAuthenticated = true;
+    
     return response;
   }
 
   public logoutUser() {
     this.cookieService.deleteAll();
-    this.isAuthenticated = false;
   }
 }

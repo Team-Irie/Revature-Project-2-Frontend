@@ -9,22 +9,31 @@ import{ CookieService } from 'ngx-cookie-service';
 })
 export class NavbarComponent implements OnInit {
   
-  constructor(private loginService: LoginService, private cookeService: CookieService) { }
-
-<<<<<<< HEAD
-  public username = `${this.cookeService.get('firstName')} ${this.cookeService.get('lastName')}`;
-=======
   showCustomer: boolean = false;
   showManager: boolean = true;
 
-  constructor() { }
->>>>>>> 8441b7882f9762ba5a329fdeef736ee330e46e3c
+  loggedIn = false;
+
+  constructor(private loginService: LoginService, private cookeService: CookieService) { }
+
+  public username = '';
 
   logoutUser() {
     this.loginService.logoutUser();
   }
   
   ngOnInit(): void {
+
+  }
+
+  ngDoCheck() {
+    if (this.cookeService.get('isAuthenticated')) {
+      this.username = `${this.cookeService.get('firstName')} ${this.cookeService.get('lastName')}`
+      this.loggedIn = true;
+    } 
+
+    console.log(this.loggedIn);
+    
   }
 
 }

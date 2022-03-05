@@ -20,7 +20,7 @@ const routes: Routes = [
  {path: '', component: HomepageComponent, canActivate: [AuthGuard]},
  {path: 'login', component: LoginComponent},
  {path: 'register', component: RegistrationPageComponent},
- {path: 'logout', component: LoggedOutComponent}
+ {path: 'logout', component: LoggedOutComponent},
  {path: 'viewall', component:ViewallComponent, canActivate: [AuthGuard]},
  {path: 'customer-view-reservations', component:CustomerViewReservationsPageComponent, canActivate: [AuthGuard]},
  {path: 'manager-view-reservations', component:ManagerViewReservationsPageComponent, canActivate: [AuthGuard]},
