@@ -65,11 +65,11 @@ export class RegistrationPageComponent implements OnInit {
     const user = {
       user_id: this.getRandomInt(100),
       email: data.email,
-      first_name: data.first,
-      last_name: data.last,
+      firstName: data.first,
+      lastName: data.last,
       password: data.password,
-      phone_number: data.phone,
-      user_type: 0,
+      phoneNumber: data.phone,
+      userType: 0,
       reservations: []
     }
 =======
