@@ -16,12 +16,13 @@ export class AccountInfoPageComponent implements OnInit {
   userPassword:String = "";
 
   user:IUser = {
-    id: 0,
-    first: "Arby",
-    last: "Gudes",
+    userId: 0,
+    firstName: "Arby",
+    lastName: "Gudes",
     email: "Aegudes@gmail.com",
     password: "not-a-password",
-    role: 0
+    phoneNumber: '2125555555',
+    userType: 'CUSTOMER'
   }
 
   @Output() sendUpdatedUser = new EventEmitter();
