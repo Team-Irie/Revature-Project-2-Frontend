@@ -12,6 +12,10 @@ export class NavbarComponent implements OnInit {
 
   public username = `${this.cookeService.get('firstName')} ${this.cookeService.get('lastName')}`;
 
+  deleteAllCookies() {
+    this.cookeService.deleteAll();
+  }
+  
   ngOnInit(): void {
   }
 

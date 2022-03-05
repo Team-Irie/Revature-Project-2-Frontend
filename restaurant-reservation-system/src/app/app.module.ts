@@ -26,6 +26,7 @@ import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { CookieService } from 'ngx-cookie-service';
+import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CookieService } from 'ngx-cookie-service';
     ReservationPageComponent,
     SearchboxComponent,
     RegistrationPageComponent,
+    LoggedOutComponent,
   ],
 
   imports: [

@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { ReservationPageComponent } from './components/reservation-page/reservation-page.component';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
+import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 
 const routes: Routes = [
  {path: 'home', component: HomepageComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
  {path: 'app-navbar', component:NavbarComponent},
  {path: '', component: LoginComponent, pathMatch: 'full'},
  {path: 'login', component: LoginComponent},
- {path: 'register', component: RegistrationPageComponent}
+ {path: 'register', component: RegistrationPageComponent},
+ {path: 'logout', component: LoggedOutComponent}
 ];
 
 
