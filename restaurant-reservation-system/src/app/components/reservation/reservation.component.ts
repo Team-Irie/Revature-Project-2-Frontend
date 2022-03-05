@@ -15,11 +15,13 @@ import { UpdateReservationPageComponent } from '../update-reservation-page/updat
 })
 export class ReservationComponent implements OnInit {
 
+  userType:string = "";
+
   showUpdate = true;
   showCancel = true;
-  showApprove = true;
-  showDeny = true;
-  showInfo = true;
+  showApprove = false;
+  showDeny = false;
+  showInfo = false;
 
   @Input() reservation:IReservation = {
     reservationId: 0,
@@ -119,6 +121,15 @@ export class ReservationComponent implements OnInit {
     return (userType == "CUSTOMER") ? true : false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    //checks the role of the user to let them view the appropriate buttons
+    /*
+    if(this.isManager(this.CookieService.get(#userType))){
+      showApprove = false;
+      showDeny = false;
+      showInfo = false;
+    }
+    */
+  }
 
 }

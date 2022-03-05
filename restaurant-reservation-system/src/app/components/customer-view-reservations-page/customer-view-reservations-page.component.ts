@@ -1,5 +1,4 @@
 import { ReservationService } from './../../services/reservation.service';
-import { UserServiceService } from 'src/app/services/user-service.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Component, OnInit } from '@angular/core';
 import { IReservation } from 'src/app/Interfaces/IReservation';
@@ -26,16 +25,31 @@ export class CustomerViewReservationsPageComponent implements OnInit {
   }
 
   viewAll(){
+    //should grab the id of the user and put it in here
+    /*
+    this.reservationService.customerReservations(this.cookieService.get(#id));
+    //replace below
+    */
     this.reservationService.customerReservations(1);
     this.reservations = this.reservationService.userReservations;
   }
 
   viewPending(){
+    //should grab the id of the user and put it in here
+    /*
+    this.reservationService.customerReservations(this.cookieService.get(#id));
+    //replace below
+    */
     this.reservationService.customerPending(1);
     this.reservations = this.reservationService.userReservations;
   }
 
   viewServed(){
+    //should grab the id of the user and put it in here
+    /*
+    this.reservationService.customerReservations(this.cookieService.get(#id));
+    //replace below
+    */
     this.reservationService.customerServed(1);
     this.reservations = this.reservationService.userReservations;
   }
@@ -43,8 +57,13 @@ export class CustomerViewReservationsPageComponent implements OnInit {
   constructor(private reservationService:ReservationService) { }
 
   ngOnInit(): void {
-    this.reservationService.getAll();
-    this.reservations = this.reservationService.allReservations;
+    //should grab the id of the user and put it in here
+    /*
+    this.reservationService.customerReservations(this.cookieService.get(#id));
+    //replace below
+    */
+    this.reservationService.customerReservations(1);
+    this.reservations = this.reservationService.userReservations;
   }
 
 }

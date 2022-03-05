@@ -39,8 +39,6 @@ export class AccountInfoPageComponent implements OnInit {
 
     console.log(this.user);
 
-    //inoperable
-    //this.userService.updateUser(this.user);
     this.userService.update(this.user)
     .subscribe(response=>{
       console.log(response);
@@ -66,6 +64,10 @@ export class AccountInfoPageComponent implements OnInit {
   
   ngOnInit(): void {
     //should grab the id of the user and put it in here
+    /*
+    this.userService.info(this.cookieService.get(#id))
+    //replace below
+    */
     this.userService.info(1)
     .subscribe((data =>{
       console.log(data)

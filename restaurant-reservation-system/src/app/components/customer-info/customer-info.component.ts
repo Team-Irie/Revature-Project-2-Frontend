@@ -23,6 +23,10 @@ export class CustomerInfoComponent implements OnInit {
 
   ngOnInit(): void {
     //should grab the id of the user and put it in here
+    /*
+    this.userService.info(this.cookieService.get(#id))
+    //replace below
+    */
     this.userService.info(1)
     .subscribe((data =>{
       console.log(data)
