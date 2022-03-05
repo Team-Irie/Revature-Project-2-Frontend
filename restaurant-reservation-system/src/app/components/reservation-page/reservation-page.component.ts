@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Restaurant } from 'src/app/Interfaces/IRestaurant';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IReservation } from 'src/app/Interfaces/IReservation';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -34,7 +36,10 @@ export class ReservationPageComponent implements OnInit {
  
  
 
-  constructor(private formBuilder:FormBuilder, private reservationService:ReservationService) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public info: Restaurant,
+    private formBuilder:FormBuilder, 
+    private reservationService:ReservationService) { }
 
   ngOnInit(): void {}
 

@@ -65,7 +65,9 @@ export class UpdateReservationPageComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation, private reservationService:ReservationService) {
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: IReservation, 
+    private reservationService:ReservationService) {
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();

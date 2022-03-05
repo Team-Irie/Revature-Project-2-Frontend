@@ -25,6 +25,21 @@ export class ManagerViewReservationsPageComponent implements OnInit {
     reservationStatus: ""
 }
 
+  viewAll(){
+    this.reservationService.getAll();
+    this.reservations = this.reservationService.allReservations;
+  }
+
+  viewPending(){
+    this.reservationService.getPending();
+    this.reservations = this.reservationService.allReservations;
+  }
+
+  viewServed(){
+    this.reservationService.getServed();
+    this.reservations = this.reservationService.allReservations;
+  }
+
   constructor(private reservationService:ReservationService) { }
 
   ngOnInit(): void {

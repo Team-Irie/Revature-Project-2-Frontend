@@ -38,6 +38,9 @@ import { ManagerViewReservationsPageComponent } from './components/manager-view-
 import { ApproveMessageComponent } from './components/approve-message/approve-message.component';
 import { DenyMessageComponent } from './components/deny-message/deny-message.component';
 import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
+import { CustomerInfoComponent } from './components/customer-info/customer-info.component';
+import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
+import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { CancelMessageComponent } from './components/cancel-message/cancel-messa
     ManagerViewReservationsPageComponent,
     ApproveMessageComponent,
     DenyMessageComponent,
+    CustomerInfoComponent,
+    RestaurantInfoComponent,
+    RestaurantPageComponent,
   ],
 
   imports: [

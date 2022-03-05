@@ -71,6 +71,28 @@ export class ReservationService {
     });
   }
 
+  getPending(): void {
+    this.http.get<IReservation[]>(`${this.url}/pending`)
+    .pipe(catchError((e)=>{
+      return throwError(e);
+    })
+    ).subscribe((data)=>{
+      this.reservations = data;
+      this.allReservations.next(this.reservations)
+    });
+  }
+
+  getServed(): void {
+    this.http.get<IReservation[]>(`${this.url}/served`)
+    .pipe(catchError((e)=>{
+      return throwError(e);
+    })
+    ).subscribe((data)=>{
+      this.reservations = data;
+      this.allReservations.next(this.reservations)
+    });
+  }
+
   update(reservation:IReservation):Observable<IReservation>{
     console.log("update reservation called");
     return this.http.put<IReservation>(`${this.url}/`, reservation)

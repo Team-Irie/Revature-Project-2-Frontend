@@ -5,6 +5,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
+import { RegistrationService } from 'src/app/services/registration.service';
 
 @Component({
   selector: 'app-registration-page',
@@ -16,18 +17,29 @@ export class RegistrationPageComponent implements OnInit {
   hide = true;
   confirmHide = true;
 
-  user:IUser = {
+  constructor(public registrationService: RegistrationService) { }
 
-    firstName:"",
-    lastName: "",
-    email: "",
-    password: "",
-    userType: "",
-    phoneNumber: ""
+  userFirst:String = "";
+  userLast:String = "";
+  userEmail:String = "";
+  userPassword:String = "";
+
+  // user:IUser = {
+  //   id: 0,
+  //   first: "Arby",
+  //   last: "Gudes",
+  //   email: "Aegudes@gmail.com",
+  //   password: "not-a-password",
+  //   role: 0
+  // }
+
+  // random number generator to generate user_id
+  getRandomInt(max: number) {
+    return Math.floor(Math.random() * max);
   }
 
   registerUser(data:any):void{
-    console.log("updateUser Called");
+    console.log("registerUser Called");
     if(!this.confirmRegistration()){
       return;
     }
@@ -37,27 +49,36 @@ export class RegistrationPageComponent implements OnInit {
       return;
     }
 
-      this.user.firstName = data.first;
-      this.user.lastName = data.last;
-      this.user.email = data.email;
-      this.user.password = data.password;
-      this.user.userType = data.type;
-      this.user.phoneNumber = data.phone;
+    // stretch goal - implement bcrypt to hash pw
+    const user = {
+      user_id: this.getRandomInt(100),
+      email: data.email,
+      firstName: data.first,
+      lastName: data.last,
+      password: data.password,
+      phoneNumber: data.phone,
+      userType: 0,
+      reservations: []
+    }
 
-    console.log(JSON.stringify(this.user));
-
-    JSON.stringify(this.user);
-
-    this.userService.create(this.user)
-    .subscribe(response=>{
+    this.registrationService.registerUser(user).subscribe(response => {
       console.log(response);
-    });
+      
+    })
 
     alert("Your account has been successfuly created")
   }
 
   confirmRegistration():boolean{
     if(window.confirm("Register New User?")){
+
+      /* 
+      create and get user/session info, store fore use when making reservations 
+      make sure next page is protected
+      */
+
+      // redirect to searchbox page
+      window.location.replace('');
       return true;
     } else {
       return false;
@@ -68,8 +89,6 @@ export class RegistrationPageComponent implements OnInit {
   //confirmPasswordFormControl = new FormControl('', [Validators.required]);
 
   //matcher = new MyErrorStateMatcher();
-
-  constructor(private userService:UserServiceService) { }
 
   ngOnInit(): void {
   }

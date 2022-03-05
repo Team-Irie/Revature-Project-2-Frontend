@@ -1,8 +1,8 @@
 <!-- <div class="main-div" >
 
-    <form [formGroup]="rForm" (ngSubmit)="onSubmit(rForm.value)" >
+    <form #reservationForm="ngForm" (ngSubmit)="onSubmit(reservationForm)" >
         <div class="form-container">
-            <div class="row columns">
+            <div class="columns">
                 <h3>Customer Reservation Page</h3>
                
                     <label>Restaurant Name:</label>
