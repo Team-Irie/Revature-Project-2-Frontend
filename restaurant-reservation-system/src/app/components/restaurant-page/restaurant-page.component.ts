@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IRestaurant } from 'src/app/Interfaces/IRestaurant';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -8,7 +7,7 @@ import { IRestaurant } from 'src/app/Interfaces/IRestaurant';
 })
 export class RestaurantPageComponent implements OnInit {
 
-  restaurant:IRestaurant = {
+  restaurant = {
     restaurantName: "",
     restaurantAddress: "",
     restaurantPhone: "",

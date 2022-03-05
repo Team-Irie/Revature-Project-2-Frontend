@@ -1,6 +1,5 @@
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
-import { IRestaurant } from 'src/app/Interfaces/IRestaurant';
 import { ReservationPageComponent } from '../reservation-page/reservation-page.component';
 
 @Component({
@@ -10,7 +9,7 @@ import { ReservationPageComponent } from '../reservation-page/reservation-page.c
 })
 export class RestaurantInfoComponent implements OnInit {
 
-  restaurant:IRestaurant = {
+  restaurant = {
     restaurantName: "",
     restaurantAddress: "",
     restaurantPhone: "",

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import { SearchboxService } from 'src/app/services/searchbox.service';
 
 @Component({
   selector: 'app-searchbox',
@@ -9,19 +8,39 @@ import {ErrorStateMatcher} from '@angular/material/core';
 })
 export class SearchboxComponent implements OnInit {
 
-  constructor() { }
+  private term!: string;
+  private location!: string;
 
-  ngOnInit(): void {
+  constructor(public searchboxService: SearchboxService) {}
+
+  public restaurantName?: string;
+  public restaurantImageUrl?: string;
+  public restaurantAddress0?: string;
+  public restaurantAddress1?: string;
+  public restaurantPhone?: string;
+  searchResult = false;
+
+  onSubmit(data:any) {
+    console.log('form submitted');
+    let term = data.value.term;
+    let location = data.value.location;
+    this.searchboxService.searchYelp(term, location).subscribe(response => {
+      /*
+      response.business is an array
+      in this case we are showing the first element only, we can easily show more
+      */ 
+      const restaurantArray = response.businesses;
+      this.restaurantName = restaurantArray[0].name;
+      this.restaurantImageUrl = restaurantArray[0].image_url;
+      this.restaurantAddress0 = restaurantArray[0].location.display_address[0];
+      this.restaurantAddress1 = restaurantArray[0].location.display_address[1];
+      this.restaurantPhone = restaurantArray[0].display_phone;
+      this.searchResult = true;
+
+      return restaurantArray;
+    });
   }
   
-  searchYelp(data:any) {
-    console.log('form submitted!');
-    console.log('term:', data.value.term);
-    console.log('location:', data.value.location);
-    /*
-    * take parameters 'term' and 'location' and make a GET request to spring server endpoint, ie '/search?term=${term}&location=${location}'
-    * have the backend make a GET request to https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}
-    * send results of GET request to yelp api back to front end
-    */ 
-  }
+  ngOnInit(): void {}
+
 }

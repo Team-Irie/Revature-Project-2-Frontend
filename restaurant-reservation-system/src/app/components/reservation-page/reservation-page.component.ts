@@ -1,5 +1,5 @@
+import { Restaurant } from 'src/app/Interfaces/IRestaurant';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IRestaurant } from 'src/app/Interfaces/IRestaurant';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IReservation } from 'src/app/Interfaces/IReservation';
@@ -37,7 +37,7 @@ export class ReservationPageComponent implements OnInit {
  
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public info: IRestaurant,
+    @Inject(MAT_DIALOG_DATA) public info: Restaurant,
     private formBuilder:FormBuilder, 
     private reservationService:ReservationService) { }
 

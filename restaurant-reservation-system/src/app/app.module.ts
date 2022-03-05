@@ -55,6 +55,8 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     HomepageComponent,
     SearchboxComponent,
     RegistrationPageComponent,
+<<<<<<< HEAD
+=======
     CustomerViewReservationsPageComponent,
     ReservationComponent,
     CancelMessageComponent,
@@ -65,6 +67,7 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     CustomerInfoComponent,
     RestaurantInfoComponent,
     RestaurantPageComponent,
+>>>>>>> 307ad786ee1a4c639c55b3c5ade90f4c9a1d3c55
   ],
 
   imports: [
