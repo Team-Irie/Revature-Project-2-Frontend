@@ -1,5 +1,8 @@
+import { UserServiceService } from 'src/app/services/user-service.service';
+import { HttpClient } from '@angular/common/http';
 import { MyErrorStateMatcher } from './../update-reservation-page/update-reservation-page.component';
 import { FormControl, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
 import { RegistrationService } from 'src/app/services/registration.service';
@@ -57,8 +60,6 @@ export class RegistrationPageComponent implements OnInit {
       userType: 0,
       reservations: []
     }
-
-    console.log(user);
 
     this.registrationService.registerUser(user).subscribe(response => {
       console.log(response);

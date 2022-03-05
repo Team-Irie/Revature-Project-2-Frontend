@@ -8,6 +8,8 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  userData = {}
   
   email:string = '';
   password:string ='';
@@ -37,5 +39,21 @@ export class LoginComponent implements OnInit {
     }, (error) => this.error = true);
 
    }
+/*
+   login():void {
+     console.log(this.loginForm.value.username);
+     console.log(this.loginForm.value.password);
+   }
+*/
+   /*
+  login(){
+    this._auth.login(this.userData)
+    .subscribe(
+      res => console.log(res),
+      err => console.log(err)
+
+    )
+  }
+  */
 
 }
