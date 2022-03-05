@@ -15,30 +15,6 @@ export class CustomerViewReservationsPageComponent implements OnInit {
 
   reservations:Observable<IReservation[]> = new Observable<IReservation[]>();
 
-  /*
-  reservationList:IReservation[] = [
-    {
-      reservationId:1,
-      customer: 0,
-      partySize: 2,
-      reservationTime: 3,
-      restaurantName: "name",
-      restaurantAddress: "address",
-      restaurantPhone: "phone",
-      reservationStatus: "PENDING"
-    },
-    {
-      reservationId:1,
-      customer: 0,
-      partySize: 4,
-      reservationTime: 4,
-      restaurantName: "myStore",
-      restaurantAddress: "myHouse",
-      restaurantPhone: "needtoknow",
-      reservationStatus: "PENDING"
-    }
-  ]
-//*/
   reservation:IReservation = {
       customer: 0,
       partySize: 0,
@@ -47,6 +23,24 @@ export class CustomerViewReservationsPageComponent implements OnInit {
       restaurantAddress: "",
       restaurantPhone: "",
       reservationStatus: ""
+  }
+
+  viewAll(){
+    //inoperable
+    //this.reservationService.customerReservations(1);
+    //this.reservations = this.reservationService.userReservations;
+  }
+
+  viewPending(){
+    //inoperable
+    //this.reservationService.customerPending(1);
+    //this.reservations = this.reservationService.userReservations;
+  }
+
+  viewServed(){
+    //inoperable
+    //this.reservationService.customerServed(1);
+    //this.reservations = this.reservationService.userReservations;
   }
 
   constructor(private reservationService:ReservationService) { }

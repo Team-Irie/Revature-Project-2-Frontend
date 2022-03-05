@@ -27,6 +27,28 @@ export class ReservationService {
     }));
   }
 
+  customerPending(id:number): void {
+    this.http.get<IReservation[]>(`${this.url}/customer/pending/${id}`)
+    .pipe(catchError((e)=>{
+      return throwError(e);
+    })
+    ).subscribe((data)=>{
+      this.reservations = data;
+      this.userReservations.next(this.reservations)
+    });
+  }
+
+  customerServed(id:number): void {
+    this.http.get<IReservation[]>(`${this.url}/customer/served/${id}`)
+    .pipe(catchError((e)=>{
+      return throwError(e);
+    })
+    ).subscribe((data)=>{
+      this.reservations = data;
+      this.userReservations.next(this.reservations)
+    });
+  }
+
   customerReservations(id:number): void {
     this.http.get<IReservation[]>(`${this.url}/customer/${id}`)
     .pipe(catchError((e)=>{
