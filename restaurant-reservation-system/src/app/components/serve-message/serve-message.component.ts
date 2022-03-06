@@ -17,7 +17,7 @@ export class ServeMessageComponent implements OnInit {
     reservationTime: this.data.reservationTime,
     restaurantName: this.data.restaurantName,
     restaurantAddress: this.data.restaurantAddress,
-    restaurantPhone: this.data.restaurantPhone,
+    restaurantPhoneNumber: this.data.restaurantPhoneNumber,
     reservationStatus: this.data.reservationStatus
   }
 
