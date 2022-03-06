@@ -1,5 +1,6 @@
+import { IYelp } from './../../Interfaces/IYelp';
 import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ReservationPageComponent } from '../reservation-page/reservation-page.component';
 
 @Component({
@@ -9,18 +10,27 @@ import { ReservationPageComponent } from '../reservation-page/reservation-page.c
 })
 export class RestaurantInfoComponent implements OnInit {
 
-  restaurant = {
-    restaurantName: "",
-    restaurantAddress: "",
-    restaurantPhone: "",
+  @Input() restaurant:IYelp = {
+
+    name:"",
+    image_url: "",
+    catagoeries:{},
+    coordinates:{},
+    transactions:[],
+    price: "",
+    location: {
+      display_address: []
+    },
+    display_phone: ""
+
   }
 
   registerReservation(){
     this.dialog.open(ReservationPageComponent, {
       data:{
-        restaurantName: this.restaurant.restaurantName,
-        restaurantAddress: this.restaurant.restaurantAddress,
-        restaurantPhone: this.restaurant.restaurantPhone
+        restaurantName: this.restaurant.name,
+        restaurantAddress: `${this.restaurant.location.display_address[0]}, ${this.restaurant.location.display_address[1]}, ${this.restaurant.location.display_address[2]}`,
+        restaurantPhone: this.restaurant.display_phone
       }
     });
   }
