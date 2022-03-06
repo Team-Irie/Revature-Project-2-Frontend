@@ -31,6 +31,8 @@ export class DenyMessageComponent implements OnInit {
     });
 
     alert("Reservation has been denied");
+
+    location.reload();
   }
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation, private reservationService:ReservationService) { }

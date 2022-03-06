@@ -48,6 +48,7 @@ export class UpdateReservationPageComponent implements OnInit {
       console.log(response);
     });
     alert("Your Reservation has been updated successfuly");
+    location.reload();
   }
 
   confirmUpdate(): boolean{

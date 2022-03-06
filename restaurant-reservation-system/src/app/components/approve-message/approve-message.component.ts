@@ -31,9 +31,14 @@ export class ApproveMessageComponent implements OnInit {
     });
 
     alert("Reservation has been approved");
+
+    location.reload();
   }
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation, private reservationService:ReservationService) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: IReservation, 
+    private reservationService:ReservationService
+    ) { }
 
   ngOnInit(): void {
   }

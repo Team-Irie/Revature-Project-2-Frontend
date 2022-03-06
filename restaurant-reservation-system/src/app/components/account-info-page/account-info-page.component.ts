@@ -42,6 +42,8 @@ export class AccountInfoPageComponent implements OnInit {
     });
 
     alert("Your account has been updated successfuly");
+
+    location.reload();
   }
 
   confirmUpdate(): boolean{

@@ -50,8 +50,19 @@ export class ReservationPageComponent implements OnInit {
     this.restaurantPhoneNumber = this.info.restaurantPhone;
   }
 
+  confirmReservation(): boolean{
+    if(window.confirm("Confirm Changes?")){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   onSubmit(data:any){
     console.log(data);
+    if(!this.confirmReservation()){
+      return;
+    }
     var userIdNumber = parseInt(this.cookieService.get('userId'));
 
     this.reservation.customer = userIdNumber;
@@ -64,5 +75,9 @@ export class ReservationPageComponent implements OnInit {
     this.reservationService.create(this.reservation).subscribe(Response => {
       console.log(Response)
     })
+
+    alert("Your reservation has been made");
+
+    location.reload();
   }
 }

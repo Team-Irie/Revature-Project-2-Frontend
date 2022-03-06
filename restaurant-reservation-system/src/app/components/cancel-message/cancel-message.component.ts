@@ -33,6 +33,8 @@ export class CancelMessageComponent implements OnInit {
     });
 
     alert("Your Reservation has been cancelled");
+
+    location.reload();
   }
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation, private reservationService:ReservationService) { }
