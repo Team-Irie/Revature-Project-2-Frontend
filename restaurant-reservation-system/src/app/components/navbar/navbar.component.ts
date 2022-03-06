@@ -12,6 +12,9 @@ export class NavbarComponent implements OnInit {
   constructor(private loginService: LoginService, private cookeService: CookieService) { }
 
   public username = `${this.cookeService.get('firstName')} ${this.cookeService.get('lastName')}`;
+  
+  showCustomer: boolean = false;
+  showManager: boolean = true;
 
   logoutUser() {
     this.loginService.logoutUser();

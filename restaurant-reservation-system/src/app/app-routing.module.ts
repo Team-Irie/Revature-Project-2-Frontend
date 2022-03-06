@@ -1,6 +1,10 @@
-import { NgModule } from '@angular/core';
+import { ViewallComponent } from './components/viewall/viewall.component';
+import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
+import { ManagerViewReservationsPageComponent } from './components/manager-view-reservations-page/manager-view-reservations-page.component';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/auth.guard';
+import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,7 +20,11 @@ const routes: Routes = [
  {path: '', component: HomepageComponent, canActivate: [AuthGuard]},
  {path: 'login', component: LoginComponent},
  {path: 'register', component: RegistrationPageComponent},
- {path: 'logout', component: LoggedOutComponent}
+ {path: 'logout', component: LoggedOutComponent},
+ {path: 'viewall', component:ViewallComponent},
+ {path: 'customer-view-reservations', component:CustomerViewReservationsPageComponent},
+ {path: 'manager-view-reservations', component:ManagerViewReservationsPageComponent},
+ {path: 'app-account-info-page', component:AccountInfoPageComponent}
 ];
 
 @NgModule({

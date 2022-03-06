@@ -1,0 +1,34 @@
+<p>viewall works!</p>
+
+<button (click)="getDataFromAPI()">View Users</button>
+
+<div id="user_container">        
+    <table id="userdata" class="table">
+      <caption>Customer List</caption>
+      <thead id="thead">
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th> 
+          <th>Email</th> 
+          <th>Password</th> 
+          <th>Phone</th> 
+          <th>User Type</th> 
+          <th>Action</th>   
+                     
+        </tr>
+      </thead>
+      <tbody id="tbody" *ngFor="let user of data">
+          <td >{{user.userId}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.phoneNumber}}</td>
+          <td>{{user.userType}}</td>
+          <td><a href="/app-account-info-page" >Update</a></td>
+      </tbody>
+    </table>
+         
+   </div>
+

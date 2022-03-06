@@ -1,37 +1,80 @@
-<div class="main-div" >
+<!-- <div class="main-div" >
 
     <form #reservationForm="ngForm" (ngSubmit)="onSubmit(reservationForm)" >
         <div class="form-container">
             <div class="columns">
                 <h3>Customer Reservation Page</h3>
                
-                <div class="row col-sm-6 mx-auto ">
-                  <label>Restaurant Name:</label>
-                  <input name="restaurantName" type="text" class="form-control" placeholder="Restaurant Name" ngModel>
-                </div>
-            
-                <div class="row col-sm-6 mx-auto ">
-                  <label>Reservation Date:</label>
-                  <input name="date" type="datetime-local" class="form-control" placeholder="Date" ngModel>
-                </div>  
-
-                <div class="row col-sm-6 mx-auto ">
-                  <label>Party Size:</label>
-                  <input name="partySize" type="number" class="form-control" placeholder="Size" ngModel>
-                </div>
-
+                    <label>Restaurant Name:</label>
+                    <div class="col-sm">
+                      <input formControlName="restaurantName" type="text"  placeholder="Restaurant Name" >
+                    </div>
                 
-                <div class="row col-sm-6 mx-auto mb-3">
-                  <label>Phone No:</label>                 
-                  <input name="phone" type="text" class="form-control" placeholder="Phone" ngModel>
-                </div>
+                    <label>Reservation Date:</label>
+                    <div class="col-sm-6">
+                    <input formControlName="date" type="datetime-local"  placeholder="Date"[ngModel]="reservation.reservationTime" >
+                    </div>  
 
-                <div class="row col-sm-6 mx-auto ">
-                  <button  type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                   <label>Party Size:</label>
+                   <div class="col-sm-7">
+                    <input formControlName="partySize" type="number"  placeholder="Size" [ngModel]="reservation.partySize">
+                   </div>
+
+                <label>Phone No:</label>
+                  <div class="col-sm-7">                 
+                    <input  formControlName="phone" type="text" placeholder="Phone" [ngModel]="reservation.restaurantPhoneNumber">
+                  </div>
+                  <br>
+                  <div class="col-auto">
+                    <button  type="submit" class="btn btn-primary"  >Submit</button>
+                  </div>
 
             </div>
         </div>
     </form>
 
+</div> -->
+
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card>
+      <form #reservationForm="ngForm" >
+          <h1>Reservation Page</h1>
+          <hr>
+          <div>
+              <mat-form-field>
+                  <mat-label>Restaurant Name</mat-label>
+                  <input matInput type="text" name="restaurantName" [ngModel]>
+              </mat-form-field>            
+          </div>
+          <div>
+          <mat-form-field>
+            <mat-label>Reservation Date</mat-label>
+            <input matInput type="datetime-local" name="reservationTime" [ngModel]>
+          </mat-form-field>            
+          </div>
+          <div>
+          <mat-form-field>
+            <mat-label>Party Size</mat-label>
+            <input matInput type="text" name="partySize" [ngModel]>
+          </mat-form-field>            
+          </div>
+
+          <div>
+              <mat-form-field>
+                  <mat-label>Restaurant Address</mat-label>
+                  <input matInput type="text" name="restaurantAddress" [ngModel]>
+              </mat-form-field>            
+          </div>
+                    
+          <div>
+              <mat-form-field>
+                  <mat-label>Restaurant Phone Number</mat-label>
+                  <input matInput type="text" name="restaurantPhoneNumber" [ngModel]>
+              </mat-form-field>            
+          </div>        
+          
+          <button mat-raised-button color="primary" (click)="onSubmit(reservationForm.value)">Confirm</button>
+      </form>
+  </mat-card>
 </div>

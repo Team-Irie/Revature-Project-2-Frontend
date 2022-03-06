@@ -1,5 +1,9 @@
+import { ErrorStateMatcher } from '@angular/material/core';
+import { UserServiceService } from 'src/app/services/user-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
+import { UserService } from 'src/app/user.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-account-info-page',
@@ -10,45 +14,39 @@ export class AccountInfoPageComponent implements OnInit {
 
   hide = true;
 
-  userFirst:String = "";
-  userLast:String = "";
-  userEmail:String = "";
-  userPassword:String = "";
-
   user:IUser = {
     userId: 0,
-    firstName: "Arby",
-    lastName: "Gudes",
-    email: "Aegudes@gmail.com",
-    password: "not-a-password",
-    phoneNumber: '2125555555',
-    userType: 'CUSTOMER'
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    userType: "",
+    phoneNumber: ""
   }
 
-  @Output() sendUpdatedUser = new EventEmitter();
-
   updateUser(data:any):void{
+    //this.userService.updateUser(data).subscribe(),
     console.log("updateUser Called");
     if(!this.confirmUpdate()){
       return;
     }
 
-    console.log(data);
+      this.user.firstName = data.firstName;
+      this.user.lastName = data.lastName;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.phoneNumber = data.phoneNumber;
 
-    const user = {
-      id: 0,
-      first: this.userFirst,
-      last: this.userLast,
-      email: this.userEmail,
-      password: this.userPassword,
-      role: 0
-    }
+    console.log(this.user);
 
-    //console.log(user);
+    //inoperable
+    //this.userService.updateUser(this.user);
+    this.userService.update(this.user)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
-    //this.sendUpdatedUser.emit(user);
-    //reload page
-    alert("Your account has been updated successfuly");
+    //alert("Your account has been updated successfuly");
   }
 
   confirmUpdate(): boolean{
@@ -59,12 +57,29 @@ export class AccountInfoPageComponent implements OnInit {
      }
    }
 
-  getUser():void{  }
+ 
+  constructor(
+    //private userService:UserService
+    private userService:UserServiceService
+    ) { }
 
-  constructor() { }
-
+  
   ngOnInit(): void {
-    this.getUser();
+    //should grab the id of the user and put it in here
+    this.userService.info(1)
+    .subscribe((data =>{
+      console.log(data)
+      this.user.userId = data.userId;
+      this.user.firstName = data.firstName;
+      this.user.lastName = data.lastName;
+      this.user.email = data.email;
+      this.user.password = data.password;
+      this.user.userType = data.userType;
+      this.user.phoneNumber = data.phoneNumber;
+    }));
   }
+  
+
+  
 
 }
