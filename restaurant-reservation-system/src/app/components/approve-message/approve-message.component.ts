@@ -25,7 +25,10 @@ export class ApproveMessageComponent implements OnInit {
 
     this.reservation.reservationStatus = "APPROVED";
     //test later
-    this.reservationService.update(this.reservation);
+    this.reservationService.update(this.reservation)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
     alert("Reservation has been approved");
   }
