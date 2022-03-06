@@ -1,3 +1,5 @@
+import { ReservationPageComponent } from './../reservation-page/reservation-page.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { SearchboxService } from 'src/app/services/searchbox.service';
 
@@ -11,13 +13,16 @@ export class SearchboxComponent implements OnInit {
   private term!: string;
   private location!: string;
 
-  constructor(public searchboxService: SearchboxService) {}
+  constructor(
+    public searchboxService: SearchboxService,
+    public dialog:MatDialog
+    ) {}
 
-  public restaurantName?: string;
+  public restaurantName: string = "";
   public restaurantImageUrl?: string;
-  public restaurantAddress0?: string;
-  public restaurantAddress1?: string;
-  public restaurantPhone?: string;
+  public restaurantAddress0: string = "";
+  public restaurantAddress1: string = "";
+  public restaurantPhone: string = "";
   searchResult = false;
 
   onSubmit(data:any) {
@@ -38,6 +43,16 @@ export class SearchboxComponent implements OnInit {
       this.searchResult = true;
 
       return restaurantArray;
+    });
+  }
+
+  makeReservation(){
+    this.dialog.open(ReservationPageComponent, {
+      data:{
+        restaurantName: this.restaurantName,
+        restaurantAddress: this.restaurantAddress0 +" "+ this.restaurantAddress1,
+        restaurantPhone: this.restaurantPhone
+      }
     });
   }
   

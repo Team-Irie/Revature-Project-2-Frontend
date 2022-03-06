@@ -37,11 +37,15 @@ export class ReservationPageComponent implements OnInit {
  
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public info: Restaurant,
+    @Inject(MAT_DIALOG_DATA) public info: any,
     private formBuilder:FormBuilder, 
     private reservationService:ReservationService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.restaurantName = this.info.restaurantName;
+    this.restaurantAddress = this.info.restaurantAddress;
+    this.restaurantPhoneNumber = this.info.restaurantPhone;
+  }
 
   onSubmit(data:any){
     console.log(data);
