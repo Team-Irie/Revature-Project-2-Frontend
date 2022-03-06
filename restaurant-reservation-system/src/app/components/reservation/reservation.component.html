@@ -9,10 +9,11 @@
             <p>Reservation made by: {{reservation.customer}}</p>
             <p>Reservation Status: {{reservation.reservationStatus}}</p>
 
-            <button *ngIf="showInfo" mat-button (click)="openInfo()">Customer Info</button>
-            <button *ngIf="showUpdate" mat-button (click)="openUpdate()">Update</button>
-            <button *ngIf="showCancel" mat-button (click)="confirmCancel()">Cancel</button>
-            <button *ngIf="showApprove" mat-button (click)="confirmApprove()">Approve</button>
-            <button *ngIf="showDeny" mat-button (click)="confirmDeny()">Deny</button>
-            <button *ngIf="showRate" mat-button (click)="openRate()">Rate</button>
+            <button *ngIf="isManager()" mat-button (click)="openInfo()">Customer Info</button>
+            <button *ngIf="isCustomer()" mat-button (click)="openUpdate()">Update</button>
+            <button *ngIf="isCustomer()" mat-button (click)="confirmCancel()">Cancel</button>
+            <button *ngIf="isManager()" mat-button (click)="confirmApprove()">Approve</button>
+            <button *ngIf="isManager()" mat-button (click)="confirmDeny()">Deny</button>
+            <button *ngIf="isManager()" mat-button (click)="confirmServe()">Serve</button>
+            <button *ngIf="isCustomer()" mat-button (click)="openRate()">Rate</button>
         </mat-expansion-panel>
