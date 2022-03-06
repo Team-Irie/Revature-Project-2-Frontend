@@ -15,26 +15,33 @@ export class LoginComponent implements OnInit {
 
   userData = {}
   
-  public loginForm !: FormGroup;
-  
-  user:IUser = {
-    userId: 0,
-    firstName:"",
-    lastName: "",
-    email: "",
-    password: "",
-    userType: "",
-    phoneNumber: ""
-  }
+  email:string = '';
+  password:string ='';
+  error: boolean = false;
 
-  hide = true;
+  constructor(public loginService: LoginService,  private router:Router) { }
 
-  constructor(
-    private formBuilder : FormBuilder,
-    private http: HttpClient,
-    private router:Router,
-    private userService:UserServiceService
-    ) { }
+  ngOnInit(): void {}
+
+  login(): void {
+    
+    this.loginService.loginUser(this.email, this.password)
+      .subscribe(data => {
+        if (data) {
+          this.loginService.user = {
+            userId: data.userId,
+            email: data.email,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            password: data.password,
+            phoneNumber: data.phoneNumber,
+            userType: data.userType
+          }
+          this.error = false;
+
+        }
+        this.router.navigateByUrl('/home');
+    }, (error) => this.error = true);
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
