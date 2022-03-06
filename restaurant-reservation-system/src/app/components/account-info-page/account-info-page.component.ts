@@ -1,6 +1,7 @@
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-account-info-page',
@@ -52,12 +53,15 @@ export class AccountInfoPageComponent implements OnInit {
    }
 
   constructor(
-    private userService:UserServiceService
+    private userService:UserServiceService,
+    private cookieService:CookieService
     ) { }
   
   ngOnInit(): void {
     //should grab the id of the user and put it in here
-    this.userService.info(1)
+    var userIdString = this.cookieService.get('userId');
+    var userIdNumber = parseInt(userIdString);
+    this.userService.info(userIdNumber)
     .subscribe((data =>{
       console.log(data)
       this.user.userId = data.userId;
