@@ -1,6 +1,8 @@
 # Revature-Project-2-Frontend
 Made in Angular
 
+makes main 2
+
 user
 -first
 -last
