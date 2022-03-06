@@ -32,7 +32,7 @@ export class ReservationComponent implements OnInit {
     reservationStatus: ""
   }
 
-  constructor(private userService:UserService, public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog) { }
 
   confirmCancel(){
     this.dialog.open(CancelMessageComponent, {
