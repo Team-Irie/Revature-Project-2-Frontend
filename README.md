@@ -1,6 +1,8 @@
 # Revature-Project-2-Frontend
 Made in Angular
 
+old main is broken
+
 user
 -first
 -last
