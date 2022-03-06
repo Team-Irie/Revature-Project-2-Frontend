@@ -24,7 +24,6 @@ export class ServeMessageComponent implements OnInit {
   serveReservation():void{
 
     this.reservation.reservationStatus = "FULFILLED";
-    //test later
     this.reservationService.update(this.reservation)
     .subscribe(response=>{
       console.log(response);

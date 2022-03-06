@@ -1,3 +1,4 @@
+import { ServeMessageComponent } from './../serve-message/serve-message.component';
 import { CookieService } from 'ngx-cookie-service';
 import { RatingComponent } from './../rating/rating.component';
 import { ApproveMessageComponent } from './../approve-message/approve-message.component';
@@ -104,7 +105,7 @@ export class ReservationComponent implements OnInit {
   }
 
   confirmServe(){
-    this.dialog.open(ApproveMessageComponent, {
+    this.dialog.open(ServeMessageComponent, {
       data:{
         reservationId: this.reservation.reservationId,
         customer: this.reservation.customer,
@@ -155,6 +156,14 @@ export class ReservationComponent implements OnInit {
 
   isCustomer() {
     return (this.cookieService.get('userType') == "CUSTOMER") ? true : false;
+  }
+
+  isServed(){
+    return (this.reservation.reservationStatus == "FULFILLED") ? true : false;
+  }
+
+  isCancelled(){
+    return (this.reservation.reservationStatus == "CANCELED") ? true : false;
   }
 
   ngOnInit(): void {}
