@@ -21,7 +21,7 @@ export class ReservationPageComponent implements OnInit {
     reservationTime:0,
     restaurantName: "",
     restaurantAddress: "",
-    restaurantPhone: "",
+    restaurantPhoneNumber: "",
     reservationStatus: "PENDING",
 
   };
@@ -69,7 +69,7 @@ export class ReservationPageComponent implements OnInit {
     this.reservation.restaurantName = data.restaurantName;
     this.reservation.reservationTime = data.reservationTime;
     this.reservation.partySize = data.partySize;
-    this.reservation.restaurantPhone = data.restaurantPhoneNumber;
+    this.reservation.restaurantPhoneNumber = data.restaurantPhoneNumber;
     this.reservation.restaurantAddress = data.restaurantAddress;
 
     this.reservationService.create(this.reservation).subscribe(Response => {

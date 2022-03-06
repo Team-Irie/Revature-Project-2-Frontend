@@ -32,7 +32,7 @@ export class ReservationComponent implements OnInit {
     reservationTime: 0,
     restaurantName: "",
     restaurantAddress: "",
-    restaurantPhone: "",
+    restaurantPhoneNumber: "",
     reservationStatus: ""
   }
 
@@ -47,7 +47,7 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhone: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
@@ -62,7 +62,7 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhone: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
@@ -77,7 +77,7 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhone: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
@@ -92,7 +92,7 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhone: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
@@ -108,7 +108,7 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhone: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
@@ -123,7 +123,7 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhone: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });

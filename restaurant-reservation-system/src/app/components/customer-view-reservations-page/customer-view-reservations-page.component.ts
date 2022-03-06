@@ -24,7 +24,7 @@ export class CustomerViewReservationsPageComponent implements OnInit {
       reservationTime: 0,
       restaurantName: "",
       restaurantAddress: "",
-      restaurantPhone: "",
+      restaurantPhoneNumber: "",
       reservationStatus: ""
   }
 
@@ -51,7 +51,6 @@ export class CustomerViewReservationsPageComponent implements OnInit {
   ngOnInit(): void {
     this.reservationService.customerReservations(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
-    console.log(this.reservations);
   }
 
 }
