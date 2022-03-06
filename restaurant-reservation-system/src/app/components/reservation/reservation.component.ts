@@ -1,11 +1,12 @@
+import { CookieService } from 'ngx-cookie-service';
 import { RatingComponent } from './../rating/rating.component';
 import { ApproveMessageComponent } from './../approve-message/approve-message.component';
 import { DenyMessageComponent } from './../deny-message/deny-message.component';
 import { CustomerInfoComponent } from './../customer-info/customer-info.component';
 import { MatDialog } from '@angular/material/dialog';
+import { IUser } from '../../Interfaces/IUser';
 import { IReservation } from '../../Interfaces/IReservation';
 import { Component, Input, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { CancelMessageComponent } from '../cancel-message/cancel-message.component';
 import { UpdateReservationPageComponent } from '../update-reservation-page/update-reservation-page.component';
@@ -18,12 +19,15 @@ import { UpdateReservationPageComponent } from '../update-reservation-page/updat
 })
 export class ReservationComponent implements OnInit {
 
-  showUpdate = true;
-  showCancel = true;
-  showApprove = true;
-  showDeny = true;
-  showInfo = true;
-  showRate = true;
+  @Input() user:IUser = {
+    userId: 0,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    userType: "",
+    phoneNumber: ""
+  }
 
   @Input() reservation:IReservation = {
     reservationId: 0,
@@ -36,7 +40,7 @@ export class ReservationComponent implements OnInit {
     reservationStatus: ""
   }
 
-  constructor(public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog, private cookieService:CookieService) { }
 
   confirmCancel(){
     this.dialog.open(CancelMessageComponent, {
@@ -99,6 +103,22 @@ export class ReservationComponent implements OnInit {
     
   }
 
+  confirmServe(){
+    this.dialog.open(ApproveMessageComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhone: this.reservation.restaurantPhone,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
+    
+  }
+
   openInfo(){
     this.dialog.open(CustomerInfoComponent, {
       data:{
@@ -129,14 +149,13 @@ export class ReservationComponent implements OnInit {
     });
   }
 
-  isManager(userType: string) {
-    return (userType == "MANAGER") ? true : false;
+  isManager() {
+    return (this.cookieService.get('userType') == "MANAGER") ? true : false;
   }
 
-  isCustomer(userType: string) {
-    return (userType == "CUSTOMER") ? true : false;
+  isCustomer() {
+    return (this.cookieService.get('userType') == "CUSTOMER") ? true : false;
   }
 
   ngOnInit(): void {}
-
 }

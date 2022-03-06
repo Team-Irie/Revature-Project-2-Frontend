@@ -43,6 +43,7 @@ import { CancelMessageComponent } from './components/cancel-message/cancel-messa
 import { CustomerInfoComponent } from './components/customer-info/customer-info.component';
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
+import { ServeMessageComponent } from './components/serve-message/serve-message.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     CustomerInfoComponent,
     RestaurantInfoComponent,
     RestaurantPageComponent,
+    ServeMessageComponent,
   ],
 
   imports: [
