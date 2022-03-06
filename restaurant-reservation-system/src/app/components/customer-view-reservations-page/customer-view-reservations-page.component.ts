@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { ReservationService } from './../../services/reservation.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
@@ -13,6 +14,8 @@ import { Observable } from 'rxjs';
 })
 export class CustomerViewReservationsPageComponent implements OnInit {
 
+  userIdNumber = parseInt(this.cookieService.get('userId'));
+
   reservations:Observable<IReservation[]> = new Observable<IReservation[]>();
 
   reservation:IReservation = {
@@ -26,25 +29,28 @@ export class CustomerViewReservationsPageComponent implements OnInit {
   }
 
   viewAll(){
-    this.reservationService.customerReservations(1);
+    this.reservationService.customerReservations(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
   }
 
   viewPending(){
-    this.reservationService.customerPending(1);
+    this.reservationService.customerPending(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
   }
 
   viewServed(){
-    this.reservationService.customerServed(1);
+    this.reservationService.customerServed(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
   }
 
-  constructor(private reservationService:ReservationService) { }
+  constructor(
+    private reservationService:ReservationService,
+    private cookieService:CookieService
+    ) { }
 
   ngOnInit(): void {
-    this.reservationService.getAll();
-    this.reservations = this.reservationService.allReservations;
+    this.reservationService.customerReservations(this.userIdNumber);
+    this.reservations = this.reservationService.userReservations;
   }
 
 }

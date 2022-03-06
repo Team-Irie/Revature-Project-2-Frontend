@@ -58,9 +58,7 @@ export class AccountInfoPageComponent implements OnInit {
     ) { }
   
   ngOnInit(): void {
-    //should grab the id of the user and put it in here
-    var userIdString = this.cookieService.get('userId');
-    var userIdNumber = parseInt(userIdString);
+    var userIdNumber = parseInt(this.cookieService.get('userId'));
     this.userService.info(userIdNumber)
     .subscribe((data =>{
       console.log(data)

@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { UserServiceService } from './../../services/user-service.service';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
@@ -19,11 +20,14 @@ export class CustomerInfoComponent implements OnInit {
     phoneNumber: ""
   }
 
-  constructor(private userService:UserServiceService) { }
+  constructor(
+    private userService:UserServiceService,
+    private cookieService:CookieService
+    ) { }
 
   ngOnInit(): void {
-    //should grab the id of the user and put it in here
-    this.userService.info(1)
+    var userIdNumber = parseInt(this.cookieService.get('userId'));
+    this.userService.info(userIdNumber)
     .subscribe((data =>{
       console.log(data)
       this.user.userId = data.userId;

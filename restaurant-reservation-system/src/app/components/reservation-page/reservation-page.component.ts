@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Restaurant } from 'src/app/Interfaces/IRestaurant';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
@@ -15,7 +16,7 @@ import { DatePipe, getLocaleDateTimeFormat } from '@angular/common';
 export class ReservationPageComponent implements OnInit {
 
   reservation:IReservation = {
-    customer:1,
+    customer:0,
     partySize:0,
     reservationTime:0,
     restaurantName: "",
@@ -39,7 +40,9 @@ export class ReservationPageComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public info: any,
     private formBuilder:FormBuilder, 
-    private reservationService:ReservationService) { }
+    private reservationService:ReservationService,
+    private cookieService:CookieService
+    ) { }
 
   ngOnInit(): void {
     this.restaurantName = this.info.restaurantName;
@@ -49,6 +52,9 @@ export class ReservationPageComponent implements OnInit {
 
   onSubmit(data:any){
     console.log(data);
+    var userIdNumber = parseInt(this.cookieService.get('userId'));
+
+    this.reservation.customer = userIdNumber;
     this.reservation.restaurantName = data.restaurantName;
     this.reservation.reservationTime = data.reservationTime;
     this.reservation.partySize = data.partySize;
@@ -58,8 +64,5 @@ export class ReservationPageComponent implements OnInit {
     this.reservationService.create(this.reservation).subscribe(Response => {
       console.log(Response)
     })
-
   }
-  
-
 }
