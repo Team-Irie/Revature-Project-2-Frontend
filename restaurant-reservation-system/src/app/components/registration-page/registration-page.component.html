@@ -17,12 +17,6 @@
             </div>
             <div>
                 <mat-form-field>
-                    <mat-label>Phone Number</mat-label>
-                    <input matInput type="text" name="phone" [ngModel] required>
-                </mat-form-field>            
-            </div>    
-            <div>
-                <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input matInput type="text" name="email" [ngModel] required>
                 </mat-form-field>            
@@ -52,7 +46,7 @@
                 </mat-form-field>            
             </div>
             <div>
-                <mat-select [ngModel] name="type" required>
+                <mat-select [ngModel] name="userType" required>
                     <mat-option value="CUSTOMER">Customer</mat-option>
                     <mat-option value="MANAGER">Manager</mat-option>
                 </mat-select>
