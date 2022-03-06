@@ -1,3 +1,6 @@
+import { RatingComponent } from './../rating/rating.component';
+import { ApproveMessageComponent } from './../approve-message/approve-message.component';
+import { DenyMessageComponent } from './../deny-message/deny-message.component';
 import { CustomerInfoComponent } from './../customer-info/customer-info.component';
 import { MatDialog } from '@angular/material/dialog';
 import { IReservation } from '../../Interfaces/IReservation';
@@ -20,6 +23,7 @@ export class ReservationComponent implements OnInit {
   showApprove = true;
   showDeny = true;
   showInfo = true;
+  showRate = true;
 
   @Input() reservation:IReservation = {
     reservationId: 0,
@@ -65,7 +69,7 @@ export class ReservationComponent implements OnInit {
   }
 
   confirmDeny(){
-    this.dialog.open(UpdateReservationPageComponent, {
+    this.dialog.open(DenyMessageComponent, {
       data:{
         reservationId: this.reservation.reservationId,
         customer: this.reservation.customer,
@@ -80,7 +84,7 @@ export class ReservationComponent implements OnInit {
   }
 
   confirmApprove(){
-    this.dialog.open(UpdateReservationPageComponent, {
+    this.dialog.open(ApproveMessageComponent, {
       data:{
         reservationId: this.reservation.reservationId,
         customer: this.reservation.customer,
@@ -108,7 +112,21 @@ export class ReservationComponent implements OnInit {
         reservationStatus: this.reservation.reservationStatus
       }
     });
-    
+  }
+
+  openRate(){
+    this.dialog.open(RatingComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhone: this.reservation.restaurantPhone,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
   }
 
   isManager(userType: string) {

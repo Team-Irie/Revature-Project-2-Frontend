@@ -2,7 +2,6 @@
             <mat-expansion-panel-header>
                 <mat-panel-title><h1>{{reservation.restaurantName}}</h1></mat-panel-title>
             </mat-expansion-panel-header>
-            <mat-divider></mat-divider>
             <p>Address: {{reservation.restaurantAddress}}</p>
             <p>Phone: {{reservation.restaurantPhone}}</p>
             <p>Reservation on: {{reservation.reservationTime}}</p>
@@ -15,4 +14,5 @@
             <button *ngIf="showCancel" mat-button (click)="confirmCancel()">Cancel</button>
             <button *ngIf="showApprove" mat-button (click)="confirmApprove()">Approve</button>
             <button *ngIf="showDeny" mat-button (click)="confirmDeny()">Deny</button>
+            <button *ngIf="showRate" mat-button (click)="openRate()">Rate</button>
         </mat-expansion-panel>

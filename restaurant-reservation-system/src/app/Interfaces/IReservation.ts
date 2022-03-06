@@ -7,4 +7,5 @@ export interface IReservation {
     restaurantAddress?: string;
     restaurantPhone?: string;
     reservationStatus: string;
+    reservationRating?: number;
 }
