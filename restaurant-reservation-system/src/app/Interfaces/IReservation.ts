@@ -1,6 +1,6 @@
 export interface IReservation {
     reservationId?: number;
-    customer?: number;
+    customer: number;
     partySize: number;
     reservationTime: number;
     restaurantName: string;
