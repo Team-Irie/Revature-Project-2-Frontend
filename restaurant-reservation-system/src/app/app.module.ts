@@ -33,8 +33,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
-import { CookieService } from 'ngx-cookie-service';
-import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 import { ViewallComponent } from './components/viewall/viewall.component';
 import { ManagerViewReservationsPageComponent } from './components/manager-view-reservations-page/manager-view-reservations-page.component';
 import { ApproveMessageComponent } from './components/approve-message/approve-message.component';
@@ -57,7 +55,6 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     HomepageComponent,
     SearchboxComponent,
     RegistrationPageComponent,
-    LoggedOutComponent,
     CustomerViewReservationsPageComponent,
     ReservationComponent,
     CancelMessageComponent,
@@ -95,7 +92,7 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     MatDialogModule,
     MatButtonToggleModule
   ],
-  providers: [CookieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import{ CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-homepage',
@@ -8,10 +7,9 @@ import{ CookieService } from 'ngx-cookie-service';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private cookieService:CookieService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    
   }
 
 }
