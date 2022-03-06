@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
             userType: data.userType
           }
           this.error = false;
-          this.router.navigateByUrl('/home');
+
         }
+        this.router.navigateByUrl('/home');
     }, (error) => this.error = true);
 
    }
