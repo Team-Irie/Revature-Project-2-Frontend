@@ -19,13 +19,13 @@
     background-size: cover;
 }
 
-/* .mat-card {
-    background-color: rgba(0, 0, 0, 0.6) !important;
+.mat-card {
+    background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
 mat-toolbar {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-} */
+    background-color: rgba(255, 225, 255, 0.1) !important;
+}
 
 /* mat-form-field input {
     background-color: rgba(0, 0, 0, 0.1) !important;
