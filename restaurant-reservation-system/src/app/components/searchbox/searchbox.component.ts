@@ -90,7 +90,7 @@ export class SearchboxComponent implements OnInit {
     */
   }
 
-  makeReservation(){
+  makeReservation(){    
     this.dialog.open(ReservationPageComponent, {
       data:{
         restaurantName: this.restaurantName,

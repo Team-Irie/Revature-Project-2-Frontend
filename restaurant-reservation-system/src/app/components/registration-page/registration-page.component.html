@@ -1,5 +1,5 @@
-<div fxLayoutAlign="center center">
-    <mat-card>
+<div fxLayoutAlign="center center" class="main-div">
+    <mat-card class="mt-3">
         <form #registerUserForm="ngForm">
             <h1>New User Registration</h1>
             <hr>
@@ -46,12 +46,15 @@
                 </mat-form-field>            
             </div>
             <div>
-                <mat-select [ngModel] name="userType" required>
-                    <mat-option value="CUSTOMER">Customer</mat-option>
-                    <mat-option value="MANAGER">Manager</mat-option>
-                </mat-select>
+                <mat-form-field>
+                    <mat-label>Account Type </mat-label>
+                    <mat-select [ngModel] name="userType" required>
+                        <mat-option value="CUSTOMER">Customer</mat-option>
+                        <mat-option value="MANAGER">Manager</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
-            <button mat-raised-button color="primary" (click)="registerUser(registerUserForm.value)">Register</button>
+            <button class="justify-content-center" mat-raised-button color="primary" (click)="registerUser(registerUserForm.value)">Register</button>
         </form>
     </mat-card>
 </div>
