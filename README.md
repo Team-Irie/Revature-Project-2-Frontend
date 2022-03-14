@@ -1,8 +1,8 @@
-# Restaurant Reservation Service
+# Restaurant Reservation System
 
 ## Project Description
 
-The Expense Reimbursement System (ERS) will manage the process of reimbursing employees for expenses incurred while on company time. All employees in the company can login and submit requests for reimbursement and view their past tickets and pending requests. Finance managers can log in and view all reimbursement requests and past history for all employees in the company. Finance managers are authorized to approve and deny requests for expense reimbursement.
+Easily book/reschedule/cancel reservations. Search restaurants by name, price and category. Customers can rate restaurants. Managers approve/reject reservations They can serve reservations. They can view reservations by their status and view customer information.
 
 ## Technologies Used
 
@@ -19,6 +19,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
     - Cloud Storage
 - Jenkins
 - Docker
+- Yelp API
 
 ## Features
 
@@ -47,7 +48,7 @@ Email
 
 ## Usage
 
-pull both the revature-project2-frontend and revature-project2-frontend from git
+pull both the revature-project2-frontend and revature-project2-backend from git
   - you might have to switch to stable branch to get the frontend to work
 open the backend in your IDE and run it after connecting it to your own db
 npm install to update local settings
@@ -56,9 +57,9 @@ register a new user and explore the pages
 
 ## Contributors
 
-Arby John Gudes
-Khadga R Parajuli
-Dominic Sieli
-Ryan Sy
+Arby John Gudes / 
+Khadga R Parajuli / 
+Dominic Sieli / 
+Ryan Sy / 
 Melaku Tamene
 
