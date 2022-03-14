@@ -48,7 +48,7 @@ Email
 
 ## Usage
 
-pull both the revature-project2-frontend and revature-project2-frontend from git
+pull both the revature-project2-frontend and revature-project2-backend from git
   - you might have to switch to stable branch to get the frontend to work
 open the backend in your IDE and run it after connecting it to your own db
 npm install to update local settings
