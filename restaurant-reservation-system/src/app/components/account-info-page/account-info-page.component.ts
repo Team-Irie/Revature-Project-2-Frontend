@@ -1,9 +1,7 @@
-import { ErrorStateMatcher } from '@angular/material/core';
 import { UserServiceService } from 'src/app/services/user-service.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
-import { UserService } from 'src/app/user.service';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-account-info-page',
@@ -25,7 +23,6 @@ export class AccountInfoPageComponent implements OnInit {
   }
 
   updateUser(data:any):void{
-    //this.userService.updateUser(data).subscribe(),
     console.log("updateUser Called");
     if(!this.confirmUpdate()){
       return;
@@ -44,7 +41,9 @@ export class AccountInfoPageComponent implements OnInit {
       console.log(response);
     });
 
-    //alert("Your account has been updated successfuly");
+    alert("Your account has been updated successfuly");
+
+    location.reload();
   }
 
   confirmUpdate(): boolean{
@@ -55,20 +54,14 @@ export class AccountInfoPageComponent implements OnInit {
      }
    }
 
- 
   constructor(
-    //private userService:UserService
-    private userService:UserServiceService
+    private userService:UserServiceService,
+    private cookieService:CookieService
     ) { }
-
   
   ngOnInit(): void {
-    //should grab the id of the user and put it in here
-    /*
-    this.userService.info(this.cookieService.get(#id))
-    //replace below
-    */
-    this.userService.info(1)
+    var userIdNumber = parseInt(this.cookieService.get('userId'));
+    this.userService.info(userIdNumber)
     .subscribe((data =>{
       console.log(data)
       this.user.userId = data.userId;

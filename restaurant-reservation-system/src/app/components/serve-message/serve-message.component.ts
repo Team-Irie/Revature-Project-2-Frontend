@@ -4,11 +4,11 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { IReservation } from 'src/app/Interfaces/IReservation';
 
 @Component({
-  selector: 'app-approve-message',
-  templateUrl: './approve-message.component.html',
-  styleUrls: ['./approve-message.component.css']
+  selector: 'app-serve-message',
+  templateUrl: './serve-message.component.html',
+  styleUrls: ['./serve-message.component.css']
 })
-export class ApproveMessageComponent implements OnInit {
+export class ServeMessageComponent implements OnInit {
 
   reservation:IReservation = {
     reservationId: this.data.reservationId,
@@ -21,16 +21,15 @@ export class ApproveMessageComponent implements OnInit {
     reservationStatus: this.data.reservationStatus
   }
 
-  approveReservation():void{
+  serveReservation():void{
 
-    this.reservation.reservationStatus = "APPROVED";
-    //test later
+    this.reservation.reservationStatus = "FULFILLED";
     this.reservationService.update(this.reservation)
     .subscribe(response=>{
       console.log(response);
     });
 
-    alert("Reservation has been approved");
+    alert("Reservation has been served");
 
     location.reload();
   }

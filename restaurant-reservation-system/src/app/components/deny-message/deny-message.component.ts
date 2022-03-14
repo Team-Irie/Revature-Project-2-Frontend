@@ -17,7 +17,7 @@ export class DenyMessageComponent implements OnInit {
     reservationTime: this.data.reservationTime,
     restaurantName: this.data.restaurantName,
     restaurantAddress: this.data.restaurantAddress,
-    restaurantPhone: this.data.restaurantPhone,
+    restaurantPhoneNumber: this.data.restaurantPhoneNumber,
     reservationStatus: this.data.reservationStatus
   }
 
@@ -25,9 +25,14 @@ export class DenyMessageComponent implements OnInit {
 
     this.reservation.reservationStatus = "DENIED";
     //test later
-    this.reservationService.update(this.reservation);
+    this.reservationService.update(this.reservation)
+    .subscribe(response=>{
+      console.log(response);
+    });
 
     alert("Reservation has been denied");
+
+    location.reload();
   }
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: IReservation, private reservationService:ReservationService) { }

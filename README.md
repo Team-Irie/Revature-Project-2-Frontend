@@ -1,8 +1,8 @@
-# PROJECT TWO
+# Restaurant Reservation System
 
 ## Project Description
 
-The Expense Reimbursement System (ERS) will manage the process of reimbursing employees for expenses incurred while on company time. All employees in the company can login and submit requests for reimbursement and view their past tickets and pending requests. Finance managers can log in and view all reimbursement requests and past history for all employees in the company. Finance managers are authorized to approve and deny requests for expense reimbursement.
+Easily book/reschedule/cancel reservations. Search restaurants by name, price and category. Customers can rate restaurants. Managers approve/reject reservations They can serve reservations. They can view reservations by their status and view customer information.
 
 ## Technologies Used
 
@@ -26,7 +26,7 @@ Users can
 -	Register.
 -	Login/Logout.
 -	Update their information
--	Use an external API
+-	Use an external API; YELP API to search for restaurants
 
 Customers
 -	Search restaurants

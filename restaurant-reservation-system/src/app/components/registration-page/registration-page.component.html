@@ -1,39 +1,24 @@
-<div fxLayoutAlign="center center">
-    <mat-card>
-        <form #registerUserForm="ngForm">
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="22" class="mt-3">
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" #registerUserForm="ngForm">
             <h1>New User Registration</h1>
             <hr>
-            <div>
                 <mat-form-field>
                     <mat-label>First Name</mat-label>
                     <input matInput type="text" name="first" [ngModel] required>
                 </mat-form-field>            
-            </div>
-            <div>
                 <mat-form-field>
                     <mat-label>Last Name</mat-label>
                     <input matInput type="text" name="last" [ngModel] required>
                 </mat-form-field>            
-            </div>
-            <div>
-                <mat-form-field>
-                    <mat-label>Phone Number</mat-label>
-                    <input matInput type="text" name="phone" [ngModel] required>
-                </mat-form-field>            
-            </div>    
-            <div>
                 <mat-form-field>
                     <mat-label>Email</mat-label>
                     <input matInput type="text" name="email" [ngModel] required>
                 </mat-form-field>            
-            </div>
-            <div>
                 <mat-form-field>
                     <mat-label>Phone</mat-label>
                     <input matInput type="text" name="phone" [ngModel] required>
                 </mat-form-field>            
-            </div>
-            <div>
                 <mat-form-field>
                     <mat-label>Password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'" name="password" [ngModel] required>
@@ -41,8 +26,6 @@
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>            
-            </div>
-            <div>
                 <mat-form-field>
                     <mat-label>Comfirm Password</mat-label>
                     <input matInput [type]="confirmHide ? 'password' : 'text'" name="confirm" [ngModel] required>
@@ -50,14 +33,14 @@
                         <mat-icon>{{confirmHide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                 </mat-form-field>            
-            </div>
-            <div>
-                <mat-select [ngModel] name="type" required>
-                    <mat-option value="CUSTOMER">Customer</mat-option>
-                    <mat-option value="MANAGER">Manager</mat-option>
-                </mat-select>
-            </div>
-            <button mat-raised-button color="primary" (click)="registerUser(registerUserForm.value)">Register</button>
+                <mat-form-field>
+                    <mat-label>Account Type </mat-label>
+                    <mat-select [ngModel] name="userType" required>
+                        <mat-option value="CUSTOMER">Customer</mat-option>
+                        <mat-option value="MANAGER">Manager</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            <button class="justify-content-center" mat-raised-button color="primary" (click)="registerUser(registerUserForm.value)">Register</button>
         </form>
     </mat-card>
 </div>

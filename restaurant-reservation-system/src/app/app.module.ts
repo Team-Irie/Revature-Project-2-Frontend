@@ -33,6 +33,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
 import { SearchboxComponent } from './components/searchbox/searchbox.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { CookieService } from 'ngx-cookie-service';
+import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 import { ViewallComponent } from './components/viewall/viewall.component';
 import { ManagerViewReservationsPageComponent } from './components/manager-view-reservations-page/manager-view-reservations-page.component';
 import { ApproveMessageComponent } from './components/approve-message/approve-message.component';
@@ -41,6 +43,7 @@ import { CancelMessageComponent } from './components/cancel-message/cancel-messa
 import { CustomerInfoComponent } from './components/customer-info/customer-info.component';
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
+import { ServeMessageComponent } from './components/serve-message/serve-message.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,7 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     HomepageComponent,
     SearchboxComponent,
     RegistrationPageComponent,
+    LoggedOutComponent,
     CustomerViewReservationsPageComponent,
     ReservationComponent,
     CancelMessageComponent,
@@ -65,6 +69,7 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     CustomerInfoComponent,
     RestaurantInfoComponent,
     RestaurantPageComponent,
+    ServeMessageComponent,
   ],
 
   imports: [

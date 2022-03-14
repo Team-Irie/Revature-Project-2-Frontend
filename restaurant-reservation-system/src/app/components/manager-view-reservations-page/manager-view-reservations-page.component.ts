@@ -21,7 +21,7 @@ export class ManagerViewReservationsPageComponent implements OnInit {
     reservationTime: 0,
     restaurantName: "",
     restaurantAddress: "",
-    restaurantPhone: "",
+    restaurantPhoneNumber: "",
     reservationStatus: ""
 }
 

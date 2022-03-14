@@ -25,7 +25,7 @@ export class UpdateReservationPageComponent implements OnInit {
     reservationTime: this.data.reservationTime,
     restaurantName: this.data.restaurantName,
     restaurantAddress: this.data.restaurantAddress,
-    restaurantPhone: this.data.restaurantPhone,
+    restaurantPhoneNumber: this.data.restaurantPhoneNumber,
     reservationStatus: this.data.reservationStatus
   }
 
@@ -48,6 +48,7 @@ export class UpdateReservationPageComponent implements OnInit {
       console.log(response);
     });
     alert("Your Reservation has been updated successfuly");
+    location.reload();
   }
 
   confirmUpdate(): boolean{

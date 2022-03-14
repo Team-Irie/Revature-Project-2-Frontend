@@ -1,8 +1,13 @@
+import { ServeMessageComponent } from './../serve-message/serve-message.component';
+import { CookieService } from 'ngx-cookie-service';
+import { RatingComponent } from './../rating/rating.component';
+import { ApproveMessageComponent } from './../approve-message/approve-message.component';
+import { DenyMessageComponent } from './../deny-message/deny-message.component';
 import { CustomerInfoComponent } from './../customer-info/customer-info.component';
 import { MatDialog } from '@angular/material/dialog';
+import { IUser } from '../../Interfaces/IUser';
 import { IReservation } from '../../Interfaces/IReservation';
 import { Component, Input, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { CancelMessageComponent } from '../cancel-message/cancel-message.component';
 import { UpdateReservationPageComponent } from '../update-reservation-page/update-reservation-page.component';
@@ -22,6 +27,16 @@ export class ReservationComponent implements OnInit {
   showApprove = false;
   showDeny = false;
   showInfo = false;
+  
+  @Input() user:IUser = {
+    userId: 0,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    userType: "",
+    phoneNumber: ""
+  }
 
   @Input() reservation:IReservation = {
     reservationId: 0,
@@ -30,11 +45,11 @@ export class ReservationComponent implements OnInit {
     reservationTime: 0,
     restaurantName: "",
     restaurantAddress: "",
-    restaurantPhone: "",
+    restaurantPhoneNumber: "",
     reservationStatus: ""
   }
 
-  constructor(private userService:UserService, public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog, private cookieService:CookieService) { }
 
   confirmCancel(){
     this.dialog.open(CancelMessageComponent, {
@@ -45,7 +60,7 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
@@ -60,14 +75,14 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
   }
 
   confirmDeny(){
-    this.dialog.open(UpdateReservationPageComponent, {
+    this.dialog.open(DenyMessageComponent, {
       data:{
         reservationId: this.reservation.reservationId,
         customer: this.reservation.customer,
@@ -75,14 +90,14 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
   }
 
   confirmApprove(){
-    this.dialog.open(UpdateReservationPageComponent, {
+    this.dialog.open(ApproveMessageComponent, {
       data:{
         reservationId: this.reservation.reservationId,
         customer: this.reservation.customer,
@@ -90,7 +105,23 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
+    
+  }
+
+  confirmServe(){
+    this.dialog.open(ServeMessageComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
@@ -106,30 +137,42 @@ export class ReservationComponent implements OnInit {
         reservationTime: this.reservation.reservationTime,
         restaurantName: this.reservation.restaurantName,
         restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhone: this.reservation.restaurantPhone,
+        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
         reservationStatus: this.reservation.reservationStatus
       }
     });
-    
   }
 
-  isManager(userType: string) {
-    return (userType == "MANAGER") ? true : false;
+  openRate(){
+    this.dialog.open(RatingComponent, {
+      data:{
+        reservationId: this.reservation.reservationId,
+        customer: this.reservation.customer,
+        partySize: this.reservation.partySize,
+        reservationTime: this.reservation.reservationTime,
+        restaurantName: this.reservation.restaurantName,
+        restaurantAddress: this.reservation.restaurantAddress,
+        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
+        reservationStatus: this.reservation.reservationStatus
+      }
+    });
   }
 
-  isCustomer(userType: string) {
-    return (userType == "CUSTOMER") ? true : false;
+  isManager() {
+    return (this.cookieService.get('userType') == "MANAGER") ? true : false;
   }
 
-  ngOnInit(): void {
-    //checks the role of the user to let them view the appropriate buttons
-    /*
-    if(this.isManager(this.CookieService.get(#userType))){
-      showApprove = false;
-      showDeny = false;
-      showInfo = false;
-    }
-    */
+  isCustomer() {
+    return (this.cookieService.get('userType') == "CUSTOMER") ? true : false;
   }
 
+  isServed(){
+    return (this.reservation.reservationStatus == "FULFILLED") ? true : false;
+  }
+
+  isCancelled(){
+    return (this.reservation.reservationStatus == "CANCELED") ? true : false;
+  }
+
+  ngOnInit(): void {}
 }

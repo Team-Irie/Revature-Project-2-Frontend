@@ -51,18 +51,20 @@ export class RegistrationPageComponent implements OnInit {
 
     // stretch goal - implement bcrypt to hash pw
     const user = {
-      user_id: this.getRandomInt(100),
+      // user_id: this.getRandomInt(100),
       email: data.email,
       firstName: data.first,
       lastName: data.last,
       password: data.password,
       phoneNumber: data.phone,
-      userType: 0,
+      userType: data.userType,
       reservations: []
     }
 
     this.registrationService.registerUser(user).subscribe(response => {
-      console.log(response);
+      console.log('user:', user);
+      
+      console.log('response', response);
       
     })
 

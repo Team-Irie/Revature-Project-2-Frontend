@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { ReservationService } from './../../services/reservation.service';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Component, OnInit } from '@angular/core';
@@ -12,6 +13,8 @@ import { Observable } from 'rxjs';
 })
 export class CustomerViewReservationsPageComponent implements OnInit {
 
+  userIdNumber = parseInt(this.cookieService.get('userId'));
+
   reservations:Observable<IReservation[]> = new Observable<IReservation[]>();
 
   reservation:IReservation = {
@@ -20,49 +23,32 @@ export class CustomerViewReservationsPageComponent implements OnInit {
       reservationTime: 0,
       restaurantName: "",
       restaurantAddress: "",
-      restaurantPhone: "",
+      restaurantPhoneNumber: "",
       reservationStatus: ""
   }
 
   viewAll(){
-    //should grab the id of the user and put it in here
-    /*
-    this.reservationService.customerReservations(this.cookieService.get(#id));
-    //replace below
-    */
-    this.reservationService.customerReservations(1);
+    this.reservationService.customerReservations(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
   }
 
   viewPending(){
-    //should grab the id of the user and put it in here
-    /*
-    this.reservationService.customerReservations(this.cookieService.get(#id));
-    //replace below
-    */
-    this.reservationService.customerPending(1);
+    this.reservationService.customerPending(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
   }
 
   viewServed(){
-    //should grab the id of the user and put it in here
-    /*
-    this.reservationService.customerReservations(this.cookieService.get(#id));
-    //replace below
-    */
-    this.reservationService.customerServed(1);
+    this.reservationService.customerServed(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
   }
 
-  constructor(private reservationService:ReservationService) { }
+  constructor(
+    private reservationService:ReservationService,
+    private cookieService:CookieService
+    ) { }
 
   ngOnInit(): void {
-    //should grab the id of the user and put it in here
-    /*
-    this.reservationService.customerReservations(this.cookieService.get(#id));
-    //replace below
-    */
-    this.reservationService.customerReservations(1);
+    this.reservationService.customerReservations(this.userIdNumber);
     this.reservations = this.reservationService.userReservations;
   }
 

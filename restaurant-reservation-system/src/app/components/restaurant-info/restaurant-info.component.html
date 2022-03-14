@@ -1,9 +1,9 @@
 <mat-expansion-panel>
     <mat-expansion-panel-header>
-        <mat-panel-title><h1>{{restaurant.restaurantName}}</h1></mat-panel-title>
+        <mat-panel-title><h1>{{restaurant.name}}</h1></mat-panel-title>
     </mat-expansion-panel-header>
-    <mat-divider></mat-divider>
-    <p>Address: {{restaurant.restaurantAddress}}</p>
-    <p>Phone: {{restaurant.restaurantPhone}}</p>
-    <button mat-button>Make Reservation</button>
+    <img class="d-flex justify-content-center mx-auto mb-5" src="{{restaurant.image_url}}">
+    <p>Address: {{restaurant.location.display_address[0]}}</p>
+    <p>Phone: {{restaurant.display_phone}}</p>
+    <button mat-button (click)="registerReservation()">Make Reservation</button>
 </mat-expansion-panel>

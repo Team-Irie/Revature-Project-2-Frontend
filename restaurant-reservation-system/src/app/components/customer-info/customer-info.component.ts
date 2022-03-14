@@ -1,5 +1,8 @@
+import { IReservation } from 'src/app/Interfaces/IReservation';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CookieService } from 'ngx-cookie-service';
 import { UserServiceService } from './../../services/user-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { IUser } from 'src/app/Interfaces/IUser';
 
 @Component({
@@ -19,15 +22,14 @@ export class CustomerInfoComponent implements OnInit {
     phoneNumber: ""
   }
 
-  constructor(private userService:UserServiceService) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA)private data:IReservation,
+    private userService:UserServiceService,
+    private cookieService:CookieService
+    ) { }
 
   ngOnInit(): void {
-    //should grab the id of the user and put it in here
-    /*
-    this.userService.info(this.cookieService.get(#id))
-    //replace below
-    */
-    this.userService.info(1)
+    this.userService.info(this.data.customer)
     .subscribe((data =>{
       console.log(data)
       this.user.userId = data.userId;
