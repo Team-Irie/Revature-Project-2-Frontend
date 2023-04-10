@@ -1,17 +1,14 @@
-import { ServeMessageComponent } from './../serve-message/serve-message.component';
 import { CookieService } from 'ngx-cookie-service';
 import { RatingComponent } from './../rating/rating.component';
-import { ApproveMessageComponent } from './../approve-message/approve-message.component';
-import { DenyMessageComponent } from './../deny-message/deny-message.component';
 import { CustomerInfoComponent } from './../customer-info/customer-info.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { IUser } from '../../Interfaces/IUser';
 import { IReservation } from '../../Interfaces/IReservation';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
-import { CancelMessageComponent } from '../cancel-message/cancel-message.component';
 import { UpdateReservationPageComponent } from '../update-reservation-page/update-reservation-page.component';
 import { MessageComponent } from 'src/app/common/message/message.component';
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
@@ -42,7 +39,10 @@ export class ReservationComponent implements OnInit {
     reservationStatus: ""
   }
 
-  constructor(public dialog:MatDialog, private cookieService:CookieService) { }
+  constructor(
+    public dialog:MatDialog,
+    private reservationService:ReservationService, 
+    private cookieService:CookieService) { }
 
   get thisReservation() { return {
     reservationId: this.reservation.reservationId,
@@ -53,14 +53,20 @@ export class ReservationComponent implements OnInit {
     restaurantAddress: this.reservation.restaurantAddress,
     restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
     reservationStatus: this.reservation.reservationStatus
-  }} 
+  }}
 
-  confirmCancel(){
-    this.dialog.open(MessageComponent, {
-      data:{ message: "Confirm cancellation of reservation?"}
+  dialogConfirm(message:string, status:string) {
+    const dialogRef = this.dialog.open(MessageComponent, {
+      data:{ message: message, result: false}
     });
 
-    this.dialog.afterAllClosed.subscribe(result => console.log(result))
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.reservation.reservationStatus = status
+        this.reservationService.update(this.reservation).subscribe(resp => console.log(resp))
+        alert(`Your Reservation has been ${status}`);  
+        }
+    })
   }
 
   openUpdate(){
@@ -68,26 +74,14 @@ export class ReservationComponent implements OnInit {
       data:{ reservation: this.thisReservation}
     });
   }
+  
+  confirmCancel(){ this.dialogConfirm("Confirm cancellation of reservation?","CANCELED") }
 
-  confirmDeny(){
-    this.dialog.open(DenyMessageComponent, {
-      data:{ reservation: this.thisReservation}
-    });
-  }
+  confirmDeny(){ this.dialogConfirm("Confirm approval of reservation?","DENIED") }
 
-  confirmApprove(){
-    this.dialog.open(ApproveMessageComponent, {
-      data:{ reservation: this.thisReservation}
-    });
-    
-  }
+  confirmApprove(){ this.dialogConfirm("Confirm approval of reservation?","APPROVED") }
 
-  confirmServe(){
-    this.dialog.open(ServeMessageComponent, {
-      data:{ reservation: this.thisReservation}
-    });
-    
-  }
+  confirmServe(){ this.dialogConfirm("Confirm to serve reservation?","FULFILLED") }
 
   openInfo(){
     this.dialog.open(CustomerInfoComponent, {

@@ -37,13 +37,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 import { ViewallComponent } from './components/viewall/viewall.component';
 import { ManagerViewReservationsPageComponent } from './components/manager-view-reservations-page/manager-view-reservations-page.component';
-import { ApproveMessageComponent } from './components/approve-message/approve-message.component';
-import { DenyMessageComponent } from './components/deny-message/deny-message.component';
-import { CancelMessageComponent } from './components/cancel-message/cancel-message.component';
 import { CustomerInfoComponent } from './components/customer-info/customer-info.component';
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
-import { ServeMessageComponent } from './components/serve-message/serve-message.component';
 import { MessageComponent } from './common/message/message.component';
 
 @NgModule({
@@ -62,15 +58,11 @@ import { MessageComponent } from './common/message/message.component';
     LoggedOutComponent,
     CustomerViewReservationsPageComponent,
     ReservationComponent,
-    CancelMessageComponent,
     ViewallComponent,
     ManagerViewReservationsPageComponent,
-    ApproveMessageComponent,
-    DenyMessageComponent,
     CustomerInfoComponent,
     RestaurantInfoComponent,
     RestaurantPageComponent,
-    ServeMessageComponent,
     MessageComponent,
   ],
 

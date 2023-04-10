@@ -41,9 +41,6 @@ export class NavbarComponent implements OnInit {
       this.showManager = true;
       this.showCustomer = false;
     }
-
-    console.log(this.loggedIn);
-    
   }
 
 }

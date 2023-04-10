@@ -1,7 +1,7 @@
 <div class="message">
     <div class="message-body">
         <p>This action cannot be undone</p>
-        <p>{{ message }}</p>
-        <button mat-button [mat-dialog-close]="true">Confirm</button>
+        <p>{{ this.data.message }}</p>
+        <button mat-button (click)="onConfirm()">Confirm</button>
     </div>
 </div>
