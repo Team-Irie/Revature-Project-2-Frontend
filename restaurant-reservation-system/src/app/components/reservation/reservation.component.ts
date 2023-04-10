@@ -11,6 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { CancelMessageComponent } from '../cancel-message/cancel-message.component';
 import { UpdateReservationPageComponent } from '../update-reservation-page/update-reservation-page.component';
+import { MessageComponent } from 'src/app/common/message/message.component';
 
 @Component({
   selector: 'app-reservation',
@@ -43,110 +44,60 @@ export class ReservationComponent implements OnInit {
 
   constructor(public dialog:MatDialog, private cookieService:CookieService) { }
 
+  get thisReservation() { return {
+    reservationId: this.reservation.reservationId,
+    customer: this.reservation.customer,
+    partySize: this.reservation.partySize,
+    reservationTime: this.reservation.reservationTime,
+    restaurantName: this.reservation.restaurantName,
+    restaurantAddress: this.reservation.restaurantAddress,
+    restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
+    reservationStatus: this.reservation.reservationStatus
+  }} 
+
   confirmCancel(){
-    this.dialog.open(CancelMessageComponent, {
-      data:{
-        reservationId: this.reservation.reservationId,
-        customer: this.reservation.customer,
-        partySize: this.reservation.partySize,
-        reservationTime: this.reservation.reservationTime,
-        restaurantName: this.reservation.restaurantName,
-        restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
-        reservationStatus: this.reservation.reservationStatus
-      }
+    this.dialog.open(MessageComponent, {
+      data:{ message: "Confirm cancellation of reservation?"}
     });
+
+    this.dialog.afterAllClosed.subscribe(result => console.log(result))
   }
 
   openUpdate(){
     this.dialog.open(UpdateReservationPageComponent, {
-      data:{
-        reservationId: this.reservation.reservationId,
-        customer: this.reservation.customer,
-        partySize: this.reservation.partySize,
-        reservationTime: this.reservation.reservationTime,
-        restaurantName: this.reservation.restaurantName,
-        restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
-        reservationStatus: this.reservation.reservationStatus
-      }
+      data:{ reservation: this.thisReservation}
     });
   }
 
   confirmDeny(){
     this.dialog.open(DenyMessageComponent, {
-      data:{
-        reservationId: this.reservation.reservationId,
-        customer: this.reservation.customer,
-        partySize: this.reservation.partySize,
-        reservationTime: this.reservation.reservationTime,
-        restaurantName: this.reservation.restaurantName,
-        restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
-        reservationStatus: this.reservation.reservationStatus
-      }
+      data:{ reservation: this.thisReservation}
     });
   }
 
   confirmApprove(){
     this.dialog.open(ApproveMessageComponent, {
-      data:{
-        reservationId: this.reservation.reservationId,
-        customer: this.reservation.customer,
-        partySize: this.reservation.partySize,
-        reservationTime: this.reservation.reservationTime,
-        restaurantName: this.reservation.restaurantName,
-        restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
-        reservationStatus: this.reservation.reservationStatus
-      }
+      data:{ reservation: this.thisReservation}
     });
     
   }
 
   confirmServe(){
     this.dialog.open(ServeMessageComponent, {
-      data:{
-        reservationId: this.reservation.reservationId,
-        customer: this.reservation.customer,
-        partySize: this.reservation.partySize,
-        reservationTime: this.reservation.reservationTime,
-        restaurantName: this.reservation.restaurantName,
-        restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
-        reservationStatus: this.reservation.reservationStatus
-      }
+      data:{ reservation: this.thisReservation}
     });
     
   }
 
   openInfo(){
     this.dialog.open(CustomerInfoComponent, {
-      data:{
-        reservationId: this.reservation.reservationId,
-        customer: this.reservation.customer,
-        partySize: this.reservation.partySize,
-        reservationTime: this.reservation.reservationTime,
-        restaurantName: this.reservation.restaurantName,
-        restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
-        reservationStatus: this.reservation.reservationStatus
-      }
+      data:{ reservation: this.thisReservation}
     });
   }
 
   openRate(){
     this.dialog.open(RatingComponent, {
-      data:{
-        reservationId: this.reservation.reservationId,
-        customer: this.reservation.customer,
-        partySize: this.reservation.partySize,
-        reservationTime: this.reservation.reservationTime,
-        restaurantName: this.reservation.restaurantName,
-        restaurantAddress: this.reservation.restaurantAddress,
-        restaurantPhoneNumber: this.reservation.restaurantPhoneNumber,
-        reservationStatus: this.reservation.reservationStatus
-      }
+      data:{ reservation: this.thisReservation}
     });
   }
 

@@ -44,6 +44,7 @@ import { CustomerInfoComponent } from './components/customer-info/customer-info.
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
 import { ServeMessageComponent } from './components/serve-message/serve-message.component';
+import { MessageComponent } from './common/message/message.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { ServeMessageComponent } from './components/serve-message/serve-message.
     RestaurantInfoComponent,
     RestaurantPageComponent,
     ServeMessageComponent,
+    MessageComponent,
   ],
 
   imports: [

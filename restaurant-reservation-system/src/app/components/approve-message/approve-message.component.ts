@@ -24,14 +24,14 @@ export class ApproveMessageComponent implements OnInit {
   approveReservation():void{
 
     this.reservation.reservationStatus = "APPROVED";
-    //test later
     this.reservationService.update(this.reservation)
     .subscribe(response=>{
       console.log(response);
     });
 
     alert("Reservation has been approved");
-
+    
+    // should redirect back to view reservations
     location.reload();
   }
 
