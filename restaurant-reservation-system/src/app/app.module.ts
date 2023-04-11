@@ -1,5 +1,4 @@
 import { ReservationComponent } from './components/reservation/reservation.component';
-import { CustomerViewReservationsPageComponent } from './components/customer-view-reservations-page/customer-view-reservations-page.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -36,11 +35,11 @@ import {MatDividerModule} from '@angular/material/divider';
 import { CookieService } from 'ngx-cookie-service';
 import { LoggedOutComponent } from './components/logged-out/logged-out.component';
 import { ViewallComponent } from './components/viewall/viewall.component';
-import { ManagerViewReservationsPageComponent } from './components/manager-view-reservations-page/manager-view-reservations-page.component';
 import { CustomerInfoComponent } from './components/customer-info/customer-info.component';
 import { RestaurantInfoComponent } from './components/restaurant-info/restaurant-info.component';
 import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
 import { MessageComponent } from './common/message/message.component';
+import { ReservationsComponent } from './components/reservations/reservations.component';
 
 @NgModule({
   declarations: [
@@ -56,14 +55,13 @@ import { MessageComponent } from './common/message/message.component';
     SearchboxComponent,
     RegistrationPageComponent,
     LoggedOutComponent,
-    CustomerViewReservationsPageComponent,
     ReservationComponent,
     ViewallComponent,
-    ManagerViewReservationsPageComponent,
     CustomerInfoComponent,
     RestaurantInfoComponent,
     RestaurantPageComponent,
     MessageComponent,
+    ReservationsComponent,
   ],
 
   imports: [

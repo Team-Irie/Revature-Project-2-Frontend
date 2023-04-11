@@ -8,12 +8,14 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ReservationService {
+
+  constructor(private http:HttpClient) { }
   onSubmit(data: any) {
     throw new Error('Method not implemented.');
   }
-
+  
   private url = "http://localhost:7000/reservations";
-
+  
   reservations: IReservation[] = [];
 
   allReservations:Subject<IReservation[]> = new Subject<IReservation[]>();
@@ -49,7 +51,7 @@ export class ReservationService {
     });
   }
 
-  customerReservations(id:number): void {
+  customerReservations(id:number) {
     this.http.get<IReservation[]>(`${this.url}/customer/${id}`)
     .pipe(catchError((e)=>{
       return throwError(e);
@@ -58,6 +60,9 @@ export class ReservationService {
       this.reservations = data;
       this.userReservations.next(this.reservations)
     });
+  }
+  getUserReservations(id:number) {
+    return this.http.get<any>(`${this.url}/customer/${id}`)
   }
 
   getAll(): void {
@@ -70,6 +75,7 @@ export class ReservationService {
       this.allReservations.next(this.reservations)
     });
   }
+  get(){ return this.http.get<any>(`${this.url}/`) }
 
   getPending(): void {
     this.http.get<IReservation[]>(`${this.url}/pending`)
@@ -103,5 +109,4 @@ export class ReservationService {
   }
 
 
-  constructor(private http:HttpClient) { }
 }

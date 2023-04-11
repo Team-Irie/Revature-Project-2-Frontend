@@ -9,26 +9,18 @@ import { IUser } from './Interfaces/IUser';
 })
 export class UserService { 
   
-  
-//  apiURL : string = "https://jsonplaceholder.cypress.io/";
- 
- 
-//  apiURL : string = "http://34.150.205.253:7000/";
-
- apiURL : string = "http://localhost:7000/";
-   
-
   constructor(private http: HttpClient) { }
-
+  
   getData(): Observable<any> {
-
-    return this.http.get<any>(this.apiURL + 'users/')
+    
+    return this.http.get<any>(`${this.apiURL}users/`)
   }
-
+  apiURL : string = "http://localhost:7000/";
+  
   //Update user "PUT" Method
 
-  info(id:number):Observable<any>{
-    return this.http.get<any>(`${this.apiURL}/users/${id}`)
+  getUserById(id:number):Observable<any>{
+    return this.http.get<any>(`${this.apiURL}users/${id}`)
     .pipe(catchError((e)=>{
       return throwError(e);
     }));

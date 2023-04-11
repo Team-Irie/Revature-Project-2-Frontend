@@ -32,15 +32,15 @@ export class NavbarComponent implements OnInit {
       this.loggedIn = true;
     } 
 
-    if (this.cookeService.get('userType') == 'CUSTOMER') {
-      this.showCustomer = true;
-      this.showManager = false;
-    }
+    // if (this.cookeService.get('userType') == 'CUSTOMER') {
+    //   this.showCustomer = true;
+    //   this.showManager = false;
+    // }
 
-    if (this.cookeService.get('userType') == 'MANAGER') {
-      this.showManager = true;
-      this.showCustomer = false;
-    }
+    // if (this.cookeService.get('userType') == 'MANAGER') {
+    //   this.showManager = true;
+    //   this.showCustomer = false;
+    // }
   }
 
 }

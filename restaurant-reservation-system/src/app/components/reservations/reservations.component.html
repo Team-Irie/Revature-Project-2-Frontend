@@ -6,6 +6,6 @@
     </mat-button-toggle-group>
 </div>
 <mat-accordion>
-    <app-reservation *ngFor="let reservation of (reservations | async)" [reservation]="reservation">
+    <app-reservation *ngFor="let reservation of reservations" [reservation]="reservation">
     </app-reservation>
 </mat-accordion>
