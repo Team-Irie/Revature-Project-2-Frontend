@@ -3,11 +3,15 @@ import { IYelp } from '../../core/models/IYelp';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, throwError, catchError } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchboxService {
+
+  constructor(private http: HttpClient) {}
+
   private term!: string;
   private location!: string; 
 
@@ -15,12 +19,11 @@ export class SearchboxService {
 
   searchResults:Subject<IYelp[]> = new Subject<IYelp[]>();
 
-  constructor(private http: HttpClient) {}
 
   public searchYelp(value: string, value2: string): void {
     this.term = value;
     this.location = value2;    
-    const url = `http://localhost:7000/search?term=${this.term}&location=${this.location}`;
+    const url = `${environment.url}/search?term=${this.term}&location=${this.location}`;
     const headers = new HttpHeaders({'Access-Control-Allow-Origin':'http://localhost:4200/'});
     console.log(headers);
     

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IUser } from '../models/IUser';
 import { CookieService } from 'ngx-cookie-service'
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class LoginService {
 
   loginUser(email: string, password: string): Observable<IUser> {
     let loginInfo = [email, password];
-    const response = this.http.post<IUser>('http://localhost:7000/users/login', loginInfo);
+    const response = this.http.post<IUser>(`${environment.url}/users/login`, loginInfo);
     response.subscribe(userData => {
         // set cookies
         this.cookieService.set('userId', userData.userId.toString());
