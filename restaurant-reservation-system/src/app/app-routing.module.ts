@@ -1,16 +1,16 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './services/auth.guard';
-import { AccountInfoPageComponent } from './components/account-info-page/account-info-page.component';
-import { HomepageComponent } from './components/homepage/homepage.component';
-import { LoginComponent } from './components/login/login.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { RatingComponent } from './components/rating/rating.component';
-import { ReservationPageComponent } from './components/reservation-page/reservation-page.component';
-import { RegistrationPageComponent } from './components/registration-page/registration-page.component';
-import { LoggedOutComponent } from './components/logged-out/logged-out.component';
-import { ViewallComponent } from './components/viewall/viewall.component';
-import { ReservationsComponent } from './components/reservations/reservations.component';
+import { AuthGuard } from './core/guards/auth.guard'
+import { AccountInfoPageComponent } from './features/account-info-page/account-info-page.component';
+import { HomepageComponent } from './features/homepage/homepage.component';
+import { LoginComponent } from './features/login/login.component';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
+import { RatingComponent } from './features/viewing-reservations/components/rating/rating.component';
+import { ReservationPageComponent } from './features/reservation-page/reservation-page.component';
+import { RegistrationPageComponent } from './features/registration-page/registration-page.component';
+import { LoggedOutComponent } from './features/logged-out/logged-out.component';
+import { ViewallComponent } from './features/viewall/viewall.component';
+import { ReservationsComponent } from './features/viewing-reservations/pages/reservations/reservations.component';
 
 const routes: Routes = [
   { path: 'home', component: HomepageComponent, canActivate: [AuthGuard] },

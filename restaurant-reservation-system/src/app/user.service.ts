@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { IUser } from './Interfaces/IUser';
+import { IUser } from './core/models/IUser';
 
 
 @Injectable({
