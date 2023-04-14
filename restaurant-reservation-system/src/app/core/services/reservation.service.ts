@@ -11,103 +11,37 @@ import { environment } from 'src/environments/environment';
 export class ReservationService {
 
   constructor(private http:HttpClient) { }
-  onSubmit(data: any) {
-    throw new Error('Method not implemented.');
-  }
   
   private url = `${environment.url}/reservations`
-  
-  reservations: IReservation[] = [];
-
-  allReservations:Subject<IReservation[]> = new Subject<IReservation[]>();
-  
-  userReservations:Subject<IReservation[]> = new Subject<IReservation[]>();
 
   create(reservation:IReservation):Observable<IReservation>{
     return this.http.post<IReservation>(`${this.url}/`, reservation)
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    }));
+    .pipe(catchError(this.handleError));
   }
 
-  customerPending(id:number): void {
-    this.http.get<IReservation[]>(`${this.url}/customer/pending/${id}`)
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    })
-    ).subscribe((data)=>{
-      this.reservations = data;
-      this.userReservations.next(this.reservations)
-    });
-  }
-
-  customerServed(id:number): void {
-    this.http.get<IReservation[]>(`${this.url}/customer/served/${id}`)
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    })
-    ).subscribe((data)=>{
-      this.reservations = data;
-      this.userReservations.next(this.reservations)
-    });
-  }
-
-  customerReservations(id:number) {
-    this.http.get<IReservation[]>(`${this.url}/customer/${id}`)
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    })
-    ).subscribe((data)=>{
-      this.reservations = data;
-      this.userReservations.next(this.reservations)
-    });
-  }
   getUserReservations(id:number) {
     return this.http.get<any>(`${this.url}/customer/${id}`)
+      .pipe(catchError(this.handleError))
   }
 
-  getAll(): void {
-    this.http.get<IReservation[]>(`${this.url}/`)
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    })
-    ).subscribe((data)=>{
-      this.reservations = data;
-      this.allReservations.next(this.reservations)
-    });
-  }
-  get(){ return this.http.get<any>(`${this.url}/`) }
-
-  getPending(): void {
-    this.http.get<IReservation[]>(`${this.url}/pending`)
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    })
-    ).subscribe((data)=>{
-      this.reservations = data;
-      this.allReservations.next(this.reservations)
-    });
+  get(){ 
+    return this.http.get<any>(`${this.url}/`)
+    .pipe(catchError(this.handleError))
   }
 
-  getServed(): void {
-    this.http.get<IReservation[]>(`${this.url}/served`)
-    .pipe(catchError((e)=>{
-      return throwError(e);
-    })
-    ).subscribe((data)=>{
-      this.reservations = data;
-      this.allReservations.next(this.reservations)
-    });
+  update(reservation:IReservation) {
+    return this.http.put<any>(`${this.url}/`, reservation)
+    .pipe(catchError(this.handleError));
   }
 
-  update(reservation:IReservation):Observable<IReservation>{
-    console.log("update reservation called");
-    return this.http.put<IReservation>(`${this.url}/`, reservation)
-    .pipe(catchError((e)=>{
-      console.log(e)
-      return throwError(e);
-    }));
-  }
+  private handleError(error:Response) {
+    if(error.status === 400)
+      return throwError(()=>{ throw new Error("BadRequest")})
+    
+    if(error.status === 404)
+      return throwError(()=>{ throw new Error("NotFound")})
 
+    return throwError(() => {throw new Error("An unknown error has occured")})
+  }
 
 }

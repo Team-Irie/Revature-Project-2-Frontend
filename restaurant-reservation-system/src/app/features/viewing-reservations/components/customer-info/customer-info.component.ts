@@ -29,9 +29,8 @@ export class CustomerInfoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.userService.info(this.data.customer)
+    this.userService.getUserById(this.data.customer)
     .subscribe((data =>{
-      console.log(data)
       this.user.userId = data.userId;
       this.user.firstName = data.firstName;
       this.user.lastName = data.lastName;
