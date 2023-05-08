@@ -1,0 +1,17 @@
+.title {
+    font-weight: 700;
+}
+
+.header {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.card {
+    max-width: 400px;
+}
+
+.img {
+    width: 400px;
+    height: 500px;
+}

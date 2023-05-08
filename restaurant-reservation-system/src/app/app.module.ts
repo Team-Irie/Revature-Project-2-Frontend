@@ -37,9 +37,9 @@ import { LoggedOutComponent } from './features/logged-out/logged-out.component';
 import { ViewallComponent } from './features/viewall/viewall.component';
 import { CustomerInfoComponent } from './features/viewing-reservations/components/customer-info/customer-info.component';
 import { RestaurantInfoComponent } from './features/restaurant-info/restaurant-info.component';
-import { RestaurantPageComponent } from './features/restaurant-page/restaurant-page.component';
 import { MessageComponent } from './features/viewing-reservations/components/message/message.component';
 import { ReservationsComponent } from './features/viewing-reservations/pages/reservations/reservations.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -59,9 +59,9 @@ import { ReservationsComponent } from './features/viewing-reservations/pages/res
     ViewallComponent,
     CustomerInfoComponent,
     RestaurantInfoComponent,
-    RestaurantPageComponent,
     MessageComponent,
     ReservationsComponent,
+    CardComponent,
   ],
 
   imports: [

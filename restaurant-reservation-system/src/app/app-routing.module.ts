@@ -4,7 +4,6 @@ import { AuthGuard } from './core/guards/auth.guard'
 import { AccountInfoPageComponent } from './features/account-info-page/account-info-page.component';
 import { HomepageComponent } from './features/homepage/homepage.component';
 import { LoginComponent } from './features/login/login.component';
-import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { RatingComponent } from './features/viewing-reservations/components/rating/rating.component';
 import { ReservationPageComponent } from './features/reservation-page/reservation-page.component';
 import { RegistrationPageComponent } from './features/registration-page/registration-page.component';

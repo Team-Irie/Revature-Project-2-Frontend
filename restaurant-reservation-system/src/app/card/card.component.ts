@@ -1,14 +1,19 @@
-import { IYelp } from 'src/app/core/models/IYelp';
-import { MatDialog } from '@angular/material/dialog';
 import { Component, Input, OnInit } from '@angular/core';
-import { ReservationPageComponent } from '../reservation-page/reservation-page.component';
+import { IYelp } from '../core/models/IYelp';
+import { MatDialog } from '@angular/material/dialog';
+import { ReservationPageComponent } from '../features/reservation-page/reservation-page.component';
 
 @Component({
-  selector: 'app-restaurant-info',
-  templateUrl: './restaurant-info.component.html',
-  styleUrls: ['./restaurant-info.component.css']
+  selector: 'card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
 })
-export class RestaurantInfoComponent implements OnInit {
+export class CardComponent implements OnInit {
+
+  constructor(public dialog:MatDialog) { }
+
+  ngOnInit(): void {
+  }
 
   @Input() restaurant:IYelp = {
     name:"",
@@ -31,11 +36,6 @@ export class RestaurantInfoComponent implements OnInit {
         restaurantPhone: this.restaurant.display_phone
       }
     });
-  }
-
-  constructor(public dialog:MatDialog) { }
-
-  ngOnInit(): void {
   }
 
 }

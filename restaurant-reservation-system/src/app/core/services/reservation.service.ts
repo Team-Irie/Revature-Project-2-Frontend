@@ -35,13 +35,7 @@ export class ReservationService {
   }
 
   private handleError(error:Response) {
-    if(error.status === 400)
-      return throwError(()=>{ throw new Error("BadRequest")})
-    
-    if(error.status === 404)
-      return throwError(()=>{ throw new Error("NotFound")})
-
-    return throwError(() => {throw new Error("An unknown error has occured")})
+    return throwError(() => {throw new Error(`Error Code:${error.status}`)})
   }
 
 }
