@@ -8,7 +8,9 @@ import { ReservationPageComponent } from '../reservation-page/reservation-page.c
   templateUrl: './restaurant-info.component.html',
   styleUrls: ['./restaurant-info.component.css']
 })
-export class RestaurantInfoComponent implements OnInit {
+export class RestaurantInfoComponent {
+  
+    constructor(public dialog:MatDialog) { }
 
   @Input() restaurant:IYelp = {
     name:"",
@@ -31,11 +33,6 @@ export class RestaurantInfoComponent implements OnInit {
         restaurantPhone: this.restaurant.display_phone
       }
     });
-  }
-
-  constructor(public dialog:MatDialog) { }
-
-  ngOnInit(): void {
   }
 
 }

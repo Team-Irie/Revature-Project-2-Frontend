@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
   }
   
   ngOnInit(): void {
-
+    // unused
   }
 
   ngDoCheck() {
@@ -32,15 +32,6 @@ export class NavbarComponent implements OnInit {
       this.loggedIn = true;
     } 
 
-    // if (this.cookeService.get('userType') == 'CUSTOMER') {
-    //   this.showCustomer = true;
-    //   this.showManager = false;
-    // }
-
-    // if (this.cookeService.get('userType') == 'MANAGER') {
-    //   this.showManager = true;
-    //   this.showCustomer = false;
-    // }
   }
 
 }

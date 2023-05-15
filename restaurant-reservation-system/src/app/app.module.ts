@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -26,7 +25,6 @@ import { ReservationPageComponent } from './features/reservation-page/reservatio
 import { LoginComponent } from './features/login/login.component';
 import { UpdateReservationPageComponent } from './features/viewing-reservations/components/update-reservation-page/update-reservation-page.component';
 import { HomepageComponent } from './features/homepage/homepage.component';
-import { UserService } from './user.service';
 import {MatTableModule} from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationPageComponent } from './features/registration-page/registration-page.component';

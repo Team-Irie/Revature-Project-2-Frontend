@@ -8,12 +8,9 @@ import { ReservationPageComponent } from '../features/reservation-page/reservati
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
   constructor(public dialog:MatDialog) { }
-
-  ngOnInit(): void {
-  }
 
   @Input() restaurant:IYelp = {
     name:"",
