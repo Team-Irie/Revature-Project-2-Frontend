@@ -1,4 +1,3 @@
-import { ReservationComponent } from '../../features/viewing-reservations/components/reservation/reservation.component';
 import { Observable, catchError, throwError, Subject } from 'rxjs';
 import { IReservation } from '../../core/models/IReservation';
 import { Injectable } from '@angular/core';

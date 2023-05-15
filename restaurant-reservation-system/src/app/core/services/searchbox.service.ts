@@ -1,8 +1,6 @@
-import { IBusinesses } from '../models/IBusinesses';
-import { IYelp } from '../../core/models/IYelp';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject, throwError, catchError } from 'rxjs';
+import { throwError, catchError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,9 +9,6 @@ import { environment } from 'src/environments/environment';
 export class SearchboxService {
 
   constructor(private http: HttpClient) {}
-
-  private term!: string;
-  private location!: string; 
 
   public searchYelp(term: string, location: string) {
     const url = `${environment.url}/search?term=${term}&location=${location}`;

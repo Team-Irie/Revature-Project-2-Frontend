@@ -9,21 +9,5 @@
     </div>
     <div class="container-fluid pt-5" *ngIf="searchResult">
       <card *ngFor="let restaurant of restaurantList" [restaurant]="restaurant"></card>
-      <!-- <mat-accordion>
-        <app-restaurant-info *ngFor="let restaurant of (restaurantList | async)" [restaurant]="restaurant">
-        </app-restaurant-info>
-      </mat-accordion> -->
-      <!--
-      <img class="d-flex justify-content-center mx-auto mb-5" src="{{restaurant.restaurantImageUrl}}" alt="{{restaurantName}}">
-      <p class="d-flex justify-content-center mx-auto">{{restaurant.restaurantName}}</p>
-      <p class="d-flex justify-content-center mx-auto">{{restaurant.restaurantAddress0}}</p>
-      <p class="d-flex justify-content-center mx-auto">{{restaurant.restaurantAddress1}}</p>
-      <p class="d-flex justify-content-center mx-auto">{{restaurant.restaurantPhone}}</p>
-      <div fxLayoutAlign="center center">
-      <button mat-raised-button color="primary" (click)="makeReservation()">Make Reservation</button>
-
-      </div>
-      <a href="/"></a>
-    -->
     </div>
   </div>

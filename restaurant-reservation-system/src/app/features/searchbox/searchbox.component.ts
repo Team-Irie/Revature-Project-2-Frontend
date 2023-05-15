@@ -46,7 +46,6 @@ export class SearchboxComponent implements OnInit {
   searchResult = false;
   
   onSubmit(data:any) {
-    console.log('form submitted');
     let term = data.value.term;
     let location = data.value.location;
     this.searchboxService.searchYelp(term, location).subscribe(result => {
