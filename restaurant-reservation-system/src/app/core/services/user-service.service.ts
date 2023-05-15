@@ -29,14 +29,6 @@ export class UserServiceService {
       .pipe(catchError(this.handleError));
   }
 
-  // update(user:IUser):Observable<IUser>{
-  //   console.log("update user called");
-  //  return this.http.put<IUser>(`${this.url}/`, user)
-  //  .pipe(catchError((e)=>{
-  //   console.log(e);
-  //   return throwError(e);
-  // }));
-  // }
   update(user:IUser) { 
     return this.http.put<any>(`${this.url}/`, user)
       .pipe(catchError(this.handleError))
