@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from 'src/app/core/services/user-service.service';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 
 @Component({
@@ -10,15 +9,14 @@ import { UserService } from 'src/app/user.service';
 })
 export class ViewallComponent implements OnInit {
 
-  constructor(private userService : UserServiceService) {}
+  constructor(private userService : UserService) {}
   
   data:any[] = []
 
   ngOnInit() {
     this.userService.get().subscribe( data => {
-      console.log(data)
       this.data = data 
     })
   }
-  
+
 }

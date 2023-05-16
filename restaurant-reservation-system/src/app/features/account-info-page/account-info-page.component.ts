@@ -1,4 +1,4 @@
-import { UserServiceService } from 'src/app/core/services/user-service.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { IUser } from 'src/app/core/models/IUser';
@@ -55,7 +55,7 @@ export class AccountInfoPageComponent implements OnInit {
    }
 
   constructor(
-    private userService:UserServiceService,
+    private userService:UserService,
     private cookieService:CookieService
     ) { }
   

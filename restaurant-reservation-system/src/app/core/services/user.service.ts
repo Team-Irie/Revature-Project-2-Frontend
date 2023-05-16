@@ -1,6 +1,5 @@
 import { catchError, Observable, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
 import { IUser } from '../models/IUser';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -8,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class UserServiceService {
+export class UserService {
 
   constructor(private http:HttpClient) { }
 

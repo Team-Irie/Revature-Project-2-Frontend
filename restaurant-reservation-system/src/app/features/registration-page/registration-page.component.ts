@@ -1,4 +1,4 @@
-import { UserServiceService } from 'src/app/core/services/user-service.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { MyErrorStateMatcher } from '../viewing-reservations/components/update-reservation-page/update-reservation-page.component';
 import { FormControl, Validators } from '@angular/forms';
