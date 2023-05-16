@@ -29,6 +29,11 @@ export class UserServiceService {
       .pipe(catchError(this.handleError));
   }
 
+  get() {
+    return this.http.get<any>(`${this.url}/`)
+      .pipe(catchError(this.handleError));
+  }
+
   update(user:IUser) { 
     return this.http.put<any>(`${this.url}/`, user)
       .pipe(catchError(this.handleError))
