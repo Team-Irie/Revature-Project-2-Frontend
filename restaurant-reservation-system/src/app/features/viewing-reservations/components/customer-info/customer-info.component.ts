@@ -3,7 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../../../../core/services/user.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { IReservation } from 'src/app/core/models/IReservation';
-import { IUser } from 'src/app/core/models/IUser';
+import { User } from 'src/app/core/models/User';
 
 @Component({
   selector: 'app-customer-info',
@@ -12,7 +12,7 @@ import { IUser } from 'src/app/core/models/IUser';
 })
 export class CustomerInfoComponent implements OnInit {
 
-  user:IUser = {
+  user:User = {
     userId: 0,
     firstName: "",
     lastName: "",

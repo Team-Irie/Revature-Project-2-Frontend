@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ViewallComponent } from './viewall.component';
+import { UserService } from 'src/app/core/services/user.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ViewallComponent', () => {
   let component: ViewallComponent;
@@ -8,7 +9,9 @@ describe('ViewallComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewallComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ ViewallComponent ],
+      providers: [UserService]
     })
     .compileComponents();
   });

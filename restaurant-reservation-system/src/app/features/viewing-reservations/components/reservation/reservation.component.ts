@@ -2,7 +2,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { RatingComponent } from '../rating/rating.component';
 import { CustomerInfoComponent } from '../customer-info/customer-info.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { IUser } from 'src/app/core/models/IUser';
+import { User } from 'src/app/core/models/User';
 import { IReservation } from 'src/app/core/models/IReservation';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
@@ -18,7 +18,7 @@ import { ReservationService } from 'src/app/core/services/reservation.service';
 })
 export class ReservationComponent implements OnInit {
 
-  @Input() user:IUser = {
+  @Input() user:User = {
     userId: 0,
     firstName: "",
     lastName: "",

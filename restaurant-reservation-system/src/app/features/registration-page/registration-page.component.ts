@@ -4,7 +4,7 @@ import { MyErrorStateMatcher } from '../viewing-reservations/components/update-r
 import { FormControl, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/core/models/IUser';
+import { User } from 'src/app/core/models/User';
 import { RegistrationService } from 'src/app/core/services/registration.service';
 
 @Component({
