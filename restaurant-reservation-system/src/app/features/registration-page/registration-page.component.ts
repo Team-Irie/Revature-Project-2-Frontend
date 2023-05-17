@@ -1,10 +1,10 @@
-import { UserServiceService } from 'src/app/core/services/user-service.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { MyErrorStateMatcher } from '../viewing-reservations/components/update-reservation-page/update-reservation-page.component';
 import { FormControl, Validators } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { IUser } from 'src/app/core/models/IUser';
+import { User } from 'src/app/core/models/User';
 import { RegistrationService } from 'src/app/core/services/registration.service';
 
 @Component({

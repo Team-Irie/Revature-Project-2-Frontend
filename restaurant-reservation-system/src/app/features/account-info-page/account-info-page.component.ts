@@ -1,7 +1,7 @@
-import { UserServiceService } from 'src/app/core/services/user-service.service';
+import { UserService } from 'src/app/core/services/user.service';
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { IUser } from 'src/app/core/models/IUser';
+import { User } from 'src/app/core/models/User';
 
 @Component({
   selector: 'app-account-info-page',
@@ -12,7 +12,7 @@ export class AccountInfoPageComponent implements OnInit {
 
   hide = true;
 
-  user:IUser = {
+  user:User = {
     userId: 0,
     firstName: "",
     lastName: "",
@@ -55,7 +55,7 @@ export class AccountInfoPageComponent implements OnInit {
    }
 
   constructor(
-    private userService:UserServiceService,
+    private userService:UserService,
     private cookieService:CookieService
     ) { }
   

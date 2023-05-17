@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUser } from '../models/IUser';
+import { User } from '../models/User';
 import { CookieService } from 'ngx-cookie-service'
 import { environment } from 'src/environments/environment';
 
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class LoginService {
-  user:IUser ={
+  user:User ={
     userId: 0,
     firstName: '',
     lastName: '',
@@ -23,9 +23,9 @@ export class LoginService {
 
   public isAuthenticated = false;
 
-  loginUser(email: string, password: string): Observable<IUser> {
+  loginUser(email: string, password: string): Observable<User> {
     let loginInfo = [email, password];
-    const response = this.http.post<IUser>(`${environment.url}/users/login`, loginInfo);
+    const response = this.http.post<User>(`${environment.url}/users/login`, loginInfo);
     response.subscribe(userData => {
         // set cookies
         this.cookieService.set('userId', userData.userId.toString());

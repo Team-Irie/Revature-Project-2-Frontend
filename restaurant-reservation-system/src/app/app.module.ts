@@ -26,7 +26,6 @@ import { ReservationPageComponent } from './features/reservation-page/reservatio
 import { LoginComponent } from './features/login/login.component';
 import { UpdateReservationPageComponent } from './features/viewing-reservations/components/update-reservation-page/update-reservation-page.component';
 import { HomepageComponent } from './features/homepage/homepage.component';
-import { UserService } from './user.service';
 import {MatTableModule} from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RegistrationPageComponent } from './features/registration-page/registration-page.component';

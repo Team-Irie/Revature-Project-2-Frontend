@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 
 @Component({
@@ -9,21 +9,14 @@ import { UserService } from 'src/app/user.service';
 })
 export class ViewallComponent implements OnInit {
 
-  data:Array<any>
-
-  constructor(private userService : UserService) {
-
-    this.data = new Array<any>()
-  }
-
-    getDataFromAPI() {
-      this.userService.getData().subscribe((data) => {
-        console.log(data)
-        this.data = data
-      });
-    }
+  constructor(private userService : UserService) {}
   
+  data:any[] = []
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.userService.get().subscribe( data => {
+      this.data = data 
+    })
+  }
 
 }
