@@ -27,19 +27,6 @@ describe('UserService', () => {
     expect(service).toBeTruthy();
   });
 
-
-  // TODO:
-  // it('should login the user', ()=>{
-  //   const user = createEmptyUser();
-
-  //   service.login(username, password).subscribe ( result => {
-  //     expect(result).toBeTruthy();
-  //     expect(result).toEqual(user);
-  //   })
-
-  //   const request = httpMock.expectOne(`${environment.url}`)
-  // })
-
   it('should create user', ()=>{
     const user = createEmptyUser();
     service.create(user).subscribe();
