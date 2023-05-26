@@ -1,5 +1,5 @@
 import { UserService } from 'src/app/core/services/user.service';
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/core/models/User';
 
@@ -60,7 +60,7 @@ export class AccountInfoPageComponent implements OnInit {
     ) { }
   
   ngOnInit(): void {
-    var userIdNumber = parseInt(this.cookieService.get('userId'));
+    let userIdNumber = parseInt(this.cookieService.get('userId'));
     this.userService.getUserById(userIdNumber)
     .subscribe((data =>{
       console.log(data)
