@@ -54,24 +54,4 @@ export class LoginComponent implements OnInit {
   get username() { return this.loginForm.get('username') }
   get password() { return this.loginForm.get('password') }
 
-  // login(): void {
-    
-  //   this.loginService.loginUser(this.email, this.password)
-  //     .subscribe(data => {
-  //       if (data) {
-  //         this.loginService.user = {
-  //           userId: data.userId,
-  //           email: data.email,
-  //           firstName: data.firstName,
-  //           lastName: data.lastName,
-  //           password: data.password,
-  //           phoneNumber: data.phoneNumber,
-  //           userType: data.userType
-  //         }
-  //         this.error = false;
-  //         this.router.navigateByUrl('/home');
-  //       }
-  //   }, (error) => this.error = true);
-
-  //  }
 }

@@ -1,29 +1,36 @@
 <div class="row" fxLayoutAlign="center center" fxFlexFill class="main-div">         
   <mat-card fxFlex="22">
     <mat-toolbar class="mt-toolbar justify-content-center">Login</mat-toolbar>
+
     <mat-toolbar
       *ngIf="loginForm.errors?.['invalidLogin']" 
-      class="alert alert-danger mt-toolbar justify-content-center">Invalid username and/or password</mat-toolbar>
+      class="alert alert-danger mt-toolbar justify-content-center">Invalid username and/or password
+    </mat-toolbar>
+
       <form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
-      <mat-form-field>
-        <input 
-          matInput
-          formControlName="username"
-          id="username"
-          type="text"
-          placeholder="Username">
-      </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          formControlName="password"
-          id="password"
-          type="password"
-          placeholder="Password">
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Login</button>
-      <br>
-      <a class="justify-content-center" href="/register">Register</a>
+
+        <mat-form-field>
+          <input 
+            matInput
+            formControlName="username"
+            id="username"
+            type="text"
+            placeholder="Username">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            matInput
+            formControlName="password"
+            id="password"
+            type="password"
+            placeholder="Password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Login</button>
+        <br>
+        <a class="justify-content-center" href="/register">Register</a>
+
     </form>
    </mat-card>
 </div>
