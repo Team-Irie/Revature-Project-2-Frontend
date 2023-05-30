@@ -1,4 +1,4 @@
-export interface IReservation {
+export interface Reservation {
     reservationId?: number;
     customer: number;
     partySize: number;

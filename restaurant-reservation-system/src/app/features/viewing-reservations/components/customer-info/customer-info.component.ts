@@ -2,8 +2,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../../../../core/services/user.service';
 import { Component, Inject, OnInit } from '@angular/core';
-import { IReservation } from 'src/app/core/models/IReservation';
+import { Reservation } from 'src/app/core/models/Reservation';
 import { User } from 'src/app/core/models/User';
+import { createEmptyUser } from 'src/app/core/common/models';
 
 @Component({
   selector: 'app-customer-info',
@@ -12,18 +13,10 @@ import { User } from 'src/app/core/models/User';
 })
 export class CustomerInfoComponent implements OnInit {
 
-  user:User = {
-    userId: 0,
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    userType: "",
-    phoneNumber: ""
-  }
+  user:User = createEmptyUser()
 
   constructor(
-    @Inject(MAT_DIALOG_DATA)private data:IReservation,
+    @Inject(MAT_DIALOG_DATA)private data:Reservation,
     private userService:UserService,
     private cookieService:CookieService
     ) { }

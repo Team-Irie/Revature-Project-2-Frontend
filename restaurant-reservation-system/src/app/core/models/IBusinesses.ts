@@ -1,4 +1,4 @@
-import { IYelp } from './IYelp';
+import { Yelp } from './Yelp';
 export interface IBusinesses {
-    businesses:IYelp[];
+    businesses:Yelp[];
 }

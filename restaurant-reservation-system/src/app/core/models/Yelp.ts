@@ -1,7 +1,7 @@
 import { ILocation } from './ILocation';
 import { ICoordinates } from './ICoordinates';
 import { ICatagories } from './ICatagories';
-export interface IYelp {
+export interface Yelp {
     id?:string;
     alias?:string;
     name?:string;

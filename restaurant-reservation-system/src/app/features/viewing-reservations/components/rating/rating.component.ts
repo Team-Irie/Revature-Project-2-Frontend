@@ -1,7 +1,7 @@
 import { ReservationService } from 'src/app/core/services/reservation.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
-import { IReservation } from 'src/app/core/models/IReservation';
+import { Reservation } from 'src/app/core/models/Reservation';
 
 @Component({
   selector: 'rating',
@@ -15,7 +15,7 @@ export class RatingComponent implements OnInit {
   starCount = 5;
   ratingArr : boolean[] = [];
 
-  reservation:IReservation = {
+  reservation:Reservation = {
     reservationId: this.data.reservationId,
     customer: this.data.customer,
     partySize: this.data.partySize,
@@ -28,14 +28,14 @@ export class RatingComponent implements OnInit {
   }
 
   constructor (
-    @Inject(MAT_DIALOG_DATA)public data:IReservation,
+    @Inject(MAT_DIALOG_DATA)public data:Reservation,
     private reservationService:ReservationService
   ){
     this.ratingArr = Array(this.starCount).fill(false);
   }
 
   ngOnInit(): void {
-      
+    // unused
   }
 
   returnStar(i: number) {

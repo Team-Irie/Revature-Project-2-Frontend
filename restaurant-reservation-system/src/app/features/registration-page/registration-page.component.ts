@@ -1,8 +1,3 @@
-import { UserService } from 'src/app/core/services/user.service';
-import { HttpClient } from '@angular/common/http';
-import { MyErrorStateMatcher } from '../viewing-reservations/components/update-reservation-page/update-reservation-page.component';
-import { FormControl, Validators } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/models/User';
 import { RegistrationService } from 'src/app/core/services/registration.service';
@@ -13,27 +8,20 @@ import { RegistrationService } from 'src/app/core/services/registration.service'
   styleUrls: ['./registration-page.component.css']
 })
 export class RegistrationPageComponent implements OnInit {
-
+  
   hide = true;
   confirmHide = true;
-
-  constructor(public registrationService: RegistrationService) { }
-
   userFirst:String = "";
   userLast:String = "";
   userEmail:String = "";
   userPassword:String = "";
+  
+  constructor(public registrationService: RegistrationService) { }
 
-  // user:IUser = {
-  //   id: 0,
-  //   first: "Arby",
-  //   last: "Gudes",
-  //   email: "Aegudes@gmail.com",
-  //   password: "not-a-password",
-  //   role: 0
-  // }
-
-  // random number generator to generate user_id
+  ngOnInit(): void {
+    // unused
+  }
+  
   getRandomInt(max: number) {
     return Math.floor(Math.random() * max);
   }
@@ -49,9 +37,7 @@ export class RegistrationPageComponent implements OnInit {
       return;
     }
 
-    // stretch goal - implement bcrypt to hash pw
     const user = {
-      // user_id: this.getRandomInt(100),
       email: data.email,
       firstName: data.first,
       lastName: data.last,
@@ -87,12 +73,5 @@ export class RegistrationPageComponent implements OnInit {
     }
   }
 
-  //passwordFormControl = new FormControl('', [Validators.required]);
-  //confirmPasswordFormControl = new FormControl('', [Validators.required]);
-
-  //matcher = new MyErrorStateMatcher();
-
-  ngOnInit(): void {
-  }
 
 }

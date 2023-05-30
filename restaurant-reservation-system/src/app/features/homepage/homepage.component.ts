@@ -8,6 +8,8 @@ import{ CookieService } from 'ngx-cookie-service';
 })
 export class HomepageComponent implements OnInit {
 
+  // TODO: Check if in use
+
   constructor(private cookieService:CookieService) { }
 
   ngOnInit(): void {
