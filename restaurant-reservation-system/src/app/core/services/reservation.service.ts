@@ -1,5 +1,5 @@
 import { Observable, catchError, throwError, Subject } from 'rxjs';
-import { IReservation } from '../../core/models/IReservation';
+import { Reservation } from '../models/Reservation';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -14,8 +14,8 @@ export class ReservationService {
   
   private url = `${environment.url}/reservations`
 
-  create(reservation:IReservation):Observable<IReservation>{
-    return this.http.post<IReservation>(`${this.url}/`, reservation)
+  create(reservation:Reservation):Observable<Reservation>{
+    return this.http.post<Reservation>(`${this.url}/`, reservation)
     .pipe(catchError(handleError));
   }
 
@@ -29,7 +29,7 @@ export class ReservationService {
     .pipe(catchError(handleError))
   }
 
-  update(reservation:IReservation) {
+  update(reservation:Reservation) {
     return this.http.put<any>(`${this.url}/`, reservation)
     .pipe(catchError(handleError));
   }

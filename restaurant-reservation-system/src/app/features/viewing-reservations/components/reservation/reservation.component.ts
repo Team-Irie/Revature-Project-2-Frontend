@@ -3,12 +3,13 @@ import { RatingComponent } from '../rating/rating.component';
 import { CustomerInfoComponent } from '../customer-info/customer-info.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/app/core/models/User';
-import { IReservation } from 'src/app/core/models/IReservation';
+import { Reservation } from 'src/app/core/models/Reservation';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { UpdateReservationPageComponent } from '../update-reservation-page/update-reservation-page.component';
 import { MessageComponent } from 'src/app/features/viewing-reservations/components/message/message.component';
 import { ReservationService } from 'src/app/core/services/reservation.service';
+import { createEmptyReservation, createEmptyUser } from 'src/app/core/common/models';
 
 @Component({
   selector: 'app-reservation',
@@ -18,26 +19,9 @@ import { ReservationService } from 'src/app/core/services/reservation.service';
 })
 export class ReservationComponent implements OnInit {
 
-  @Input() user:User = {
-    userId: 0,
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    userType: "",
-    phoneNumber: ""
-  }
+  @Input() user:User = createEmptyUser()
 
-  @Input() reservation:IReservation = {
-    reservationId: 0,
-    customer: 0,
-    partySize: 0,
-    reservationTime: 0,
-    restaurantName: "",
-    restaurantAddress: "",
-    restaurantPhoneNumber: "",
-    reservationStatus: ""
-  }
+  @Input() reservation:Reservation = createEmptyReservation()
 
   constructor(
     public dialog:MatDialog,

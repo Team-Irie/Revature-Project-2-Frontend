@@ -3,7 +3,7 @@ import { Restaurant } from 'src/app/core/models/IRestaurant';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IReservation } from 'src/app/core/models/IReservation';
+import { Reservation } from 'src/app/core/models/Reservation';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReservationService } from 'src/app/core/services/reservation.service';
 import { DatePipe, getLocaleDateTimeFormat } from '@angular/common';
@@ -15,7 +15,7 @@ import { DatePipe, getLocaleDateTimeFormat } from '@angular/common';
 })
 export class ReservationPageComponent implements OnInit {
 
-  reservation:IReservation = {
+  reservation:Reservation = {
     customer:0,
     partySize:0,
     reservationTime:0,
@@ -23,20 +23,14 @@ export class ReservationPageComponent implements OnInit {
     restaurantAddress: "",
     restaurantPhoneNumber: "",
     reservationStatus: "PENDING",
-
   };
-
   
-  // public reservationForm! : FormGroup;
-  // post:any;
   restaurantName:string ="";
   reservationTime!:Date;
   partySize: Number = 0;
   restaurantPhoneNumber:string ="";
   restaurantAddress:string ="";
  
- 
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public info: any,
     private formBuilder:FormBuilder, 

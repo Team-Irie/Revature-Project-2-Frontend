@@ -1,10 +1,9 @@
-import { IYelp } from 'src/app/core/models/IYelp';
-import { Observable } from 'rxjs';
 import { ReservationPageComponent } from '../reservation-page/reservation-page.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { SearchboxService } from 'src/app/core/services/searchbox.service';
 import { IBusinesses } from 'src/app/core/models/IBusinesses';
+import { createEmptyYelp } from 'src/app/core/common/models';
 
 @Component({
   selector: 'app-searchbox',
@@ -29,20 +28,7 @@ export class SearchboxComponent implements OnInit {
   public restaurantPhone: string = "";
 
   restaurantList:any[] = [];
-  restaurant:IYelp = {
-
-    name:"",
-    image_url: "",
-    catagoeries:{},
-    coordinates:{},
-    transactions:[],
-    price: "",
-    location: {
-      display_address: []
-    },
-    display_phone: ""
-
-  }
+  restaurant = createEmptyYelp()
   searchResult = false;
   
   onSubmit(data:any) {

@@ -2,6 +2,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/core/models/User';
+import { createEmptyUser } from 'src/app/core/common/models';
 
 @Component({
   selector: 'app-account-info-page',
@@ -12,15 +13,7 @@ export class AccountInfoPageComponent implements OnInit {
 
   hide = true;
 
-  user:User = {
-    userId: 0,
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    userType: "",
-    phoneNumber: ""
-  }
+  user:User = createEmptyUser()
 
   updateUser(data:any):void{
     console.log("updateUser Called");

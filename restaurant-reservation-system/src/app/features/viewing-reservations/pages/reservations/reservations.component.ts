@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ReservationService } from 'src/app/core/services/reservation.service';
-import { IReservation } from 'src/app/core/models/IReservation';
+import { Reservation } from 'src/app/core/models/Reservation';
 
 @Component({
   selector: 'reservations',
@@ -10,8 +10,8 @@ import { IReservation } from 'src/app/core/models/IReservation';
 })
 export class ReservationsComponent implements OnInit {
 
-  reservations:IReservation[] = []
-  allReservations:IReservation[] = [];
+  reservations:Reservation[] = []
+  allReservations:Reservation[] = [];
 
   constructor(
     private reservationService:ReservationService,

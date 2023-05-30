@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, Inject, OnInit, Input } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { IReservation } from 'src/app/core/models/IReservation';
+import { Reservation } from 'src/app/core/models/Reservation';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class UpdateReservationPageComponent implements OnInit {
 
-  reservation:IReservation = {
+  reservation:Reservation = {
     reservationId: this.data.reservationId,
     customer: this.data.customer,
     partySize: this.data.partySize,
@@ -67,7 +67,7 @@ export class UpdateReservationPageComponent implements OnInit {
   maxDate: Date;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: IReservation, 
+    @Inject(MAT_DIALOG_DATA) public data: Reservation, 
     private reservationService:ReservationService) {
     const today = new Date();
     const month = today.getMonth();

@@ -10,6 +10,7 @@ export class LoggedOutComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // unused
   }
 
 }
