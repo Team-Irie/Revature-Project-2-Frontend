@@ -1,12 +1,9 @@
 import { CookieService } from 'ngx-cookie-service';
-import { Restaurant } from 'src/app/core/models/IRestaurant';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Reservation } from 'src/app/core/models/Reservation';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReservationService } from 'src/app/core/services/reservation.service';
-import { DatePipe, getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'reservation-page',
@@ -27,10 +24,12 @@ export class ReservationPageComponent implements OnInit {
   
   restaurantName:string ="";
   reservationTime!:Date;
-  partySize: Number = 0;
+  partySize: number = 0;
   restaurantPhoneNumber:string ="";
   restaurantAddress:string ="";
  
+// TODO: check formbuilder implementation and see if it is in use
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public info: any,
     private formBuilder:FormBuilder, 
@@ -57,7 +56,7 @@ export class ReservationPageComponent implements OnInit {
     if(!this.confirmReservation()){
       return;
     }
-    var userIdNumber = parseInt(this.cookieService.get('userId'));
+    const userIdNumber = parseInt(this.cookieService.get('userId'));
 
     this.reservation.customer = userIdNumber;
     this.reservation.restaurantName = data.restaurantName;

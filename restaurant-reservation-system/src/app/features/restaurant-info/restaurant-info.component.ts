@@ -25,6 +25,7 @@ export class RestaurantInfoComponent implements OnInit {
   constructor(public dialog:MatDialog) { }
 
   ngOnInit(): void {
+    // unused
   }
 
 }

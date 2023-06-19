@@ -11,10 +11,10 @@ export class RegistrationPageComponent implements OnInit {
   
   hide = true;
   confirmHide = true;
-  userFirst:String = "";
-  userLast:String = "";
-  userEmail:String = "";
-  userPassword:String = "";
+  userFirst:string = "";
+  userLast:string = "";
+  userEmail:string = "";
+  userPassword:string = "";
   
   constructor(public registrationService: RegistrationService) { }
 
