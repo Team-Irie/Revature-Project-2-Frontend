@@ -1,4 +1,4 @@
-import { Observable, catchError, throwError, Subject } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { Reservation } from '../models/Reservation';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

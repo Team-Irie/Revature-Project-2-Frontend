@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit {
   constructor(private cookieService:CookieService) { }
 
   ngOnInit(): void {
-    
+    // unused
   }
 
 }

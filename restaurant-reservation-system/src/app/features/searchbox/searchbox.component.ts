@@ -2,7 +2,6 @@ import { ReservationPageComponent } from '../reservation-page/reservation-page.c
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { SearchboxService } from 'src/app/core/services/searchbox.service';
-import { IBusinesses } from 'src/app/core/models/IBusinesses';
 import { createEmptyYelp } from 'src/app/core/common/models';
 
 @Component({
@@ -50,6 +49,8 @@ export class SearchboxComponent implements OnInit {
     });
   }
   
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // unused
+  }
 
 }

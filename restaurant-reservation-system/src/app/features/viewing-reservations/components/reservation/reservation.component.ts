@@ -1,7 +1,7 @@
 import { CookieService } from 'ngx-cookie-service';
 import { RatingComponent } from '../rating/rating.component';
 import { CustomerInfoComponent } from '../customer-info/customer-info.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/app/core/models/User';
 import { Reservation } from 'src/app/core/models/Reservation';
 import { Component, Input, OnInit } from '@angular/core';
@@ -20,15 +20,19 @@ import { createEmptyReservation, createEmptyUser } from 'src/app/core/common/mod
 export class ReservationComponent implements OnInit {
 
   @Input() user:User = createEmptyUser()
-
+  
   @Input() reservation:Reservation = createEmptyReservation()
-
+  
   constructor(
     public dialog:MatDialog,
     private reservationService:ReservationService, 
     private cookieService:CookieService) { }
+    
+    ngOnInit(): void {
+      // unused
+    }
 
-  get thisReservation() { return {
+    get thisReservation() { return {
     reservationId: this.reservation.reservationId,
     customer: this.reservation.customer,
     partySize: this.reservation.partySize,
@@ -95,5 +99,4 @@ export class ReservationComponent implements OnInit {
     return (this.reservation.reservationStatus == "CANCELED") ? true : false;
   }
 
-  ngOnInit(): void {}
 }
