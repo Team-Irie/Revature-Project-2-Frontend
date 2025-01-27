@@ -47,6 +47,8 @@ export class RegistrationPageComponent implements OnInit {
       reservations: []
     }
 
+    console.log(data.userType)
+
     this.registrationService.registerUser(user).subscribe(response => {
       console.log('user:', user);
       
@@ -66,7 +68,7 @@ export class RegistrationPageComponent implements OnInit {
       */
 
       // redirect to searchbox page
-      window.location.replace('');
+      // window.location.replace('');
       return true;
     } else {
       return false;

@@ -48,11 +48,16 @@ Email
 
 ## Usage
 
-pull both the revature-project2-frontend and revature-project2-backend from git
-  - you might have to switch to stable branch to get the frontend to work
-open the backend in your IDE and run it after connecting it to your own db
-npm install to update local settings
-ng serve --open to serve a local version of the front end
+this project is used in conjuction with the backend project: https://github.com/Team-Irie/Restaurant-Reservation-System-Backend
+
+Ensure that the version of this Front End project is on the stable branch
+
+ensure that the backend is connected and the environments path is changed to the proper backend url
+
+'npm install' to update local settings
+
+'ng serve --open' to serve a local version of the front end
+
 register a new user and explore the pages
 
 ## Contributors
@@ -63,3 +68,6 @@ Dominic Sieli /
 Ryan Sy / 
 Melaku Tamene
 
+## Known Issues
+
+Email Services has been disabled until a viable replacement can be used
